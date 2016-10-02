@@ -1,0 +1,55 @@
+/* ------------------------------------------------------------------
+Navbar
+------------------------------------------------------------------- */
+
+.navbar-custom {
+	background-color: rgb(255,255,255);
+  border-color: #000;
+	border-radius: 0;
+  padding: 0 2%;
+	z-index: 1000;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 12px;
+	-webkit-transition: background, padding 0.4s ease-in-out 0s;
+	   -moz-transition: background, padding 0.4s ease-in-out 0s;
+		-ms-transition: background, padding 0.4s ease-in-out 0s;
+		 -o-transition: background, padding 0.4s ease-in-out 0s;
+			transition: background, padding 0.4s ease-in-out 0s;
+}
+
+.navbar a {
+	-webkit-transition: color 0.125s ease-in-out 0s;
+	   -moz-transition: color 0.125s ease-in-out 0s;
+		-ms-transition: color 0.125s ease-in-out 0s;
+		 -o-transition: color 0.125s ease-in-out 0s;
+			transition: color 0.125s ease-in-out 0s;
+			line-height: 35px;
+}
+
+.navbar-list-custom > ul > li > a {
+	padding: 1px inherit !important;
+}
+
+.navbar-nav > li {
+	letter-spacing: 0px;
+	> a {
+	    position: relative;
+	    display: block;
+	    padding: 10px 0px;
+		  letter-spacing: 0px;
+	}
+}
+
+.navbar-nav > li > a:hover, .nav > li > a:focus {
+		background-color: transparent;
+}
+
+.navbar-toggle {
+	margin-right: 10px;
+  padding: 9px 0px;
+}
+
+.t > ul > li > a {
+	margin-right: 10px;
+}
