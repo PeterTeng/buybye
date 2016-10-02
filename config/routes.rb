@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin/dashboard#index'
   namespace :admin do
     resources :users
+    resources :notifications
   end
 end
