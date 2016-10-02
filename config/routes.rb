@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   resources :messages
   resources :chatrooms
 
+  # for login&out
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
   get '/admin', to: 'admin/dashboard#index'
   namespace :admin do
     resources :users
