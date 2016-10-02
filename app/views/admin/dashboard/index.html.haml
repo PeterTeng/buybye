@@ -1,0 +1,29 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    %h2 返金情報
+    %ol.breadcrumb
+      %li.active
+        %strong 一覧
+  .col-lg-2
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .ibox.float-e-margins
+      .ibox-title
+        %h5 返金情報
+      .ibox-content
+        %table.table.table-align-middle
+          -# %thead
+          -#   %tr
+          -#     %th ユーザの名前
+          -#     %th ユーザの画像
+          -#     %th 振り込まれた日
+          -#     %th 金額
+          -#     %th 返金する
+          -# %tbody
+          -#   - @billings.each do |billing|
+          -#     %tr
+          -#       %td= billing.user.name
+          -#       %td= image_tag billing.user.image_or_default_url, width: "40px"
+          -#       %td= billing.created_at.strftime("%Y-%m-%d")
+          -#       %td.number_font= number_to_currency billing.amount
+          -#       %td= link_to "返金処理をする",admin_refund_stripe_path(billing_id: billing.id), data: { confirm: 'この手順は戻れません。よろしいですか？' }, method: :post, class: "btn btn-danger btn-s"

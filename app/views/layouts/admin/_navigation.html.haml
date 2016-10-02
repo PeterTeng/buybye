@@ -1,0 +1,120 @@
+%nav.navbar-default.navbar-static-side{role:"navigation"}
+  .sidebar-collapse
+    %ul.nav.metismenu#side-menu
+      %li.nav-header
+        .dropdown.profile-element
+          %span
+            = image_tag "admin_cover.png", width: '40px', class: "img-circle"
+          %a.dropdown-toggle{"data-toggle"=>"dropdown", href: "#"}
+            %span.clear
+              %span.block.m-t-xs
+                %strong.font-bold User Name
+              %span.text-muted.text-xs.block User Permission
+        .logo-element IN+
+      -# %li{class: is_active_controller_and_action('admin/dashboards', 'index')}
+      -#   = link_to admin_path do
+      -#     %i.fa.fa-th-large
+      -#     %span.nav-label dashboards
+      -# %li{class: is_active_controller('admin/top_images')}
+      -#   %a
+      -#     %i.fa.fa-book
+      -#     %span.nav-label= t('activerecord.models.top_image')
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/top_images', 'index')}= link_to "一覧", admin_top_images_path
+      -# %li{class: is_active_controller('admin/diaries')}
+      -#   %a
+      -#     %i.fa.fa-book
+      -#     %span.nav-label= t('activerecord.models.diary')
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/diaries', 'index')}= link_to "一覧", admin_diaries_path
+      -#     %li{class: is_active_controller_and_action('admin/diaries', 'new')}= link_to "追加", new_admin_diary_path
+      -# %li{class: is_active_controller('admin/diary_categories')}
+      -#   %a
+      -#     %i.fa.fa-tags
+      -#     %span.nav-label= t('activerecord.models.diary_category')
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/diary_categories', 'index')}= link_to "一覧", admin_diary_categories_path
+      -#     %li{class: is_active_controller_and_action('admin/diary_categories', 'new')}= link_to "追加", new_admin_diary_category_path
+      -# %li{class: is_active_controller('admin/informations')}
+      -#   %a
+      -#     %i.fa.fa-info-circle
+      -#     %span.nav-label News
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/informations', 'index')}= link_to "一覧", admin_news_index_path
+      -#     %li{class: is_active_controller_and_action('admin/informations', 'new')}= link_to "追加", new_admin_news_path
+      -# %li{class: is_active_controller('admin/information_categories')}
+      -#   %a
+      -#     %i.fa.fa-tags
+      -#     %span.nav-label News Category
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/information_categories', 'index')}= link_to "一覧", admin_news_categories_path
+      -#     %li{class: is_active_controller_and_action('admin/information_categories', 'new')}= link_to "追加", new_admin_news_category_path
+      -# %li{class: is_active_controller('admin/products')}
+      -#   %a
+      -#     %i.fa.fa-product-hunt
+      -#     %span.nav-label= t('activerecord.models.product')
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/products', 'index')}= link_to "一覧", admin_products_path
+      -#     %li{class: is_active_controller_and_action('admin/products', 'new')}= link_to "追加", new_admin_product_path
+      -# %li{class: is_active_controller('admin/menus')}
+      -#   %a
+      -#     %i.fa.fa-scissors
+      -#     %span.nav-label= t('activerecord.models.menu')
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/menus', 'index')}= link_to "一覧", admin_menus_path
+      -#     %li{class: is_active_controller_and_action('admin/menus', 'new')}= link_to "追加", new_admin_menu_path
+      -# %li{class: is_active_controller('admin/mix_menus')}
+      -#   %a
+      -#     %i.fa.fa-scissors
+      -#     %span.nav-label= t('activerecord.models.mix_menu')
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/mix_menus', 'index')}= link_to "一覧", admin_mix_menus_path
+      -#     %li{class: is_active_controller_and_action('admin/mix_menus', 'new')}= link_to "追加", new_admin_mix_menu_path
+      -# %li{class: is_active_controller('admin/support_menus')}
+      -#   %a
+      -#     %i.fa.fa-scissors
+      -#     %span.nav-label= t('activerecord.models.support_menu')
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/support_menus', 'index')}= link_to "一覧", admin_support_menus_path
+      -#     %li{class: is_active_controller_and_action('admin/support_menus', 'new')}= link_to "追加", new_admin_support_menu_path
+      -# %li{class: is_active_controller('admin/people')}
+      -#   %a
+      -#     %i.fa.fa-user
+      -#     %span.nav-label Stylist
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/people', 'index')}= link_to "一覧", admin_stylists_path
+      -#     %li{class: is_active_controller_and_action('admin/people', 'new')}= link_to "追加", new_admin_stylist_path
+      -# %li{class: is_active_controller('admin/insta_accounts')}
+      -#   %a
+      -#     %i.fa.fa-instagram
+      -#     %span.nav-label= t('activerecord.models.insta_account')
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/insta_accounts', 'index')}= link_to "一覧", admin_insta_accounts_path
+      -#     %li{class: is_active_controller_and_action('admin/insta_accounts', 'new')}= link_to "追加", new_admin_insta_account_path
+      -# %li{class: is_active_controller('admin/related_images')}
+      -#   %a
+      -#     %i.fa.fa-instagram
+      -#     %span.nav-label= t('activerecord.models.related_image')
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/related_images', 'index')}= link_to "一覧", admin_related_images_path
+      -#     %li{class: is_active_controller_and_action('admin/related_images', 'new')}= link_to "追加", new_admin_related_image_path
+      -# %li{class: is_active_controller('admin/great_mans')}
+      -#   %a
+      -#     %i.fa.fa-user
+      -#     %span.nav-label Crazy Ones
+      -#     %span.fa.arrow
+      -#   %ul.nav.nav-second-level
+      -#     %li{class: is_active_controller_and_action('admin/great_mans', 'index')}= link_to "一覧", admin_crazy_ones_path
+      -#     %li{class: is_active_controller_and_action('admin/great_mans', 'new')}= link_to "追加", new_admin_crazy_one_path
