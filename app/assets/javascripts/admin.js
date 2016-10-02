@@ -9,4 +9,5 @@
 //= require flash
 //= require inspinia.js
 //= require jquery-ui/sortable
+//= require jquery-ui/effect-highlight
 //= require table_sort
