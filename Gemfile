@@ -33,6 +33,12 @@ gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'sass-rails'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-toastr'
+  gem 'rails-assets-flexslider'
+end
 
 group :development, :test do
   gem 'pry-rails'
