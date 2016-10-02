@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
+  create_table "exhibit_images", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid   "exhibit_id", null: false
+    t.string "image",      null: false
+    t.index ["exhibit_id"], name: "index_exhibit_images_on_exhibit_id", using: :btree
+  end
+
   create_table "exhibits", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid    "user_id", null: false
     t.string  "name",    null: false
