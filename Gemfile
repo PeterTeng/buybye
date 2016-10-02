@@ -7,9 +7,26 @@ gem 'unicorn', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem "haml-rails"
+
 
 #for image upload
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+
+#for tag
+gem 'acts-as-taggable-on'
+gem 'gon'
+
+#for cron
+gem 'whenever'
+
+#for notification
+gem 'exception_notification'
+gem 'slack-notifier'
+
+# facebook login
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 #for ui
 gem 'bootstrap-sass'
