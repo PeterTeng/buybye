@@ -3,7 +3,7 @@ class Init < ActiveRecord::Migration[5.0]
     enable_extension 'uuid-ossp'
 
     create_table :users, id: :uuid, default: "uuid_generate_v4()" do |t|
-
+      t.uuid :college_id, null: false, index: true
       # for admin
       t.boolean :admin, null: false, default: false
 
@@ -28,7 +28,7 @@ class Init < ActiveRecord::Migration[5.0]
     end
 
     create_table :exhibits, id: :uuid, default: "uuid_generate_v4()" do |t|
-      t.uuid :user_id, null: false
+      t.uuid :user_id, null: false, index: true
       t.string :name, null: false
       t.integer :price, null: false
       t.integer :status, null: false
