@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.string   "email",                           null: false
     t.string   "password_digest",                 null: false
     t.text     "introduce"
+    t.string   "image"
+    t.string   "cover_image"
     t.integer  "gender"
     t.integer  "undergraduate"
     t.integer  "department"

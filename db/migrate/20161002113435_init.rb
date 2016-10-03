@@ -13,6 +13,8 @@ class Init < ActiveRecord::Migration[5.0]
 
       #user info
       t.text :introduce
+      t.string :image
+      t.string :cover_image
       t.integer :gender
       t.integer :undergraduate
       t.integer :department
