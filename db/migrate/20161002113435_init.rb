@@ -33,7 +33,8 @@ class Init < ActiveRecord::Migration[5.0]
       t.uuid :user_id, null: false, index: true
       t.string :name, null: false
       t.integer :price, null: false
-      t.integer :status, null: false
+      t.integer :transaction_status, null: false
+      t.integer :preservation_status, null: false
       t.boolean :is_sold, null: false
       t.string :auther, null: false
     end
@@ -51,6 +52,20 @@ class Init < ActiveRecord::Migration[5.0]
     create_table :comments, id: :uuid, default: "uuid_generate_v4()" do |t|
       t.uuid :user_id, null: false, index: true
       t.text :content, null: false
+    end
+
+    create_table :chat_rooms, id: :uuid, default: "uuid_generate_v4()" do |t|
+      t.uuid :exhibit_id, null: false, index: true
+    end
+
+    create_table :chat_users, id: :uuid, default: "uuid_generate_v4()" do |t|
+      t.uuid :user_id, null: false, index: true
+      t.uuid :chat_room_id, null: false, index: true
+    end
+
+    create_table :messages, id: :uuid, default: "uuid_generate_v4()" do |t|
+      t.text :content, null: false
+      t.boolean :is_read, null: false, default: false
     end
 
   end

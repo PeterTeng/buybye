@@ -16,6 +16,18 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
+  create_table "chat_rooms", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid "exhibit_id", null: false
+    t.index ["exhibit_id"], name: "index_chat_rooms_on_exhibit_id", using: :btree
+  end
+
+  create_table "chat_users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid "user_id",      null: false
+    t.uuid "chat_room_id", null: false
+    t.index ["chat_room_id"], name: "index_chat_users_on_chat_room_id", using: :btree
+    t.index ["user_id"], name: "index_chat_users_on_user_id", using: :btree
+  end
+
   create_table "colleges", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string "name", null: false
   end
@@ -33,13 +45,19 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "exhibits", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid    "user_id", null: false
-    t.string  "name",    null: false
-    t.integer "price",   null: false
-    t.integer "status",  null: false
-    t.boolean "is_sold", null: false
-    t.string  "auther",  null: false
+    t.uuid    "user_id",             null: false
+    t.string  "name",                null: false
+    t.integer "price",               null: false
+    t.integer "transaction_status",  null: false
+    t.integer "preservation_status", null: false
+    t.boolean "is_sold",             null: false
+    t.string  "auther",              null: false
     t.index ["user_id"], name: "index_exhibits_on_user_id", using: :btree
+  end
+
+  create_table "messages", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.text    "content",                 null: false
+    t.boolean "is_read", default: false, null: false
   end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
