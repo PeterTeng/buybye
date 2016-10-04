@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :exhibits
   has_many :comments
-
-  belongs_to :colleges
+  has_many :chat_room,through: :chat_room_users
+  belongs_to :college
 
   attr_accessor :remember_token, :reset_token
 
