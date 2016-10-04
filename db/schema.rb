@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.index ["user_id"], name: "index_exhibits_on_user_id", using: :btree
   end
 
+  create_table "lectures", force: :cascade do |t|
+    t.string "name",                        null: false
+    t.string "professor_name",              null: false
+    t.string "department",                  null: false
+    t.string "periods",        default: [], null: false, array: true
+    t.string "weekday",                     null: false
+    t.string "semester",                    null: false
+  end
+
   create_table "messages", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.text    "content",                 null: false
     t.boolean "is_read", default: false, null: false

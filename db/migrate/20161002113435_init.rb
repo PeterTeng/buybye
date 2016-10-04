@@ -49,6 +49,15 @@ class Init < ActiveRecord::Migration[5.0]
       t.string :name, null: false, uniqueness: true
     end
 
+    create_table :lectures do |t|
+      t.string :name, null: false
+      t.string :professor_name, null: false
+      t.string :department, null: false
+      t.string :periods, null: false, array: true, default: []
+      t.string :weekday, null: false
+      t.string :semester, null: false
+    end
+
     create_table :comments, id: :uuid, default: "uuid_generate_v4()" do |t|
       t.uuid :user_id, null: false, index: true
       t.text :content, null: false
