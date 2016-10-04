@@ -40,6 +40,11 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-flexslider'
 end
 
+#for scrape
+
+gem 'kirchhoff'
+gem 'maxwell'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'annotate'
