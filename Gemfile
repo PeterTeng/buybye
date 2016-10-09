@@ -41,7 +41,6 @@ source 'https://rails-assets.org' do
 end
 
 #for scrape
-
 gem 'kirchhoff'
 gem 'maxwell'
 
