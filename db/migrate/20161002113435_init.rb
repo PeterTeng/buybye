@@ -18,6 +18,7 @@ class Init < ActiveRecord::Migration[5.0]
       t.integer :gender
       t.integer :undergraduate
       t.integer :department
+      t.uuid :favorites, array: true
 
       #user links
       t.string :twitter_link

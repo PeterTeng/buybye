@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.integer  "gender"
     t.integer  "undergraduate"
     t.integer  "department"
+    t.uuid     "favorites",                                    array: true
     t.string   "twitter_link"
     t.string   "facebook_link"
     t.string   "remember_digest"
