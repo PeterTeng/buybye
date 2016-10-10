@@ -40,10 +40,11 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-flexslider'
 end
 
-#for scrape
-gem 'kirchhoff'
-gem 'maxwell'
 
+# for deployment
+  gem 'capistrano', '~> 3.0.1'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
 group :development, :test do
   gem 'pry-rails'
   gem 'annotate'
