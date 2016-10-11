@@ -77,6 +77,9 @@ GEM
     capistrano-rails (1.1.0)
       capistrano (>= 3.0.0)
       capistrano-bundler (>= 1.0.0)
+    capistrano3-puma (1.2.1)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
     chronic (0.10.2)
     coderay (1.1.1)
     coffee-rails (4.2.1)
@@ -177,6 +180,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    puma (3.6.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -272,6 +276,7 @@ DEPENDENCIES
   capistrano (~> 3.0.1)
   capistrano-bundler
   capistrano-rails
+  capistrano3-puma
   carrierwave!
   coffee-rails (~> 4.2)
   exception_notification
