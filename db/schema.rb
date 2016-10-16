@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
+  create_table "depertments", force: :cascade do |t|
+    t.uuid   "college_id", null: false
+    t.string "name",       null: false
+  end
+
   create_table "exhibit_images", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid   "exhibit_id", null: false
     t.string "image",      null: false
@@ -67,6 +72,11 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   create_table "messages", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.text    "content",                 null: false
     t.boolean "is_read", default: false, null: false
+  end
+
+  create_table "undergraduates", force: :cascade do |t|
+    t.string "depertment_id", null: false
+    t.string "name",          null: false
   end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|

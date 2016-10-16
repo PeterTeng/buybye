@@ -50,6 +50,16 @@ class Init < ActiveRecord::Migration[5.0]
       t.string :name, null: false, uniqueness: true
     end
 
+    create_table :depertments do |t|
+      t.uuid :college_id, null: false
+      t.string :name, null: false
+    end
+
+    create_table :undergraduates do |t|
+      t.string :depertment_id, null: false
+      t.string :name, null: false
+    end
+
     create_table :lectures do |t|
       t.string :name, null: false
       t.string :professor_name, null: false
