@@ -24,6 +24,10 @@ gem 'whenever'
 gem 'exception_notification'
 gem 'slack-notifier'
 
+#for seo
+gem 'meta-tags'
+
+
 # facebook login
 gem 'omniauth'
 gem 'omniauth-facebook'
