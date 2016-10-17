@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://html2haml.herokuapp.com/ -->
+<html ng-app="" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="./HTML2Haml _ Convert HTML Snippets to Haml_files/302d9b62fc"></script><script src="./HTML2Haml _ Convert HTML Snippets to Haml_files/nr-974.min.js"></script><script id="twitter-wjs" src="./HTML2Haml _ Convert HTML Snippets to Haml_files/widgets.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"302d9b62fc","applicationID":"186314","transactionName":"dVZcQEsNWFlUQR5hClhYRkZYTWdcX1JFQAIMA3NESQ5dVlBHWF0NGWl9Z21CHBsbDBg=","queueTime":564,"applicationTime":136,"agentToken":null,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(u(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(2),u=t(3),c=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],p="api-",l=p+"ixn-";a(s,function(t,e){f[e]=o(p+e,!0,"api")}),f.addPageAction=o(p+"addPageAction",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){d[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],2:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],3:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?u(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var s=f[m[n]];return s&&s.push([w,n,r,i]),i}function p(t,e){g[t]=l(t).concat(e)}function l(t){return g[t]||[]}function d(t){return s[t]=s[t]||o(n)}function v(t,e){c(t,function(t,n){e=e||"feature",m[n]=e,e in f||(f[e]=[])})}var g={},m={},w={on:p,emit:n,get:d,listeners:l,context:e,buffer:v};return w}function i(){return new r}var a="nr@context",u=t("gos"),c=t(2),f={},s={},p=e.exports=o();p.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!h++){var t=y.info=NREUM.info,e=s.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(m,function(e,n){t[e]||(t[e]=n)});var n="https"===g.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"http://",u("mark",["onload",a()],null,"api");var r=s.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===s.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=t("handle"),c=t(2),f=window,s=f.document,p="addEventListener",l="attachEvent",d=f.XMLHttpRequest,v=d&&d.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:d,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(1);var g=""+location,m={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-974.min.js"},w=d&&v&&v[p]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:g,features:{},xhrWrappable:w};s[p]?(s[p]("DOMContentLoaded",i,!1),f[p]("load",r,!1)):(s[l]("onreadystatechange",o),f[l]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+    <title>HTML2Haml | Convert HTML Snippets to Haml</title>
+    <link charset="utf-8" href="./HTML2Haml _ Convert HTML Snippets to Haml_files/reset.css" media="screen" rel="stylesheet" type="text/css">
+    <link charset="utf-8" href="./HTML2Haml _ Convert HTML Snippets to Haml_files/text.css" media="screen" rel="stylesheet" type="text/css">
+    <link charset="utf-8" href="./HTML2Haml _ Convert HTML Snippets to Haml_files/960.css" media="screen" rel="stylesheet" type="text/css">
+    <link charset="utf-8" href="./HTML2Haml _ Convert HTML Snippets to Haml_files/app.css" media="screen" rel="stylesheet" type="text/css">
+    <meta content="Convert Html Code to Haml Code" name="description">
+    <meta content="haml, ruby, html, rails, ruby on rails" name="keywords">
+  <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}</style><script type="text/javascript" charset="utf-8" async="" src="./HTML2Haml _ Convert HTML Snippets to Haml_files/button.4e56ff84e57afaf5af2506ef73ab8a88.js"></script></head>
+  <body data-pinterest-extension-installed="cr1.40">
+    <h6>
+      <a href="http://haml-lang.com/">Haml</a>
+    </h6>
+    <div class="container_12">
+      <h1>Html2Haml</h1>
+      <p style="margin:0px;">Convert Html Snippets to Haml Snippets</p>
+      <hr>
+      <div class="grid_9">
+        <p>Enter url of page you would like to convert to haml</p>
+        <form action="http://html2haml.herokuapp.com/url" id="hamlurl" method="POST" class="ng-pristine ng-valid">
+          <label for="url">url</label>
+          <span>http://</span>
+          <input name="q" placeholder="foo.com" required="" style="width: 200px" type="text">
+          <button>Submit</button>
+        </form>
+        <p>or paste you html in the text area below</p>
+        <form action="http://html2haml.herokuapp.com/" id="page" method="POST" class="ng-pristine ng-valid">
+          <label for="page_html">
+            Html
+            <span style="color:purple">(paste your html code and press convert)</span>
+          </label>
+          <textarea id="page_html" name="page[html]">&lt;!DOCTYPE html&gt;
+&lt;html dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml" lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=10"&gt;
+&lt;meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, shrink-to-fit=no"&gt;
+
+
+&lt;title&gt;コミュニケーションアプリ LINE（ライン）&lt;/title&gt;
+  
+&lt;meta name="description" content="LINE(ライン)は、24時間、いつでも、どこでも、無料で好きなだけ通話やメールが楽しめる新しいコミュニケーションアプリです。"&gt;
+&lt;meta property="og:description" content="LINE(ライン)は、24時間、いつでも、どこでも、無料で好きなだけ通話やメールが楽しめる新しいコミュニケーションアプリです。"&gt;
+  
+  
+&lt;meta name="keywords" content="無料,通話,電話,メール,メッセージ,SMS,チャット,スタンプ,iPhone,Android,アプリ"&gt;
+  
+&lt;meta property="og:title" content="コミュニケーションアプリ LINE（ライン）"&gt;
+
+
+&lt;!--[OGP] --&gt;
+&lt;meta property="og:image" content="//static.line.naver.jp/line_lp/img/ogimage.png"&gt;
+
+&lt;meta property="og:url" content="https://line.me/ja/"&gt;
+
+&lt;meta property="og:type" content="article"&gt;
+&lt;meta property="og:site_name" content="LINE"&gt;
+&lt;meta property="fb:app_id" content="136895609724349"&gt;
+&lt;meta name="twitter:card" content="summary"&gt;
+
+&lt;meta name="twitter:site" content="@LINEjp_official"&gt;
+
+
+&lt;link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png"&gt;
+
+
+&lt;link rel="stylesheet" href="//static.line.naver.jp/line_lp/css/line_lp_pc_1476439291.css"&gt;
+
+
+&lt;script src="//static.line.naver.jp/line_lp/js/html5_1476257638.js"&gt;&lt;/script&gt;
+
+&lt;link href='//fonts.googleapis.com/css?family=Roboto:700,300,400,100,500' rel='stylesheet' type='text/css'&gt;
+
+
+
+&lt;/head&gt;
+
+&lt;body class="ExLang_ja ExDevicePC linelpTop"&gt;
+&lt;div class="LyWrap"&gt;
+
+
+
+&lt;header class="LyHead" role="banner" id="FnHeader"&gt;
+&lt;div class="MdGHD01Header"&gt;
+&lt;div class="mdGHD01Wrap"&gt;
+
+&lt;!--HEADER-AREA--&gt;
+
+
+&lt;div class="mdGHD01Inner"&gt;
+&lt;div class="mdGHD01Left"&gt;
+&lt;h1&gt;&lt;a data-nclk="top.brand" href="/ja/"&gt;LINE&lt;/a&gt;&lt;/h1&gt;
+&lt;ul class="MdGHD02Nav"&gt;
+&lt;li &gt;&lt;a data-nclk="top.download" href="/ja/download"&gt;ダウンロード&lt;/a&gt;
+
+&lt;span class="mdGHD02NavSeparator"&gt;|&lt;/span&gt;&lt;/li&gt;
+&lt;li &gt;&lt;a data-nclk="top.famapp" href="/ja/family-apps"&gt;ファミリーアプリ&lt;/a&gt;
+
+
+&lt;span class="mdGHD02NavSeparator"&gt;|&lt;/span&gt;&lt;/li&gt;
+&lt;li &gt;&lt;a data-nclk="top.game" href="/ja/games"&gt;ゲーム&lt;/a&gt;
+
+
+&lt;span class="mdGHD02NavSeparator"&gt;|&lt;/span&gt;&lt;/li&gt;
+&lt;li &gt;&lt;a data-nclk="top.linestore" href="/ja/store"&gt;LINE STORE&lt;/a&gt;
+
+
+&lt;span class="mdGHD02NavSeparator"&gt;|&lt;/span&gt;&lt;/li&gt;
+&lt;li &gt;&lt;a data-nclk="top.linecall" href="/ja/call"&gt;LINE Out&lt;/a&gt;
+
+
+&lt;span class="mdGHD02NavSeparator"&gt;|&lt;/span&gt;&lt;/li&gt;
+&lt;li &gt;&lt;a data-nclk="top.help" href="/ja/pay"&gt;LINE Pay&lt;/a&gt;
+
+
+&lt;/ul&gt;
+&lt;!--/mdGHD01Left--&gt;&lt;/div&gt;
+
+
+&lt;div class="mdGHD01Right"&gt;
+&lt;div class="MdGHD03Select"&gt;
+&lt;p class="mdGHD03SelectedLang"&gt;日本語&lt;/p&gt;
+&lt;ul class="mdGHD03SelectLayer" style="display:none;"&gt;
+&lt;li class="ExDisabled"&gt;&lt;a data-nclk="top.lang" href="/ja/"&gt;日本語&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/ko/"&gt;한국어&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/en/"&gt;English&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/en-US/"&gt;English(US)&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/zh-hant/"&gt;中文(繁體)&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/zh-hans/"&gt;中文(简体)&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/th/"&gt;ภาษาไทย&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/id/"&gt;Bahasa Indonesia&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/vi/"&gt;Tiếng Việt&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/pt-BR/"&gt;Português&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/ms/"&gt;Melayu&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/es/"&gt;Español(España)&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/hi/"&gt;Hindi&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/es-MX/"&gt;Español(latinoamérica)&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/tr/"&gt;Türkçe&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/es-AR/"&gt;Español(Argentina)&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/ru/"&gt;Русский&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/it/"&gt;Italiano&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/de/"&gt;Deutsch&lt;/a&gt;&lt;/li&gt;
+&lt;li class=""&gt;&lt;a data-nclk="top.lang" href="/fr/"&gt;Français&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--/MdGHD03Select--&gt;&lt;/div&gt;
+
+&lt;ul class="MdGHD04Social"&gt;
+&lt;li class="mdGHD04YT"&gt;&lt;a data-nclk="top.yt" href="http://www.youtube.com/user/NAVERLINE"&gt;YOUTUBE&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class="mdGHD04FB"&gt;&lt;a data-nclk="top.fb" href="https://www.facebook.com/jpn.LINE"&gt;faceboook&lt;/a&gt;&lt;/li&gt;
+&lt;li class="mdGHD04TW"&gt;&lt;a data-nclk="top.tw" href="https://twitter.com/LINEjp_official"&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+
+
+&lt;/ul&gt;
+&lt;!--/mdGHD01Right--&gt;&lt;/div&gt;
+&lt;!--/mdGHD01Inner--&gt;&lt;/div&gt;
+
+
+
+
+
+&lt;!--/mdGHD01Wrap--&gt;&lt;/div&gt;
+&lt;!--/MdGHD01Header--&gt;&lt;/div&gt;
+
+
+&lt;div class="MdGHD05MNImg mdGHD05P01" id="FnMainVisual"&gt;
+&lt;ul class="mdGHD05Ul"&gt;
+&lt;li class="mdGHD05Link" data-original="https://d.line-scdn.net/stf/line-lp/PC_visual_01_ja_0802.png"&gt;
+
+
+
+
+&lt;a href="/ja/download" style="margin-left:-480px;top:300px;width:134px;height:34px;" data-nclk="bnr.link"&gt;text&lt;/a&gt;
+
+
+
+&lt;/li&gt;
+&lt;li class="mdGHD05Link" data-original="https://d.line-scdn.net/stf/line-lp/PC_LinePay_main_japan_1111.png"&gt;
+
+
+
+
+&lt;a href="http://line.me/ja/pay/card" style="margin-left:-480px;top:310px;width:148px;height:34px;" data-nclk="bnr.paycardlink"&gt;text&lt;/a&gt;
+
+
+
+&lt;/li&gt;
+&lt;li class="mdGHD05Link" data-original="https://d.line-scdn.net/stf/line-lp/PC_Game_rangers_ja_12333.png"&gt;
+
+
+
+
+&lt;a href="https://play.google.com/store/apps/details?id=com.linecorp.LGRGS" style="margin-left:-480px;top:318px;width:110px;height:34px;" data-nclk="bnr.link" target="_new"&gt;text&lt;/a&gt;
+
+
+&lt;a href="https://itunes.apple.com/jp/app/id767265270" style="margin-left:-360px;top:318px;width:73px;height:34px;" data-nclk="bnr.link" target="_new"&gt;text&lt;/a&gt;
+
+
+&lt;/li&gt;
+&lt;li class="mdGHD05Link" data-original="https://d.line-scdn.net/stf/line-lp/PC_LINE_Out_ja_11222.png"&gt;
+
+
+
+
+&lt;a href="/ja/call" style="margin-left:-480px;top:310px;width:141px;height:34px;" data-nclk="bnr.link"&gt;text&lt;/a&gt;
+
+
+
+&lt;/li&gt;
+&lt;li class="mdGHD05Link" data-original="https://d.line-scdn.net/stf/line-lp/PC_Game_Play_jp_123123.png"&gt;
+
+
+
+
+&lt;a href="https://play.google.com/store/apps/details?id=jp.naver.lineplay.android" style="margin-left:-480px;top:320px;width:110px;height:34px;" data-nclk="mainbanner.lineplay.android"&gt;text&lt;/a&gt;
+
+
+&lt;a href="https://itunes.apple.com/app/id575147772" style="margin-left:-363px;top:320px;width:110px;height:34px;" data-nclk="mainbanner.lineplay.ios"&gt;text&lt;/a&gt;
+
+
+&lt;/li&gt;
+&lt;li class="mdGHD05Link" data-original="https://d.line-scdn.net/stf/line-lp/PC_LINE_Store_ja_1231231.png"&gt;
+
+
+
+
+&lt;a href="https://store.line.me/home/" style="margin-left:-480px;top:320px;width:132px;height:35px;" data-nclk="bnr.link"&gt;text&lt;/a&gt;
+
+
+
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol class="mdGHD05Paging"&gt;
+
+&lt;li class="ExSelected"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=""&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=""&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=""&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=""&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
+
+&lt;li class=""&gt;&lt;a href="#"&gt;6&lt;/a&gt;&lt;/li&gt;
+
+&lt;/ol&gt;
+
+&lt;!--/MdGHD05Img--&gt;&lt;/div&gt;
+
+
+
+
+
+
+
+&lt;!--/LyHead--&gt;&lt;/header&gt;
+
+&lt;!--/HEADER-AREA--&gt;
+
+
+&lt;!--CONTENTS-AREA--&gt;
+
+
+
+&lt;div class="LyContents" role="main" id="FnContentsArea"&gt;
+&lt;div class="lyContentsInner"&gt;
+
+
+
+
+
+    &lt;section class="MdSec01 mdSec01ImgLeft"&gt;
+&lt;div class="mdSec01Wrap"&gt;
+&lt;div class="mdSec01Img"&gt;&lt;img data-original="https://d.line-scdn.net/stf/line-lp/ja_2016_01.png" alt=""&gt;&lt;/div&gt;
+&lt;div class="mdSec01Txt"&gt;
+&lt;h2&gt;いつでも&lt;br&gt;どこでも&lt;br&gt;無料メール&lt;/h2&gt;
+&lt;p class="mdSec01Desc"&gt;
+いつでもどこでも素早く簡単に友だちと&lt;br&gt;
+無料メールが楽しめます。1:1トークはもちろん、&lt;br&gt;
+グループトークも可能です。&lt;br&gt;
+iPhoneおよびAndroid、Windows Phone、BlackBerry、&lt;br&gt;
+Nokia Asha OSなどのスマートフォンはもちろん、&lt;br&gt;
+一般の携帯電話やPCでもお楽しみいただけます。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+    &lt;section class="MdSec01 mdSec01ImgRight"&gt;
+&lt;div class="mdSec01Wrap"&gt;
+&lt;div class="mdSec01Img"&gt;&lt;img data-original="https://d.line-scdn.net/stf/line-lp/ja_2016_02.png" alt=""&gt;&lt;/div&gt;
+&lt;div class="mdSec01Txt"&gt;
+&lt;h2&gt;無料ビデオ通話&lt;br&gt;無料音声通話&lt;/h2&gt;
+
+&lt;p class="mdSec01Desc"&gt;
+友だちが遠く離れたところにいてもLINEがあれば&lt;br&gt;
+リアルタイムで無料ビデオ通話や音声通話ができます。&lt;br&gt;
+声が聞きたい、顔が見たい時は、いつでもLINEで。&lt;br&gt;&lt;br&gt;
+*現在、iOS、Android、WindowsPhone、BlackBerry(音声通話)、&lt;br&gt;
+PC（Windows/MacOS）でご利用いただけます。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+
+    &lt;section class="MdSec01 mdSec01ImgLeft"&gt;
+&lt;div class="mdSec01Wrap"&gt;
+&lt;div class="mdSec01Img"&gt;&lt;img data-original="https://d.line-scdn.net/stf/line-lp/ja_2016_03.png" alt=""&gt;&lt;/div&gt;
+&lt;div class="mdSec01Txt"&gt;
+&lt;h2&gt;&lt;br/&gt;トークがさらに&lt;br/&gt;楽しく、&lt;br/&gt;LINEスタンプ&lt;/h2&gt;
+&lt;p class="mdSec01Desc"&gt;
+10,000種類以上のスタンプと絵文字で、文字だけでは&lt;br&gt;
+伝わらない気持ちを相手に伝えることができます。&lt;br&gt;
+スタンプショップでは、&lt;br&gt;
+人気のLINEオリジナルキャラクターから世界中の&lt;br&gt;
+有名キャラクターのスタンプまで揃っています。&lt;br&gt;
+LINE STOREでスタンプやゲームアイテムを&lt;br&gt;
+簡単に購入できます。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+    &lt;section class="MdSec01 mdSec01ImgRight"&gt;
+&lt;div class="mdSec01Wrap"&gt;
+&lt;div class="mdSec01Img"&gt;&lt;img data-original="https://d.line-scdn.net/stf/line-lp/ja_2016_04.png" alt=""&gt;&lt;/div&gt;
+&lt;div class="mdSec01Txt"&gt;
+&lt;h2&gt;画像、動画の&lt;br/&gt;共有から&lt;br/&gt;音声メッセージ&lt;br/&gt;まで&lt;/h2&gt;
+&lt;p class="mdSec01Desc"&gt;
+画像、動画の共有だけでなく、音声メッセージや&lt;br&gt;
+位置情報の送信まで！LINEなら、友だちと&lt;br&gt;
+簡単に共有できます。&lt;/p&gt; 	
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+
+    &lt;section class="MdSec01 mdSec01ImgLeft"&gt;
+&lt;div class="mdSec01Wrap"&gt;
+&lt;div class="mdSec01Img"&gt;&lt;img data-original="https://d.line-scdn.net/stf/line-lp/ja_2016_05.png" alt=""&gt;&lt;/div&gt;
+&lt;div class="mdSec01Txt"&gt;
+&lt;h2&gt;人気&lt;br&gt;
+アーティスト、&lt;br&gt;
+ブランドの最新&lt;br&gt;
+ニュースや&lt;br&gt;
+クーポンがもらえます&lt;/h2&gt;
+&lt;p class="mdSec01Desc"&gt;
+好きなアーティストや有名人、ブランド、&lt;br&gt;
+テレビ番組の公式アカウントを友だちに追加してみましょう。&lt;br&gt;
+LINEでしか公開されない最新ニュースやうれしいクーポンが &lt;br&gt;
+待っています。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+
+
+
+&lt;section class="MdSec02 mdSec02Row3"&gt;
+&lt;div class="mdSec02Wrap"&gt;
+&lt;ul&gt;
+
+
+    &lt;li&gt;
+&lt;img data-original="https://d.line-scdn.net/stf/line-lp/ja_2016_06.png" alt="alt"&gt;
+&lt;h2&gt;タイムライン&lt;a data-nclk="toppage.timeline" href="https://timeline.line.me/" class="mdSec02Row3Link" target="_blank"&gt;Web site&lt;/a&gt;&lt;/h2&gt;
+&lt;p class="mdSec02Desc"&gt;テキスト、画像、動画、スタンプで&lt;br&gt;
+自分の近況を仲の良い友だちだけに&lt;br&gt;
+共有したり、友だちの近況も確認&lt;br&gt;
+できます。&lt;/p&gt;
+&lt;/li&gt;
+
+
+    &lt;li&gt;
+&lt;img data-original="https://d.line-scdn.net/stf/line-lp/ja_2016_07.png" alt="alt"&gt;
+&lt;h2&gt;Keep&lt;/h2&gt;
+&lt;p class="mdSec02Desc"&gt;
+お気に入りのメッセージや写真、動画をKeepに保存できます。
+友だちと共有したいファイルが簡単に検索可能です&lt;/p&gt;
+&lt;/li&gt;
+
+
+
+    &lt;li&gt;
+&lt;img data-original="https://d.line-scdn.net/stf/line-lp/ja_2016_08.png" alt="alt"&gt;
+&lt;h2&gt;友だち追加もカンタン&lt;/h2&gt;
+&lt;p class="mdSec02Desc"&gt;
+スマートフォンを振って友だちを&lt;br&gt;
+追加する「ふるふる」、&lt;br&gt;
+QRコードによる友だち追加、&lt;br&gt;
+LINE IDで友だち検索など、&lt;br&gt;
+簡単に友だちを追加できます。&lt;/p&gt;
+&lt;/li&gt;
+
+
+
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--/MdSec02--&gt;&lt;/section&gt;
+
+
+
+&lt;!--/lyContentsInner--&gt;&lt;/div&gt;
+&lt;!--/LyContents--&gt;&lt;/div&gt;
+&lt;!--/CONTENTS-AREA--&gt;
+
+&lt;!--FOOTER-AREA--&gt;
+&lt;footer class="LyFoot" role="contentinfo" id="FnFooter"&gt;
+
+&lt;h2 class="MdHide"&gt;LINE Corporation Link&lt;/h2&gt;
+&lt;div class="MdGFT02Link"&gt;
+
+
+
+
+
+
+
+&lt;ul class="mdGFT02Ul"&gt;
+
+&lt;li&gt;&lt;a href="http://help.line.me/line/?lang=ja"&gt;ヘルプ&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="http://terms.line.me/line_terms/?lang=ja"&gt;利用規約&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="http://terms.line.me/line_rules/?lang=ja"&gt;プライバシーポリシー&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="http://terms.line.me/line_common_ebizrule/?lang=ja"&gt;特定商取引法の表示&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="http://terms.line.me/line_settlement_iphone/?lang=ja"&gt;資金決済法に基づく表示&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="http://media.line.me/ja/"&gt;「LINEで送る」ボタン&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="https://creator.line.me/"&gt;LINE Creators Market&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="http://line.me/ja/logo"&gt;ロゴ利用ガイドライン&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="https://store.line.me/" target="_new"&gt;LINE STORE&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="https://partner.line.me/"&gt;パートナー&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="http://official-blog.line.me/ja/" target="_new"&gt;公式ブログ &lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="https://linecorp.com/career/"&gt;採用情報&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="http://line.me/safety/ja/"&gt;安心安全ガイド&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="https://biz.line.naver.jp/ja/"&gt;法人のお客様へ&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="http://linecorp.com" target="_new"&gt;会社概要&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="http://partner-points.line.me/ja/" target="_new"&gt;LINE ポイント&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="https://manga.line.me/" target="_new"&gt;LINEマンガ&lt;/a&gt;
+&lt;span class="mdGFT02Separator"&gt;|&lt;/span&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href="http://fs.line.me/" target="_new"&gt;LINE FRIENDS STORE&lt;/a&gt;
+&lt;/li&gt;
+
+&lt;/ul&gt;
+&lt;!--/MdGFT02Link--&gt;&lt;/div&gt;
+
+&lt;p class="MdGFT01Copy"&gt;&lt;small&gt;&amp;copy;&amp;#160;&lt;b&gt; LINE Corporation&lt;/b&gt;&lt;/small&gt;&lt;/p&gt;
+&lt;!--/LyFoot--&gt;&lt;/footer&gt;
+&lt;!--/FOOTER-AREA--&gt;
+
+&lt;!--/LyWrap--&gt;&lt;/div&gt;
+
+&lt;!--LAYER-AREA--&gt;
+&lt;div class="MdBgLayer" style="display:none;"&gt;&lt;/div&gt;
+&lt;div class="MdLayer" style="display:none;"&gt;
+&lt;p class="mdLayerClose" data-nclk="dwn.wapqrclose"&gt;閉じる&lt;/p&gt;
+&lt;p class="mdLayerImg"&gt;QRコード&lt;/p&gt;
+&lt;p class="mdLayerTxt"&gt;携帯電話ユーザーの方はこちらへ&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="MdLayer02" style="display:none;"&gt;
+&lt;p class="mdLayerClose" data-nclk="dwn.wapqrclose"&gt;閉じる&lt;/p&gt;
+&lt;p class="mdLayerImg"&gt;QRコード&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--/LAYER-AREA--&gt;
+
+&lt;!--SCRIPT--&gt;
+&lt;script&gt;
+var nsc = "line.pcjahome", ccsrv="cc.naver.jp";
+&lt;/script&gt;
+&lt;script src="//static.line.naver.jp/line_lp/js/lc.line.lp.pc.common_1476257638.js"&gt;&lt;/script&gt;
+
+&lt;script src="//static.line.naver.jp/line_lp/js/lc.line.lp.pc.line_1476257638.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+$(function(){
+    lc.line.lp.pc.common.init();
+    lc.line.lp.pc.line.top.init();
+    lc.line.lp.pc.line.download.init();
+});
+lcs_do();
+&lt;/script&gt;
+
+
+
+
+
+
+
+&lt;!-- GA --&gt;
+&lt;script&gt;
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-49752572-1', 'line.me');
+ga('require', 'linkid', 'linkid.js');
+ga('require', 'displayfeatures');
+ga('set', 'dimension1', 'PC');
+ga('send', 'pageview');
+&lt;/script&gt;
+&lt;!-- /GA --&gt;
+
+&lt;!--/SCRIPT--&gt;
+
+
+
+
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+          <br>
+          <input class="button" name="commit" type="submit" value="Convert">
+          <input class="button" name="commit" type="reset" value="Reset">
+          <br>
+          <label for="page_html">
+            Haml
+            <span style="color:green">(Here is your html code in haml.)</span>
+          </label>
+          <textarea id="page_haml" name="page[haml]">!!!
+%html{:dir =&gt; "ltr", :lang =&gt; "ja", :prefix =&gt; "fb: http://www.facebook.com/2008/fbml"}
+  %head
+    %meta{:charset =&gt; "UTF-8"}/
+    %meta{:content =&gt; "IE=10", "http-equiv" =&gt; "X-UA-Compatible"}/
+    %meta{:content =&gt; "width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, shrink-to-fit=no", :name =&gt; "viewport"}/
+    %title コミュニケーションアプリ LINE（ライン）
+    %meta{:content =&gt; "LINE(ライン)は、24時間、いつでも、どこでも、無料で好きなだけ通話やメールが楽しめる新しいコミュニケーションアプリです。", :name =&gt; "description"}/
+    %meta{:content =&gt; "LINE(ライン)は、24時間、いつでも、どこでも、無料で好きなだけ通話やメールが楽しめる新しいコミュニケーションアプリです。", :property =&gt; "og:description"}/
+    %meta{:content =&gt; "無料,通話,電話,メール,メッセージ,SMS,チャット,スタンプ,iPhone,Android,アプリ", :name =&gt; "keywords"}/
+    %meta{:content =&gt; "コミュニケーションアプリ LINE（ライン）", :property =&gt; "og:title"}/
+    / [OGP]
+    %meta{:content =&gt; "//static.line.naver.jp/line_lp/img/ogimage.png", :property =&gt; "og:image"}/
+    %meta{:content =&gt; "https://line.me/ja/", :property =&gt; "og:url"}/
+    %meta{:content =&gt; "article", :property =&gt; "og:type"}/
+    %meta{:content =&gt; "LINE", :property =&gt; "og:site_name"}/
+    %meta{:content =&gt; "136895609724349", :property =&gt; "fb:app_id"}/
+    %meta{:content =&gt; "summary", :name =&gt; "twitter:card"}/
+    %meta{:content =&gt; "@LINEjp_official", :name =&gt; "twitter:site"}/
+    %link{:href =&gt; "/apple-touch-icon-precomposed.png", :rel =&gt; "apple-touch-icon-precomposed"}/
+    %link{:href =&gt; "//static.line.naver.jp/line_lp/css/line_lp_pc_1476439291.css", :rel =&gt; "stylesheet"}/
+    %script{:src =&gt; "//static.line.naver.jp/line_lp/js/html5_1476257638.js"}
+    %link{:href =&gt; "//fonts.googleapis.com/css?family=Roboto:700,300,400,100,500", :rel =&gt; "stylesheet", :type =&gt; "text/css"}/
+  %body.ExLang_ja.ExDevicePC.linelpTop
+    .LyWrap
+      %header#FnHeader.LyHead{:role =&gt; "banner"}
+        .MdGHD01Header
+          .mdGHD01Wrap
+            / HEADER-AREA
+            .mdGHD01Inner
+              .mdGHD01Left
+                %h1
+                  %a{"data-nclk" =&gt; "top.brand", :href =&gt; "/ja/"} LINE
+                %ul.MdGHD02Nav
+                  %li
+                    %a{"data-nclk" =&gt; "top.download", :href =&gt; "/ja/download"} ダウンロード
+                    %span.mdGHD02NavSeparator |
+                  %li
+                    %a{"data-nclk" =&gt; "top.famapp", :href =&gt; "/ja/family-apps"} ファミリーアプリ
+                    %span.mdGHD02NavSeparator |
+                  %li
+                    %a{"data-nclk" =&gt; "top.game", :href =&gt; "/ja/games"} ゲーム
+                    %span.mdGHD02NavSeparator |
+                  %li
+                    %a{"data-nclk" =&gt; "top.linestore", :href =&gt; "/ja/store"} LINE STORE
+                    %span.mdGHD02NavSeparator |
+                  %li
+                    %a{"data-nclk" =&gt; "top.linecall", :href =&gt; "/ja/call"} LINE Out
+                    %span.mdGHD02NavSeparator |
+                  %li
+                    %a{"data-nclk" =&gt; "top.help", :href =&gt; "/ja/pay"} LINE Pay
+                / /mdGHD01Left
+              .mdGHD01Right
+                .MdGHD03Select
+                  %p.mdGHD03SelectedLang 日本語
+                  %ul.mdGHD03SelectLayer{:style =&gt; "display:none;"}
+                    %li.ExDisabled
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/ja/"} 日本語
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/ko/"} 한국어
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/en/"} English
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/en-US/"} English(US)
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/zh-hant/"} 中文(繁體)
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/zh-hans/"} 中文(简体)
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/th/"} ภาษาไทย
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/id/"} Bahasa Indonesia
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/vi/"} Tiếng Việt
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/pt-BR/"} Português
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/ms/"} Melayu
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/es/"} Español(España)
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/hi/"} Hindi
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/es-MX/"} Español(latinoamérica)
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/tr/"} Türkçe
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/es-AR/"} Español(Argentina)
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/ru/"} Русский
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/it/"} Italiano
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/de/"} Deutsch
+                    %li
+                      %a{"data-nclk" =&gt; "top.lang", :href =&gt; "/fr/"} Français
+                  / /MdGHD03Select
+                %ul.MdGHD04Social
+                  %li.mdGHD04YT
+                    %a{"data-nclk" =&gt; "top.yt", :href =&gt; "http://www.youtube.com/user/NAVERLINE"} YOUTUBE
+                  %li.mdGHD04FB
+                    %a{"data-nclk" =&gt; "top.fb", :href =&gt; "https://www.facebook.com/jpn.LINE"} faceboook
+                  %li.mdGHD04TW
+                    %a{"data-nclk" =&gt; "top.tw", :href =&gt; "https://twitter.com/LINEjp_official"} Twitter
+                / /mdGHD01Right
+              / /mdGHD01Inner
+            / /mdGHD01Wrap
+          / /MdGHD01Header
+        #FnMainVisual.MdGHD05MNImg.mdGHD05P01
+          %ul.mdGHD05Ul
+            %li.mdGHD05Link{"data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/PC_visual_01_ja_0802.png"}
+              %a{"data-nclk" =&gt; "bnr.link", :href =&gt; "/ja/download", :style =&gt; "margin-left:-480px;top:300px;width:134px;height:34px;"} text
+            %li.mdGHD05Link{"data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/PC_LinePay_main_japan_1111.png"}
+              %a{"data-nclk" =&gt; "bnr.paycardlink", :href =&gt; "http://line.me/ja/pay/card", :style =&gt; "margin-left:-480px;top:310px;width:148px;height:34px;"} text
+            %li.mdGHD05Link{"data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/PC_Game_rangers_ja_12333.png"}
+              %a{"data-nclk" =&gt; "bnr.link", :href =&gt; "https://play.google.com/store/apps/details?id=com.linecorp.LGRGS", :style =&gt; "margin-left:-480px;top:318px;width:110px;height:34px;", :target =&gt; "_new"} text
+              %a{"data-nclk" =&gt; "bnr.link", :href =&gt; "https://itunes.apple.com/jp/app/id767265270", :style =&gt; "margin-left:-360px;top:318px;width:73px;height:34px;", :target =&gt; "_new"} text
+            %li.mdGHD05Link{"data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/PC_LINE_Out_ja_11222.png"}
+              %a{"data-nclk" =&gt; "bnr.link", :href =&gt; "/ja/call", :style =&gt; "margin-left:-480px;top:310px;width:141px;height:34px;"} text
+            %li.mdGHD05Link{"data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/PC_Game_Play_jp_123123.png"}
+              %a{"data-nclk" =&gt; "mainbanner.lineplay.android", :href =&gt; "https://play.google.com/store/apps/details?id=jp.naver.lineplay.android", :style =&gt; "margin-left:-480px;top:320px;width:110px;height:34px;"} text
+              %a{"data-nclk" =&gt; "mainbanner.lineplay.ios", :href =&gt; "https://itunes.apple.com/app/id575147772", :style =&gt; "margin-left:-363px;top:320px;width:110px;height:34px;"} text
+            %li.mdGHD05Link{"data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/PC_LINE_Store_ja_1231231.png"}
+              %a{"data-nclk" =&gt; "bnr.link", :href =&gt; "https://store.line.me/home/", :style =&gt; "margin-left:-480px;top:320px;width:132px;height:35px;"} text
+          %ol.mdGHD05Paging
+            %li.ExSelected
+              %a{:href =&gt; "#"} 1
+            %li
+              %a{:href =&gt; "#"} 2
+            %li
+              %a{:href =&gt; "#"} 3
+            %li
+              %a{:href =&gt; "#"} 4
+            %li
+              %a{:href =&gt; "#"} 5
+            %li
+              %a{:href =&gt; "#"} 6
+          / /MdGHD05Img
+        / /LyHead
+      / /HEADER-AREA
+      / CONTENTS-AREA
+      #FnContentsArea.LyContents{:role =&gt; "main"}
+        .lyContentsInner
+          %section.MdSec01.mdSec01ImgLeft
+            .mdSec01Wrap
+              .mdSec01Img
+                %img{:alt =&gt; "", "data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/ja_2016_01.png"}/
+              .mdSec01Txt
+                %h2
+                  いつでも
+                  %br&gt;/
+                  どこでも
+                  %br&gt;/
+                  無料メール
+                %p.mdSec01Desc
+                  いつでもどこでも素早く簡単に友だちと
+                  %br/
+                  無料メールが楽しめます。1:1トークはもちろん、
+                  %br/
+                  グループトークも可能です。
+                  %br/
+                  iPhoneおよびAndroid、Windows Phone、BlackBerry、
+                  %br/
+                  Nokia Asha OSなどのスマートフォンはもちろん、
+                  %br/
+                  一般の携帯電話やPCでもお楽しみいただけます。
+          %section.MdSec01.mdSec01ImgRight
+            .mdSec01Wrap
+              .mdSec01Img
+                %img{:alt =&gt; "", "data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/ja_2016_02.png"}/
+              .mdSec01Txt
+                %h2
+                  無料ビデオ通話
+                  %br&gt;/
+                  無料音声通話
+                %p.mdSec01Desc
+                  友だちが遠く離れたところにいてもLINEがあれば
+                  %br/
+                  リアルタイムで無料ビデオ通話や音声通話ができます。
+                  %br/
+                  声が聞きたい、顔が見たい時は、いつでもLINEで。
+                  %br/
+                  %br/
+                  *現在、iOS、Android、WindowsPhone、BlackBerry(音声通話)、
+                  %br/
+                  PC（Windows/MacOS）でご利用いただけます。
+          %section.MdSec01.mdSec01ImgLeft
+            .mdSec01Wrap
+              .mdSec01Img
+                %img{:alt =&gt; "", "data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/ja_2016_03.png"}/
+              .mdSec01Txt
+                %h2
+                  %br&gt;/
+                  トークがさらに
+                  %br&gt;/
+                  楽しく、
+                  %br&gt;/
+                  LINEスタンプ
+                %p.mdSec01Desc
+                  10,000種類以上のスタンプと絵文字で、文字だけでは
+                  %br/
+                  伝わらない気持ちを相手に伝えることができます。
+                  %br/
+                  スタンプショップでは、
+                  %br/
+                  人気のLINEオリジナルキャラクターから世界中の
+                  %br/
+                  有名キャラクターのスタンプまで揃っています。
+                  %br/
+                  LINE STOREでスタンプやゲームアイテムを
+                  %br/
+                  簡単に購入できます。
+          %section.MdSec01.mdSec01ImgRight
+            .mdSec01Wrap
+              .mdSec01Img
+                %img{:alt =&gt; "", "data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/ja_2016_04.png"}/
+              .mdSec01Txt
+                %h2
+                  画像、動画の
+                  %br&gt;/
+                  共有から
+                  %br&gt;/
+                  音声メッセージ
+                  %br&gt;/
+                  まで
+                %p.mdSec01Desc
+                  画像、動画の共有だけでなく、音声メッセージや
+                  %br/
+                  位置情報の送信まで！LINEなら、友だちと
+                  %br/
+                  簡単に共有できます。
+          %section.MdSec01.mdSec01ImgLeft
+            .mdSec01Wrap
+              .mdSec01Img
+                %img{:alt =&gt; "", "data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/ja_2016_05.png"}/
+              .mdSec01Txt
+                %h2
+                  人気
+                  %br/
+                  アーティスト、
+                  %br/
+                  ブランドの最新
+                  %br/
+                  ニュースや
+                  %br/
+                  クーポンがもらえます
+                %p.mdSec01Desc
+                  好きなアーティストや有名人、ブランド、
+                  %br/
+                  テレビ番組の公式アカウントを友だちに追加してみましょう。
+                  %br/
+                  LINEでしか公開されない最新ニュースやうれしいクーポンが
+                  %br/
+                  待っています。
+          %section.MdSec02.mdSec02Row3
+            .mdSec02Wrap
+              %ul
+                %li
+                  %img{:alt =&gt; "alt", "data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/ja_2016_06.png"}/
+                  %h2
+                    タイムライン
+                    %a.mdSec02Row3Link{"data-nclk" =&gt; "toppage.timeline", :href =&gt; "https://timeline.line.me/", :target =&gt; "_blank"} Web site
+                  %p.mdSec02Desc
+                    テキスト、画像、動画、スタンプで
+                    %br/
+                    自分の近況を仲の良い友だちだけに
+                    %br/
+                    共有したり、友だちの近況も確認
+                    %br/
+                    できます。
+                %li
+                  %img{:alt =&gt; "alt", "data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/ja_2016_07.png"}/
+                  %h2 Keep
+                  %p.mdSec02Desc
+                    お気に入りのメッセージや写真、動画をKeepに保存できます。
+                    友だちと共有したいファイルが簡単に検索可能です
+                %li
+                  %img{:alt =&gt; "alt", "data-original" =&gt; "https://d.line-scdn.net/stf/line-lp/ja_2016_08.png"}/
+                  %h2 友だち追加もカンタン
+                  %p.mdSec02Desc
+                    スマートフォンを振って友だちを
+                    %br/
+                    追加する「ふるふる」、
+                    %br/
+                    QRコードによる友だち追加、
+                    %br/
+                    LINE IDで友だち検索など、
+                    %br/
+                    簡単に友だちを追加できます。
+            / /MdSec02
+          / /lyContentsInner
+        / /LyContents
+      / /CONTENTS-AREA
+      / FOOTER-AREA
+      %footer#FnFooter.LyFoot{:role =&gt; "contentinfo"}
+        %h2.MdHide LINE Corporation Link
+        .MdGFT02Link
+          %ul.mdGFT02Ul
+            %li
+              %a{:href =&gt; "http://help.line.me/line/?lang=ja"} ヘルプ
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "http://terms.line.me/line_terms/?lang=ja"} 利用規約
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "http://terms.line.me/line_rules/?lang=ja"} プライバシーポリシー
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "http://terms.line.me/line_common_ebizrule/?lang=ja"} 特定商取引法の表示
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "http://terms.line.me/line_settlement_iphone/?lang=ja"} 資金決済法に基づく表示
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "http://media.line.me/ja/"} 「LINEで送る」ボタン
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "https://creator.line.me/"} LINE Creators Market
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "http://line.me/ja/logo"} ロゴ利用ガイドライン
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "https://store.line.me/", :target =&gt; "_new"} LINE STORE
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "https://partner.line.me/"} パートナー
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "http://official-blog.line.me/ja/", :target =&gt; "_new"} 公式ブログ
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "https://linecorp.com/career/"} 採用情報
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "http://line.me/safety/ja/"} 安心安全ガイド
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "https://biz.line.naver.jp/ja/"} 法人のお客様へ
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "http://linecorp.com", :target =&gt; "_new"} 会社概要
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "http://partner-points.line.me/ja/", :target =&gt; "_new"} LINE ポイント
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "https://manga.line.me/", :target =&gt; "_new"} LINEマンガ
+              %span.mdGFT02Separator |
+            %li
+              %a{:href =&gt; "http://fs.line.me/", :target =&gt; "_new"} LINE FRIENDS STORE
+          / /MdGFT02Link
+        %p.MdGFT01Copy
+          %small
+            ©&nbsp;
+            %b LINE Corporation
+        / /LyFoot
+      / /FOOTER-AREA
+      / /LyWrap
+    / LAYER-AREA
+    .MdBgLayer{:style =&gt; "display:none;"}
+    .MdLayer{:style =&gt; "display:none;"}
+      %p.mdLayerClose{"data-nclk" =&gt; "dwn.wapqrclose"} 閉じる
+      %p.mdLayerImg QRコード
+      %p.mdLayerTxt 携帯電話ユーザーの方はこちらへ
+    .MdLayer02{:style =&gt; "display:none;"}
+      %p.mdLayerClose{"data-nclk" =&gt; "dwn.wapqrclose"} 閉じる
+      %p.mdLayerImg QRコード
+    / /LAYER-AREA
+    / SCRIPT
+    :javascript
+      var nsc = "line.pcjahome", ccsrv="cc.naver.jp";
+    %script{:src =&gt; "//static.line.naver.jp/line_lp/js/lc.line.lp.pc.common_1476257638.js"}
+    %script{:src =&gt; "//static.line.naver.jp/line_lp/js/lc.line.lp.pc.line_1476257638.js"}
+    :javascript
+      $(function(){
+          lc.line.lp.pc.common.init();
+          lc.line.lp.pc.line.top.init();
+          lc.line.lp.pc.line.download.init();
+      });
+      lcs_do();
+    / GA
+    :javascript
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-49752572-1', 'line.me');
+      ga('require', 'linkid', 'linkid.js');
+      ga('require', 'displayfeatures');
+      ga('set', 'dimension1', 'PC');
+      ga('send', 'pageview');
+    / /GA
+    / /SCRIPT</textarea>
+        </form>
+      </div>
+      <div class="grid_3">
+        <div id="box">
+          <p>
+            <span style="color:green;font-size:1.2em;">
+              Updated to Html2Haml Gem 2.0.0.beta.1 and Haml 4.0.5
+            </span>
+          </p>
+          <p>
+            ** Uses ruby19 attributes where it can.
+          </p>
+        </div>
+        <div id="box">
+          <p>
+            <a href="http://js2cs.nodejitsu.com/">Convert Javascript to Coffeescript</a>
+          </p>
+        </div>
+        <div id="box">
+          <p>
+            <a href="http://cs2js.nodejitsu.com/">Convert Coffeescript to Javascript</a>
+          </p>
+        </div>
+        <div id="box">
+          <a href="http://www.jackhq.com/">
+            <img src="./HTML2Haml _ Convert HTML Snippets to Haml_files/jackhq-small.png" data-pin-nopin="true">
+          </a>
+        </div>
+        <div id="box">
+          <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 61px; height: 20px;" title="Twitter Tweet Button" src="./HTML2Haml _ Convert HTML Snippets to Haml_files/tweet_button.39f7ee9fffbd122b7a37a520dbdaebc6.en.html" data-url="http://html2haml.heroku.com"></iframe>
+          <script>
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+          </script>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <p style="margin-top: 30px;">
+        This simple site created by Jack Russell Software...
+        <a href="http://www.jackhq.com/">http://www.jackhq.com</a>
+      </p>
+      <p>
+        Follow us on twitter
+        <a href="http://twitter.com/jackhq">@jackhq</a>
+        for updates, feature requests or support
+      </p>
+      <p>
+        Source at
+        <a href="http://github.com/twilson63/html2haml">http://github.com/twilson63/html2haml</a>
+      </p>
+      <p>
+        Thank you Heroku for hosting this site!
+      </p>
+    </div>
+    <script src="./HTML2Haml _ Convert HTML Snippets to Haml_files/angular.min.js"></script>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script src="./HTML2Haml _ Convert HTML Snippets to Haml_files/ga.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      try {
+      var pageTracker = _gat._getTracker("UA-9459466-1");
+      pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+  
+
+<span style="border-radius: 2px; text-indent: 20px; width: auto; padding: 0px 4px 0px 0px; text-align: center; font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal; font-size: 11px; line-height: 20px; font-family: &quot;Helvetica Neue&quot;, Helvetica, sans-serif; color: rgb(255, 255, 255); background: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==&quot;) 3px 50% / 14px 14px no-repeat rgb(189, 8, 28); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; -webkit-font-smoothing: antialiased;">Save</span><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" src="./HTML2Haml _ Convert HTML Snippets to Haml_files/saved_resource.html"></iframe></body></html>

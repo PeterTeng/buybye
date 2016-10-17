@@ -1,0 +1,28 @@
+body { margin: 20px 100px;color:gray;font-family: monospace }
+h6 { float:right; }
+h1 { margin-bottom:5px; }
+label { display:block; }
+textarea { width:650px;height:250px; padding: 10px; }
+input.button { margin:20px; text-aligin:center; }
+a, a:visited { color: gray;}
+#box {
+  text-align: center;
+}
+#ad {
+  background-image:url('/images/hiring_ad.png'); 
+  background-repeat:no-repeat; 
+  height: 250px; 
+  width: 250px; 
+  padding-bottom: 20px;}
+  #ad p{
+    text-align: center;
+    padding-top: 180px;
+    font-family:"News Gothic MT";
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #1c1400;}
+    #ad a{
+      padding-left: 120px;
+      font-size: 0.8em;
+      font-weight: normal;
+      color: #b06110;}
