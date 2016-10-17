@@ -46,7 +46,6 @@ class UsersController < ApplicationController
           :gender,
           :undergraduate,
           :department,
-          { :weekday [] },
         )
   end
 
