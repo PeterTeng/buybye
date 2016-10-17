@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to :back
     else
-      redirect_to :back(flash[:danger] = "不正なコメントです")
+      redirect_to :back, flash[:danger] = "不正なコメントです"
     end
   end
 
