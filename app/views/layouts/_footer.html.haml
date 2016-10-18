@@ -59,9 +59,14 @@
     %img{:alt => "mercari", :height => "33", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg", :width => "124"}/
   %p.footer-copyright
     %small © 2016 Mercari
-%a.footer-sell-btn{:href => "https://www.mercari.com/jp/sell/"}
-  %div 出品
-  %i.icon-camera
+- if current_user
+  = link_to "", class: "footer-sell-btn" do
+    %div 出品
+    %i.icon-camera
+- else
+  = link_to new_user_path, class: "footer-sell-btn" do
+    %div 出品
+    %i.icon-camera
 .custom-banner.custom-banner-ios.banner-pattern1.clearfix
   %figure
     %img{:alt => "Mercari app's icon", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/custom-banner-icon.png?516932919", :width => "56"}/
