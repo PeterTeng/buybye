@@ -50,13 +50,14 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "exhibits", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid    "user_id",             null: false
-    t.string  "name",                null: false
-    t.integer "price",               null: false
-    t.integer "transaction_status",  null: false
-    t.integer "preservation_status", null: false
-    t.boolean "is_sold",             null: false
-    t.string  "auther",              null: false
+    t.uuid    "user_id",                             null: false
+    t.string  "name",                                null: false
+    t.boolean "is_pickup",           default: false, null: false
+    t.integer "price",                               null: false
+    t.integer "transaction_status",                  null: false
+    t.integer "preservation_status",                 null: false
+    t.boolean "is_sold",                             null: false
+    t.string  "auther",                              null: false
     t.index ["user_id"], name: "index_exhibits_on_user_id", using: :btree
   end
 

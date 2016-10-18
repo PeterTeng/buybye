@@ -33,6 +33,7 @@ class Init < ActiveRecord::Migration[5.0]
     create_table :exhibits, id: :uuid, default: "uuid_generate_v4()" do |t|
       t.uuid :user_id, null: false, index: true
       t.string :name, null: false
+      t.boolean :is_pickup, null: false, default: false
       t.integer :price, null: false
       t.integer :transaction_status, null: false
       t.integer :preservation_status, null: false
