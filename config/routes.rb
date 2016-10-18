@@ -1,3 +1,5 @@
+MYPAGE_ACTION_ARRAY = [ "dashboard" ]
+
 Rails.application.routes.draw do
   root 'welcome#index'
   resources :users do
@@ -9,6 +11,12 @@ Rails.application.routes.draw do
   resources :comments
   resources :messages
   resources :chatrooms
+
+  #mypage actions
+  MYPAGE_ACTION_ARRAY.each do |action_name|
+    get "mypage/#{action_name}" => "mypage#{action_name}"
+  end
+
 
   # for login&out
   get 'login' => 'session#new'
