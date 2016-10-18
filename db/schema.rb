@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid     "college_id",                      null: false
     t.boolean  "admin",           default: false, null: false
     t.string   "email",                           null: false
     t.string   "password_digest",                 null: false
@@ -97,7 +96,6 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.string   "remember_digest"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
-    t.index ["college_id"], name: "index_users_on_college_id", using: :btree
   end
 
 end

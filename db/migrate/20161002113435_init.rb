@@ -3,7 +3,6 @@ class Init < ActiveRecord::Migration[5.0]
     enable_extension 'uuid-ossp'
 
     create_table :users, id: :uuid, default: "uuid_generate_v4()" do |t|
-      t.uuid :college_id, null: false, index: true
       # for admin
       t.boolean :admin, null: false, default: false
 

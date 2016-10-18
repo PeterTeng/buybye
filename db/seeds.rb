@@ -81,7 +81,8 @@ College.all.each do |college|
     )
   end
 end
-College.first.users.create(
+
+User.create(
   [
     {
       email: "xxx@gmail.com",
