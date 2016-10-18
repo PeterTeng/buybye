@@ -24,6 +24,7 @@ class UsersController < ApplicationController
       if @user.save
         log_in @user
         remember @user
+        NotifySlackWorker.new.perform("new user", ":beers:", "#{@user.name}" )
         # SignUpNotifer.send_user(@user).deliver_now
         redirect_to root_path
       else

@@ -1,7 +1,7 @@
 class Admin::BaseController < ApplicationController
 
   # http_basic_authenticate_with name: "buybye", password: "uooosugeee"
-  # before_action :authenticated_admin!
+  before_action :authenticated_admin!
 
   layout "admin"
   private def authenticated_admin!
