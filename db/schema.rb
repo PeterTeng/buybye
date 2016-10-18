@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.string "name",       null: false
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "item_id", null: false
+    t.index ["item_id"], name: "index_favorites_on_item_id", using: :btree
+    t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
+  end
+
   create_table "item_images", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid   "item_id", null: false
     t.string "image",   null: false

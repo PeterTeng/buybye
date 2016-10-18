@@ -87,9 +87,6 @@ User.create(
     {
       email: "xxx@gmail.com",
       password_digest: BCrypt::Password.create("1111111", cost: cost),
-      favorites: [
-        "1",
-      ]
     },
     {
       email: "yyy@gmail.com",
