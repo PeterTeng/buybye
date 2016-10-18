@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :exhibits
   has_many :purchases
   has_many :comments
+  has_many :favorites
   has_many :chat_room,through: :chat_room_users
 
   attr_accessor :remember_token, :reset_token
@@ -35,6 +36,10 @@ class User < ApplicationRecord
 
   def used_email?(email)
     User.find_by email: email
+  end
+
+  def sales_proceed
+    self.exhibits.where(transaction_status: 1).pluck(:price).inject(:+)
   end
 
 end
