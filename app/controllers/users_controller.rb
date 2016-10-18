@@ -26,7 +26,7 @@ class UsersController < ApplicationController
         remember @user
         NotifySlackWorker.new.perform("", "", "")
         # SignUpNotifer.send_user(@user).deliver_now
-        redirect_to edit_user_path(current_user), flash: { success: "プロフィールを完成させましょう" }
+        redirect_to root_path
       else
         redirect_to new_user_path, flash: { alert: "メールアドレスかパスワードのいずれかが間違えております" }
       end
