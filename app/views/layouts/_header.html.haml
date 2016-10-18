@@ -17,7 +17,7 @@
   %nav.sp-header-nav
     %ul
       %li
-        - College.includes(:depertments) do |depertment|
+        - College.includes(:depertment) do |depertment|
           = link_to depertment.name, "", "data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_#{depertment.name}"
       %li
         %a.active-category{"data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_ブランド一覧", :href => "https://www.mercari.com/jp/brand/"} ブランド一覧
@@ -50,65 +50,122 @@
                             - depertment.undergraduates.all.each do |undergraduate|
                               = link_to undergraduate.name, ""
       .l-right
-        %ul.pc-header-user-nav
-          %li
-            = link_to "", "", calss: "sp-header-user-icon pc-header-nav-root"
-            %a.sp-header-user-icon.pc-header-nav-root{:href => "https://www.mercari.com/jp/mypage/"}
-              %figure
-                %div
-                  = image_tag "", width: 32
-              %div マイページ
-            .pc-header-user-box.pc-header-mypage-box
-              .pc-header-mypage-state.text-center
+        - if logged_in?
+          %ul.pc-header-user-nav
+            %li
+              %a.sp-header-user-icon.pc-header-nav-root{:href => "https://www.mercari.com/jp/mypage/"}
                 %figure
                   %div
-                    = image_tag "", width: 60
-                  %figcaption yoheisenju
-                %ul.pc-header-mypage-review-listing
+                    = image_tag current_user.image_url, width: 32
+                %div マイページ
+              .pc-header-user-box.pc-header-mypage-box
+                .pc-header-mypage-state.text-center
+                  %figure
+                    %div
+                      = image_tag current_user.image_url, width: 60
+                    %figcaption
+                      = current_user.name
+                  %ul.pc-header-mypage-review-listing
+                    %li
+                      %a{:href => "https://www.mercari.com/jp/mypage/review/history/"} 評価:
+                    %li
+                      %a{:href => "https://www.mercari.com/jp/mypage/listings/listing/"} 出品数:
+                  %ul.pc-header-mypage-sales-point
+                    %li
+                      %a.clearfix{:href => "https://www.mercari.com/jp/mypage/sales/"}
+                        .l-left 売上金
+                        .l-right
+                          = number_to_currency(current_user.sales_proceed, unit: "¥", precision: 0)
+                          %i.icon-arrow-right
+                    -# %li
+                    -#   %a.clearfix{:href => "https://www.mercari.com/jp/mypage/point/"}
+                    -#     .l-left ポイント
+                    -#     .l-right
+                    -#       P 0
+                    -#       %i.icon-arrow-right
+                %ul.mypage-nav-list
                   %li
-                    %a{:href => "https://www.mercari.com/jp/mypage/review/history/"} 評価: 2
+                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/like/history/"}
+                      いいね！一覧
+                      %i.icon-arrow-right
                   %li
-                    %a{:href => "https://www.mercari.com/jp/mypage/listings/listing/"} 出品数: 0
-                %ul.pc-header-mypage-sales-point
+                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/listing/"}
+                      出品した商品 - 出品中
+                      %i.icon-arrow-right
                   %li
-                    %a.clearfix{:href => "https://www.mercari.com/jp/mypage/sales/"}
-                      .l-left 売上金
-                      .l-right
-                        %i.icon-arrow-right
-              %ul.mypage-nav-list
+                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/in_progress/"}
+                      出品した商品 - 取引中
+                      %i.icon-arrow-right
+                  %li
+                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/completed/"}
+                      出品した商品 - 売却済み
+                      %i.icon-arrow-right
+                  %li
+                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/purchase/"}
+                      購入した商品 - 取引中
+                      %i.icon-arrow-right
+                  %li
+                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/purchased/"}
+                      購入した商品 - 過去の取引
+                      %i.icon-arrow-right
+            %li{"data-id" => "pc-header-user-nav", "data-key" => "notification_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
+              %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", :href => "https://www.mercari.com/jp/mypage/notification/"}
+                %i.icon-bell
+                %span お知らせ
+              %ul.pc-header-user-box.pc-header-notification-box.mypage-item-list{"data-id" => "pc-header-user-items"}
                 %li
-                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/like/history/"}
-                    いいね！一覧
+                  %a.mypage-item-link{:href => "https://item.mercari.com/jp/m146643154/"}
+                    %figure
+                      %img{:alt => "", "data-pin-nopin" => "true", :src => "//static-mercari-jp-imgtr2.akamaized.net/thumb/members/402834782.jpg?1476007718"}/
+                    .mypage-item-body
+                      .mypage-item-text カード専門さん、他5名が「白猫テニス セリナ」にコメントしました
+                      %time
+                        %i.icon-time
+                        %span 10 日前
                     %i.icon-arrow-right
                 %li
-                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/listing/"}
-                    出品した商品 - 出品中
+                  %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+                    %figure
+                      %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png"}/
+                    .mypage-item-body
+                      .mypage-item-text 事務局から個別メッセージ「秋物・ハロウィン準備も今がお得です！」
+                      %time
+                        %i.icon-time
+                        %span 17 日前
                     %i.icon-arrow-right
                 %li
-                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/in_progress/"}
-                    出品した商品 - 取引中
+                  %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+                    %figure
+                      %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png"}/
+                    .mypage-item-body
+                      .mypage-item-text 事務局から個別メッセージ「今なら出品するだけで300ポイントGET!!」
+                      %time
+                        %i.icon-time
+                        %span 21 日前
                     %i.icon-arrow-right
                 %li
-                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/completed/"}
-                    出品した商品 - 売却済み
+                  %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+                    %figure
+                      %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png"}/
+                    .mypage-item-body
+                      .mypage-item-text 事務局から個別メッセージ「ダウンロードだけで300ポイントGET！　姉妹アプリ「メルカリ アッテ」」
+                      %time
+                        %i.icon-time
+                        %span 22 日前
                     %i.icon-arrow-right
                 %li
-                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/purchase/"}
-                    購入した商品 - 取引中
+                  %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+                    %figure
+                      %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png"}/
+                    .mypage-item-body
+                      .mypage-item-text 事務局から個別メッセージ「秋の準備もメルカリがお得！」
+                      %time
+                        %i.icon-time
+                        %span 47 日前
                     %i.icon-arrow-right
-                %li
-                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/purchased/"}
-                    購入した商品 - 過去の取引
-                    %i.icon-arrow-right
-          %li{"data-id" => "pc-header-user-nav", "data-key" => "notification_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
-            %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", :href => "https://www.mercari.com/jp/mypage/notification/"}
-              %i.icon-bell
-              %span お知らせ
-              .pc-header-nav-count
-                1
-            %ul.pc-header-user-box.pc-header-notification-box.mypage-item-list{"data-id" => "pc-header-user-items"}
-          %li{"data-id" => "pc-header-user-nav", "data-key" => "todo_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
-            %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", :href => "https://www.mercari.com/jp/mypage/todo/"}
-              %i.icon-check
-              %span やることリスト
-            %ul.pc-header-user-box.pc-header-todo-box.mypage-item-list{"data-id" => "pc-header-user-items"}
+            %li{"data-id" => "pc-header-user-nav", "data-key" => "todo_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
+              %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", :href => "https://www.mercari.com/jp/mypage/todo/"}
+                %i.icon-check
+                %span やることリスト
+              %ul.pc-header-user-box.pc-header-todo-box.mypage-item-list{"data-id" => "pc-header-user-items"}
+                %li.mypage-item-not-found.bold 現在、やることリストはありません
