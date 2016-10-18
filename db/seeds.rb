@@ -1,5 +1,3 @@
-require 'pry'
-
 cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
 College.create(
   [
