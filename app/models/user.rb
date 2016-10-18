@@ -30,4 +30,7 @@ class User < ApplicationRecord
     self.update password_digest: BCrypt::Password.create(params[:session][:password], cost: cost)
   end
 
+  def used_email?(email)
+    User.find_by email: email
+  end
 end

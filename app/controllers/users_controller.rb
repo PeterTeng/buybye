@@ -1,14 +1,16 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :become_guide, :dashboard]
+  before_action :set_user, only: [:show, :edit, :update, :dashboard]
   before_action :correct_user, only: [:edit, :update, :dashboard]
+
+  layout :resolve_layout
 
   def dashboard
   end
 
   def new
     if logged_in?
-      redirect_to user_path current_user
+      redirect_to root_path
     else
       @user = User.new
     end
@@ -16,17 +18,27 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
+    binding.pry
     if @user.used_email? @user.email
-      redirect_to new_user_path(flash[:danger] = 'this email address is already used')
+      redirect_to new_user_path, flash: { alert: "メールアドレスかパスワードのいずれかが間違えております" }
     else
       if @user.save
         log_in @user
         remember @user
+        NotifySlackWorker.new.perform("", "", "")
         # SignUpNotifer.send_user(@user).deliver_now
-        redirect_to dashboard_user_path @user
+        redirect_to root_path
       else
         render :new
       end
+    end
+  end
+
+  private def resolve_layout
+    unless action_name == "new"
+      "application"
+    else
+      "registrate"
     end
   end
 

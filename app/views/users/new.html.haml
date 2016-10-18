@@ -1,0 +1,7 @@
+%main.single-main
+  .login-panel
+    = form_for @user, html: { role: 'form'} do |f|
+      = f.error_messages!
+      .login-form-inner
+        = render 'registrate/form', f: f
+        %button{ "type" => "submit",  class: "login-submit btn-default btn-red"} 新規登録

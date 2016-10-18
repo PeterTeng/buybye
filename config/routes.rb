@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :chatrooms
 
   # for login&out
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
+  get 'login' => 'session#new'
+  post 'login' => 'session#create'
   delete 'logout' => 'sessions#destroy'
 
   get '/admin', to: 'admin/dashboard#index'

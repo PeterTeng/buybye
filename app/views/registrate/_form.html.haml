@@ -1,0 +1,9 @@
+- if flash.alert
+  %ul.has-error-text
+    %li= flash.alert
+.form-group
+  = f.email_field :email, placeholder: "メールアドレス", class: "login-input-text input-default", required: true
+.form-group
+  = f.password_field :password, placeholder: "パスワード", class: "login-input-text input-default", required: true
+-# .form-group
+-#   = recaptcha_tags

@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Buybye
+    = render 'layouts/meta_tags'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag 'logo.png'
+  %body
+    .default-container
+      = render 'registrate/header'
+      = yield
+      = render 'registrate/footer'
