@@ -43,22 +43,23 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.string "name",       null: false
   end
 
-  create_table "exhibit_images", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid   "exhibit_id", null: false
-    t.string "image",      null: false
-    t.index ["exhibit_id"], name: "index_exhibit_images_on_exhibit_id", using: :btree
+  create_table "item_images", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid   "item_id", null: false
+    t.string "image",   null: false
+    t.index ["item_id"], name: "index_item_images_on_item_id", using: :btree
   end
 
-  create_table "exhibits", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid    "user_id",                             null: false
-    t.string  "name",                                null: false
-    t.boolean "is_pickup",           default: false, null: false
-    t.integer "price",                               null: false
-    t.integer "transaction_status",                  null: false
-    t.integer "preservation_status",                 null: false
-    t.boolean "is_sold",                             null: false
-    t.string  "auther",                              null: false
-    t.index ["user_id"], name: "index_exhibits_on_user_id", using: :btree
+  create_table "items", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string  "type",                default: "Exhibit", null: false
+    t.uuid    "user_id",                                 null: false
+    t.string  "name",                                    null: false
+    t.boolean "is_pickup",           default: false,     null: false
+    t.integer "price",                                   null: false
+    t.integer "transaction_status",                      null: false
+    t.integer "preservation_status",                     null: false
+    t.boolean "is_sold",                                 null: false
+    t.string  "auther",                                  null: false
+    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
   create_table "lectures", force: :cascade do |t|

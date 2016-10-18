@@ -1,11 +1,15 @@
 class User < ApplicationRecord
+  has_many :items
   has_many :exhibits
+  has_many :purchases
   has_many :comments
   has_many :chat_room,through: :chat_room_users
 
   attr_accessor :remember_token, :reset_token
 
   has_secure_password
+
+  mount_uploader :image, ImageUploader
 
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
@@ -32,4 +36,5 @@ class User < ApplicationRecord
   def used_email?(email)
     User.find_by email: email
   end
+
 end

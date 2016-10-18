@@ -30,7 +30,8 @@ class Init < ActiveRecord::Migration[5.0]
       t.datetime :reset_sent_at
     end
 
-    create_table :exhibits, id: :uuid, default: "uuid_generate_v4()" do |t|
+    create_table :items, id: :uuid, default: "uuid_generate_v4()" do |t|
+      t.string :type, null: false, default: "Exhibit"
       t.uuid :user_id, null: false, index: true
       t.string :name, null: false
       t.boolean :is_pickup, null: false, default: false
@@ -41,8 +42,8 @@ class Init < ActiveRecord::Migration[5.0]
       t.string :auther, null: false
     end
 
-    create_table :exhibit_images, id: :uuid, default: "uuid_generate_v4()" do |t|
-      t.uuid :exhibit_id, null: false, index: true
+    create_table :item_images, id: :uuid, default: "uuid_generate_v4()" do |t|
+      t.uuid :item_id, null: false, index: true
       t.string :image, null: false
     end
 

@@ -99,7 +99,7 @@ User.create(
 )
 
 User.all.each do |user|
-  user.exhibits.create(
+  user.items.create(
     [
       {
         name: "線形代数Ⅰ",
@@ -121,8 +121,8 @@ User.all.each do |user|
   )
 end
 
-Exhibit.all.each do |exhibit|
-  exhibit.exhibit_images.create(
+Item.all.each do |item|
+  item.item_images.create(
     [
       {
         image: File.open("./public/img/test_data/exhibits/exhibit_image_1.jpg")
