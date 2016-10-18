@@ -27,6 +27,8 @@ gem 'slack-notifier'
 #for seo
 gem 'meta-tags'
 
+# google recaptcha
+gem "recaptcha", require: "recaptcha/rails"
 
 # facebook login
 gem 'omniauth'
