@@ -2,7 +2,6 @@ class BaseUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
 
-  process :fix_exif_rotation #for JPEG rotation by browser
   storage :file
 
   def store_dir
