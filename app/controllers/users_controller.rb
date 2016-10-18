@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    binding.pry
     if @user.used_email? @user.email
       redirect_to new_user_path, flash: { alert: "メールアドレスかパスワードのいずれかが間違えております" }
     else
