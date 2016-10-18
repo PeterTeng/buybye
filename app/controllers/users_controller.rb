@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.used_email? @user.email
-      redirect_to new_user_path, flash: { alert: "メールアドレスかパスワードのいずれかが間違えております" }
+      redirect_to new_user_path, flash: { alert: "すでに使われているメールアドレスです" }
     else
       if @user.save
         log_in @user
@@ -28,7 +28,8 @@ class UsersController < ApplicationController
         # SignUpNotifer.send_user(@user).deliver_now
         redirect_to root_path
       else
-        render :new
+        binding.pry
+        redirect_to new_user_path, flash: { alert: "メールアドレスかパスワードのいずれかが間違えております" }
       end
     end
   end
