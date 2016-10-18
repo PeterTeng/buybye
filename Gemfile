@@ -12,6 +12,8 @@ gem 'bcrypt'
 
 #for image upload
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'
+
 
 #for tag
 gem 'acts-as-taggable-on'
