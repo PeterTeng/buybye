@@ -24,11 +24,10 @@ class UsersController < ApplicationController
       if @user.save
         log_in @user
         remember @user
-        NotifySlackWorker.new.perform("", "", "")
         # SignUpNotifer.send_user(@user).deliver_now
         redirect_to root_path
       else
-        redirect_to new_user_path, flash: { alert: "メールアドレスかパスワードのいずれかが間違えております" }
+        redirect_to mypage_dashboard_path, flash: { alert: "メールアドレスかパスワードのいずれかが間違えております" }
       end
     end
   end
@@ -49,6 +48,7 @@ class UsersController < ApplicationController
     params.
       require(:user).
         permit(
+          :name,
           :email,
           :password_digest,
           :remember_digest,
