@@ -25,7 +25,7 @@
   .pc-header-inner
     .clearfix
       %h1.l-left
-        %a{:href => "https://www.mercari.com/jp/"}
+        = link_to root_path do
           %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg"}/
       %form.pc-header-form.l-right{:action => "https://www.mercari.com/jp/search/"}
         %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
@@ -85,84 +85,48 @@
                     -#       %i.icon-arrow-right
                 %ul.mypage-nav-list
                   %li
-                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/like/history/"}
+                    = link_to mypage_favorite_list_path, class: "mypage-nav-list-item" do
                       いいね！一覧
                       %i.icon-arrow-right
                   %li
-                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/listing/"}
+                    = link_to "", class: "mypage-nav-list-item" do
+                      出品する
+                      %i.icon-arrow-right
+                  %li
+                    = link_to mypage_ex_exhibiting_path, class: "mypage-nav-list-item" do
                       出品した商品 - 出品中
                       %i.icon-arrow-right
                   %li
-                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/in_progress/"}
+                    = link_to mypage_ex_trading_path, class: "mypage-nav-list-item" do
                       出品した商品 - 取引中
                       %i.icon-arrow-right
                   %li
-                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/completed/"}
+                    = link_to mypage_ex_settle_path, class: "mypage-nav-list-item" do
                       出品した商品 - 売却済み
                       %i.icon-arrow-right
                   %li
-                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/purchase/"}
+                    = link_to mypage_pur_trading_path, class: "mypage-nav-list-item" do
                       購入した商品 - 取引中
                       %i.icon-arrow-right
                   %li
-                    %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/purchased/"}
+                    = link_to mypage_pur_past_trade_path, class: "mypage-nav-list-item" do
                       購入した商品 - 過去の取引
                       %i.icon-arrow-right
-            %li{"data-id" => "pc-header-user-nav", "data-key" => "notification_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
-              %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", :href => "https://www.mercari.com/jp/mypage/notification/"}
-                %i.icon-bell
-                %span お知らせ
-              %ul.pc-header-user-box.pc-header-notification-box.mypage-item-list{"data-id" => "pc-header-user-items"}
-                %li
-                  %a.mypage-item-link{:href => "https://item.mercari.com/jp/m146643154/"}
-                    %figure
-                      %img{:alt => "", "data-pin-nopin" => "true", :src => "//static-mercari-jp-imgtr2.akamaized.net/thumb/members/402834782.jpg?1476007718"}/
-                    .mypage-item-body
-                      .mypage-item-text カード専門さん、他5名が「白猫テニス セリナ」にコメントしました
-                      %time
-                        %i.icon-time
-                        %span 10 日前
-                    %i.icon-arrow-right
-                %li
-                  %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
-                    %figure
-                      %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png"}/
-                    .mypage-item-body
-                      .mypage-item-text 事務局から個別メッセージ「秋物・ハロウィン準備も今がお得です！」
-                      %time
-                        %i.icon-time
-                        %span 17 日前
-                    %i.icon-arrow-right
-                %li
-                  %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
-                    %figure
-                      %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png"}/
-                    .mypage-item-body
-                      .mypage-item-text 事務局から個別メッセージ「今なら出品するだけで300ポイントGET!!」
-                      %time
-                        %i.icon-time
-                        %span 21 日前
-                    %i.icon-arrow-right
-                %li
-                  %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
-                    %figure
-                      %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png"}/
-                    .mypage-item-body
-                      .mypage-item-text 事務局から個別メッセージ「ダウンロードだけで300ポイントGET！　姉妹アプリ「メルカリ アッテ」」
-                      %time
-                        %i.icon-time
-                        %span 22 日前
-                    %i.icon-arrow-right
-                %li
-                  %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
-                    %figure
-                      %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png"}/
-                    .mypage-item-body
-                      .mypage-item-text 事務局から個別メッセージ「秋の準備もメルカリがお得！」
-                      %time
-                        %i.icon-time
-                        %span 47 日前
-                    %i.icon-arrow-right
+            -# %li{"data-id" => "pc-header-user-nav", "data-key" => "notification_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
+            -#   %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", :href => "https://www.mercari.com/jp/mypage/notification/"}
+            -#     %i.icon-bell
+            -#     %span お知らせ
+            -#   %ul.pc-header-user-box.pc-header-notification-box.mypage-item-list{"data-id" => "pc-header-user-items"}
+            -#     %li
+            -#       %a.mypage-item-link{:href => "https://item.mercari.com/jp/m146643154/"}
+            -#         %figure
+            -#           %img{:alt => "", "data-pin-nopin" => "true", :src => "//static-mercari-jp-imgtr2.akamaized.net/thumb/members/402834782.jpg?1476007718"}/
+            -#         .mypage-item-body
+            -#           .mypage-item-text カード専門さん、他5名が「白猫テニス セリナ」にコメントしました
+            -#           %time
+            -#             %i.icon-time
+            -#             %span 10 日前
+            -#         %i.icon-arrow-right
             %li{"data-id" => "pc-header-user-nav", "data-key" => "todo_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
               %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", :href => "https://www.mercari.com/jp/mypage/todo/"}
                 %i.icon-check
