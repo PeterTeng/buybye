@@ -1,3 +1,26 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :uuid             not null, primary key
+#  admin           :boolean          default(FALSE), not null
+#  email           :string           not null
+#  password_digest :string           not null
+#  name            :string
+#  introduce       :text
+#  image           :string
+#  cover_image     :string
+#  gender          :integer
+#  undergraduate   :integer
+#  department      :integer
+#  favorites       :uuid             is an Array
+#  twitter_link    :string
+#  facebook_link   :string
+#  remember_digest :string
+#  reset_digest    :string
+#  reset_sent_at   :datetime
+#
+
 class User < ApplicationRecord
   has_many :items
   has_many :exhibits

@@ -1,3 +1,11 @@
+# == Schema Information
+#
+# Table name: chat_rooms
+#
+#  id         :uuid             not null, primary key
+#  exhibit_id :uuid             not null
+#
+
 class ChatRoom < ApplicationRecord
 
   has_many :users, through: :chat_room_users
