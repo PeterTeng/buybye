@@ -11,6 +11,7 @@ class Init < ActiveRecord::Migration[5.0]
       t.string :password_digest, null: false
 
       #user info
+      t.string :name
       t.text :introduce
       t.string :image
       t.string :cover_image

@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.boolean  "admin",           default: false, null: false
     t.string   "email",                           null: false
     t.string   "password_digest",                 null: false
+    t.string   "name"
     t.text     "introduce"
     t.string   "image"
     t.string   "cover_image"
