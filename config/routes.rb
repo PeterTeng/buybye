@@ -1,4 +1,18 @@
-MYPAGE_ACTION_ARRAY = [ "dashboard" ]
+MYPAGE_ACTION_ARRAY =
+[ "dashboard",
+  "notification",
+  "to_do_list",
+  "favorite_list",
+  "ex_exhibiting",
+  "ex_trading",
+  "ex_settle",
+  "pur_trading",
+  "pur_past_trade",
+  "reviews",
+  "profile",
+  "mail_password",
+  "logout"
+ ]
 
 Rails.application.routes.draw do
   root 'welcome#index'
