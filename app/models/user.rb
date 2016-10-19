@@ -65,4 +65,6 @@ class User < ApplicationRecord
     self.exhibits.where(transaction_status: 1).pluck(:price).inject(:+)
   end
 
+  def is_exhibitor?(comment)
+  end
 end
