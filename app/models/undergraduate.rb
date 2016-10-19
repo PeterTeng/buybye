@@ -8,5 +8,6 @@
 #
 
 class Undergraduate < ApplicationRecord
+  has_many :items
   belongs_to :depertment
 end

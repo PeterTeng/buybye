@@ -9,5 +9,6 @@
 
 class Depertment < ApplicationRecord
   has_many :undergraduates
+  has_many :items
   belongs_to :college
 end

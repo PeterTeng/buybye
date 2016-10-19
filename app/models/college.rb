@@ -8,4 +8,5 @@
 
 class College < ApplicationRecord
   has_many :depertments
+  has_many :items
 end
