@@ -23,6 +23,9 @@ Rails.application.routes.draw do
       get :dashboard
     end
   end
+
+  mount ActionCable.server => '/cable'
+
   resources :comments
   resources :messages
   resources :chatrooms
