@@ -42,8 +42,12 @@ class MypageController < ApplicationController
   end
 
   private def authenticated_user!
-    unless session[:user_id] == current_user.id
-      redirect_to root_path
+    if logged_in?
+      unless current_user == session[:user_id]
+        redirect_to root_path
+      end
+    else
+      redirect_to new_user_path
     end
   end
 end
