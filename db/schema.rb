@@ -34,7 +34,9 @@ ActiveRecord::Schema.define(version: 20161002113435) do
 
   create_table "comments", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
+    t.uuid "item_id", null: false
     t.text "content", null: false
+    t.index ["item_id"], name: "index_comments_on_item_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
