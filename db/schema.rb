@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   create_table "depertments", force: :cascade do |t|
     t.uuid   "college_id", null: false
     t.string "name",       null: false
+    t.index ["college_id"], name: "index_depertments_on_college_id", using: :btree
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -93,8 +94,11 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "undergraduates", force: :cascade do |t|
+    t.uuid   "college_id",    null: false
     t.string "depertment_id", null: false
     t.string "name",          null: false
+    t.index ["college_id"], name: "index_undergraduates_on_college_id", using: :btree
+    t.index ["depertment_id"], name: "index_undergraduates_on_depertment_id", using: :btree
   end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|

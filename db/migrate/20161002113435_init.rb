@@ -66,12 +66,13 @@ class Init < ActiveRecord::Migration[5.0]
     end
 
     create_table :depertments do |t|
-      t.uuid :college_id, null: false
+      t.uuid :college_id, null: false, index: true
       t.string :name, null: false
     end
 
     create_table :undergraduates do |t|
-      t.string :depertment_id, null: false
+      t.uuid :college_id, null: false, index: true
+      t.string :depertment_id, null: false, index: true
       t.string :name, null: false
     end
 

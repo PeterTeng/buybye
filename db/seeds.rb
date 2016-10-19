@@ -73,6 +73,7 @@ College.all.each do |college|
     department.undergraduates.create(
       [
         {
+          college_id: college.id,
           name: "経済"
         }
       ]
