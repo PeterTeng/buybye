@@ -10,4 +10,5 @@
 class Undergraduate < ApplicationRecord
   has_many :items
   belongs_to :depertment
+  belongs_to :college
 end
