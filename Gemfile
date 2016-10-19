@@ -22,6 +22,8 @@ gem 'gon'
 #for cron
 gem 'whenever'
 
+gem 'sidekiq'
+
 #for notification
 gem 'exception_notification'
 gem 'slack-notifier'
