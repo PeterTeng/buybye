@@ -1,6 +1,5 @@
 :ruby
-  @all_college    = College.all
-  @all_depertment = @all_college.includes(:depertments)
+  @colleges    = College.all.includes(:depertments)
 %header.sp-header.visible-sp
   .sp-header-inner.clearfix
     %h1
@@ -17,7 +16,7 @@
   %nav.sp-header-nav
     %ul
       %li
-        - College.includes(:depertment) do |depertment|
+        - @colleges.depertments do |depertment|
           = link_to depertment.name, "", "data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_#{depertment.name}"
       %li
         %a.active-category{"data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_ブランド一覧", :href => "https://www.mercari.com/jp/brand/"} ブランド一覧
@@ -37,7 +36,7 @@
             %h2
               %a.pc-header-nav-root{:href => "https://www.mercari.com/jp/category/"} 大学
             %ul.pc-header-nav-parent-wrap{"data-mega" => "1"}
-              - College.all.each do |college|
+              - @colleges.each do |college|
                 %li.pc-header-nav-parent
                   %h3
                     = link_to college.name, "", class: "pc-header-nav-root"
