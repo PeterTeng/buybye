@@ -24,6 +24,11 @@ class Init < ActiveRecord::Migration[5.0]
       t.string :twitter_link
       t.string :facebook_link
 
+      #user evaluation
+      t.integer :good_evaluation_count, null: false, default: 0
+      t.integer :neutral_evaluation_count, null: false, default: 0
+      t.integer :bad_evaluation_count, null: false, default: 0
+
 
       t.string :remember_digest
       t.string :reset_digest
@@ -33,9 +38,13 @@ class Init < ActiveRecord::Migration[5.0]
     create_table :items, id: :uuid, default: "uuid_generate_v4()" do |t|
       t.string :type, null: false, default: "Exhibit"
       t.uuid :user_id, null: false, index: true
+      t.uuid :college_id, null: false, index: true
+      t.string :depertment_id, null: false, index: true
+      t.string :undergraduate_id, null: false, index: true
       t.string :name, null: false
       t.boolean :is_pickup, null: false, default: false
       t.integer :price, null: false
+      t.text :description, null: false
       t.integer :transaction_status, null: false, default: 0
       t.integer :preservation_status, null: false
       t.boolean :is_sold, null: false, default: false

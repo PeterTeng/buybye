@@ -102,7 +102,22 @@ User.all.each do |user|
         transaction_status: 1,
         preservation_status: 2,
         is_sold: false,
-        auther: "山田 太郎"
+        auther: "山田 太郎",
+        description: "刑法総論　第二版
+                      西田典之
+                      定価3,300円
+
+                      大学の教科書として購入しましたがあまり使用しませんでした。
+                      外側は持ち運びの際にできたと思われる擦れ傷がありますが、中はきれいです。
+
+                      ほぼ未使用ですが
+                      数年自宅で保管した中古品であることを十分ご理解の上ご購入をお願いします。
+
+                      ご不明な点や値引き交渉はコメント欄へ☆
+                       いいね! 0   不適切な商品の報告",
+        college_id: College.first.id,
+        depertment_id: Depertment.first.id,
+        undergraduate_id: Undergraduate.first.id,
       },
       {
         name: "データ構造とアルゴリズム",
@@ -110,7 +125,22 @@ User.all.each do |user|
         transaction_status: 0,
         preservation_status: 2,
         is_sold: false,
-        auther: "山田 太郎"
+        auther: "山田 太郎",
+        description: "刑法総論　第二版
+                      西田典之
+                      定価3,300円
+
+                      大学の教科書として購入しましたがあまり使用しませんでした。
+                      外側は持ち運びの際にできたと思われる擦れ傷がありますが、中はきれいです。
+
+                      ほぼ未使用ですが
+                      数年自宅で保管した中古品であることを十分ご理解の上ご購入をお願いします。
+
+                      ご不明な点や値引き交渉はコメント欄へ☆
+                       いいね! 0   不適切な商品の報告",
+        college_id: College.first.id,
+        depertment_id: Depertment.first.id,
+        undergraduate_id: Undergraduate.first.id,
       }
     ]
   )

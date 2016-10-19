@@ -59,13 +59,20 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   create_table "items", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string  "type",                default: "Exhibit", null: false
     t.uuid    "user_id",                                 null: false
+    t.uuid    "college_id",                              null: false
+    t.string  "depertment_id",                           null: false
+    t.string  "undergraduate_id",                        null: false
     t.string  "name",                                    null: false
     t.boolean "is_pickup",           default: false,     null: false
     t.integer "price",                                   null: false
+    t.text    "description",                             null: false
     t.integer "transaction_status",  default: 0,         null: false
     t.integer "preservation_status",                     null: false
     t.boolean "is_sold",             default: false,     null: false
     t.string  "auther",                                  null: false
+    t.index ["college_id"], name: "index_items_on_college_id", using: :btree
+    t.index ["depertment_id"], name: "index_items_on_depertment_id", using: :btree
+    t.index ["undergraduate_id"], name: "index_items_on_undergraduate_id", using: :btree
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
@@ -89,9 +96,9 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.boolean  "admin",           default: false, null: false
-    t.string   "email",                           null: false
-    t.string   "password_digest",                 null: false
+    t.boolean  "admin",                    default: false, null: false
+    t.string   "email",                                    null: false
+    t.string   "password_digest",                          null: false
     t.string   "name"
     t.text     "introduce"
     t.string   "image"
@@ -99,9 +106,12 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.integer  "gender"
     t.integer  "undergraduate"
     t.integer  "department"
-    t.uuid     "favorites",                                    array: true
+    t.uuid     "favorites",                                             array: true
     t.string   "twitter_link"
     t.string   "facebook_link"
+    t.integer  "good_evaluation_count",    default: 0,     null: false
+    t.integer  "neutral_evaluation_count", default: 0,     null: false
+    t.integer  "bad_evaluation_count",     default: 0,     null: false
     t.string   "remember_digest"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
