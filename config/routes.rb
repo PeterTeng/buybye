@@ -1,5 +1,6 @@
 MYPAGE_ACTION_ARRAY =
-[ "dashboard",
+[
+  "dashboard",
   "notification",
   "to_do_list",
   "favorite_list",
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :messages
   resources :chatrooms
+  resources :items
 
   #mypage actions
   MYPAGE_ACTION_ARRAY.each do |action_name|
