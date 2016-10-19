@@ -112,7 +112,7 @@
         .items-box-content.clearfix
           - Item.all.each do |item|
             %section.items-box
-              = link_to item do
+              = link_to item_path(item) do
                 %figure.items-box-photo
                   = image_tag item.item_images.first.image_url, class: "lazyload"
                 .items-box-body
