@@ -36,9 +36,9 @@ class Init < ActiveRecord::Migration[5.0]
       t.string :name, null: false
       t.boolean :is_pickup, null: false, default: false
       t.integer :price, null: false
-      t.integer :transaction_status, null: false
+      t.integer :transaction_status, null: false, default: 0
       t.integer :preservation_status, null: false
-      t.boolean :is_sold, null: false
+      t.boolean :is_sold, null: false, default: false
       t.string :auther, null: false
     end
 
