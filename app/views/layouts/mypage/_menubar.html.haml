@@ -60,6 +60,6 @@
           メール/パスワード
           %i.icon-arrow-right
       %li
-        = link_to mypage_logout_path, class: "mypage-nav-list-item" do
+        = link_to logout_path, method: :delete, class: "mypage-nav-list-item" do
           ログアウト
           %i.icon-arrow-right

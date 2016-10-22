@@ -4,7 +4,7 @@
   %p.footer-copyright
     %small © 2016 Mercari
 - if current_user
-  = link_to "", class: "footer-sell-btn" do
+  = link_to new_item_path, class: "footer-sell-btn" do
     %div 出品
     %i.icon-camera
 - else

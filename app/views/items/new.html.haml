@@ -1,0 +1,75 @@
+%section.l-single-container.buy-item-container
+  #sell-container
+    %div{"data-reactroot" => ""}
+      .sell-container-inner
+        %h2.l-single-head 商品の情報を入力
+        = form_for (:item), url: items_path, html: { role: 'form', class: 'sell-form' } do |f|
+          -# .sell-upload-box
+          -#   %h3.sell-upload-head
+          -#     出品画像
+          -#     %span.form-require 必須
+          -#   %p 最大4枚までアップロードできます
+          -#   .sell-dropbox-container.clearfix
+          -#     .sell-upload-items
+          -#       %ul
+          -#     .sell-upload-drop-box
+          -#       = f.file_field :image, class: "sell-uploadfile", multiple: "multiple", style: "display: none;"
+          -#       %pre.visible-pc
+          -#         :preserve
+          -#           ドラッグアンドドロップ
+          -#           またはクリックしてファイルをアップロード
+          -#         %i.icon-camera
+          .sell-content
+            .form-group
+              %label
+                商品名
+                %span.form-require 必須
+              %div
+                = f.text_field :name, class: "input-default", place_holder: "商品名（必須 40文字まで)", required: true
+            .form-group
+              %label
+                商品の説明
+                %span.form-require 必須
+              = f.text_area :description, class: "input-default", place_holder: "商品名（必須 40文字まで)", required: true
+          .sell-content.clearfix
+            %h3.sell-sub-head 商品の詳細
+            .sell-form-box
+              .form-group
+                %label
+                  学科
+                  %span.form-require 必須
+                %div
+                  .select-wrap
+                    = f.hidden_field :college_id, value: @collge.id
+                    = f.select :depertment_id, @depertments.map{|t| [t.name, t.id]}, class: "select-default"
+                    %i.icon-arrow-bottom
+              .form-group
+                %label
+                  学部
+                  %span.form-require 必須
+                %div
+                  .select-wrap
+                    = f.select :undergraduate_id, @undergraduates.map{|t| [t.name, t.id]}, class: "select-default"
+                    %i.icon-arrow-bottom
+              .form-group
+                %label
+                  商品の状態
+                  %span.form-require 必須
+                .select-wrap
+                  = f.select :preservation_status, Item::AVAILABLE_PRESERVATION_STATUS_HASH.keys, class: "select-default"
+                  %i.icon-arrow-bottom
+          .sell-content.clearfix
+            %h3.sell-sub-head 販売価格(300〜9,999,999)
+            .sell-form-box
+              %ul.sell-price
+                %li.form-group
+                  .clearfix
+                    %label.l-left
+                      価格
+                      %span.form-require 必須
+                    .l-right.sell-price-input
+                      ¥
+                      %div
+                        = f.number_field :price, class: "input-default", place_holder: "例）300"
+            = f.submit "出品する", class: "btn-default btn-red"
+            -# %button.btn-default.btn-red{:type => "submit"} 出品する

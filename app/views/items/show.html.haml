@@ -6,10 +6,10 @@
         .owl-carousel.owl-loaded.owl-drag
           .owl-stage-outer
             .owl-stage{:style => "left: -300px; width: 600px;"}
-              .owl-item{:style => "width: 300px;"}
-                = image_tag @item.item_images.first.image_url, class: "owl-lazy",style: "opacity: 1;"
-              .owl-item.active{:style => "width: 300px;"}
-                = image_tag @item.item_images.first.image_url, class: "owl-lazy",style: "opacity: 1;"
+              -# .owl-item{:style => "width: 300px;"}
+              -#   = image_tag @item.item_images.first.image_url, class: "owl-lazy",style: "opacity: 1;"
+              -# .owl-item.active{:style => "width: 300px;"}
+              -#   = image_tag @item.item_images.first.image_url, class: "owl-lazy",style: "opacity: 1;"
           .owl-nav.disabled
             .owl-prev prev
             .owl-next next
@@ -75,136 +75,59 @@
   .item-detail-message
     .message-container
       .message-content
-        %form.message-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
-          %input{:name => "__csrf_value", :type => "hidden", :value => "cd66b1010940ea4320a076f9e2637486ebb99adde18c2e35ac2664d3221a3f4f48d04e5670bd5c38e5a2956a935f6cef7ca60bdbb76f970a7f48be490985d6ab"}/
-          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          %input{:name => "item_id", :type => "hidden", :value => "m513151689"}/
-          %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
-          %textarea.textarea-default{:name => "body", :type => "text", :value => ""}
+        %ul.message-items
+          - @commnets.each do |comment|
+            - if comment.user.is_exhibitor?(@item)
+              %li.clearfix.message-self
+                = link_to @item.user, class: "message-user" do
+                  %figure
+                    %div
+                      = image_tag commenter.user.image_url
+                    %figcaption.bold= commenter.user.name
+                  .message-is-seller.message-is-seller-self 出品者
+                .message-body
+                  .message-body-text
+                    = commenter
+                  .message-icons.clearfix
+                    %time.message-icon-left
+                      %i.icon-time
+                      %span 0 秒前
+                    .message-icon-right
+                      .message-delete{"data-comment-id" => "805229883", "data-modal" => "delete-comment", "data-open" => "modal"}
+                        %i.icon-delete
+                  %i.icon-balloon
+            - else
+      .message-content
+        - if logged_in?
+          = form_for @comment, html: { class: "message-form" } do |f|
+            %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = f.hidden_field :item_id, value: @item.id
+            = f.hidden_field :user_id, value: current_user.id
+            = f.text_area :content, class: "textarea-default"
+            %button.message-submit.btn-default.btn-red{:type => "submit"}
+              %i.icon-message
+              %span コメントする
+        - else
           %button.message-submit.btn-default.btn-red{:type => "submit"}
             %i.icon-message
-            %span コメントする
-      %aside.modal{"data-close" => "modal", "data-modal" => "delete-comment"}
-        .modal-inner.modal-banner
-          .modal-body
-            .modal-head.bold 確認
-            %div{"data-comment" => "body"}
-            %br/
-            本当にこのコメントを削除してよろしいですか？
-          %form{:action => "https://www.mercari.com/jp/comment/delete/", :method => "POST"}
-            .clearfix
-              .modal-btn.modal-btn-cancel{"data-close" => "modal"} キャンセル
-              %button.modal-btn.modal-btn-submit{:type => "submit"}
-                削除する
-            %input{:name => "item_id", :type => "hidden", :value => "m513151689"}/
-            %input{:name => "comment_id", :type => "hidden", :value => ""}/
-            %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
-            %input{:name => "__csrf_value", :type => "hidden", :value => "cd66b1010940ea4320a076f9e2637486ebb99adde18c2e35ac2664d3221a3f4f48d04e5670bd5c38e5a2956a935f6cef7ca60bdbb76f970a7f48be490985d6ab"}/
-  -# %section.items-box-container.clearfix.items-box-overflow
-  -#   %h2.items-box-head
-  -#     %a{:href => "https://www.mercari.com/jp/u/595574421/"} ももえさんのその他の出品
-  -#   .items-box-content.clearfix
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m376509003/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyloaded{:alt => "新品☆送料無料☆百合紋章UV400レンズ入り伊達メガネ ユニセックスモデル", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m376509003_1.jpg?1476818474", :src => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m376509003_1.jpg?1476818474"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 新品☆送料無料☆百合紋章UV400レンズ入り伊達メガネ ユニセックスモデル
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 999
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m700709442/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyloaded{:alt => "新品チタンイオンスポーツネックレス★送料無料", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m700709442_1.jpg?1476817630", :src => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m700709442_1.jpg?1476817630"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 新品チタンイオンスポーツネックレス★送料無料
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 888
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m751847307/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyloaded{:alt => "三代目JSB着用タイプ人気のビーズブレスレット2本セット", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m751847307_1.jpg?1476817208", :src => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m751847307_1.jpg?1476817208"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 三代目JSB着用タイプ人気のビーズブレスレット2本セット
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 999
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m246508171/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyload{:alt => "新品☆クロスモチーフヘアゴム ブレスレット クロムハーツ好き3代目JSB好きに", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m246508171_1.jpg?1476816786"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 新品☆クロスモチーフヘアゴム ブレスレット クロムハーツ好き3代目JSB好きに
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 680
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m153652871/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyload{:alt => "新品☆人気のドラマ怪盗山猫で亀梨和也着用タイプサングラス", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m153652871_1.jpg?1476816364"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 新品☆人気のドラマ怪盗山猫で亀梨和也着用タイプサングラス
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 999
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m749673461/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyload{:alt => "2本セット新品☆ミラーサングラス", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m749673461_1.jpg?1476815941"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 2本セット新品☆ミラーサングラス
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 999
-  -# %section.items-box-container.clearfix.items-box-overflow
-  -#   %h2.items-box-head
-  -#     %a{:href => "https://www.mercari.com/jp/category/265/"}
-  -#       腕時計(アナログ) （レディース） その他の商品
-  -#   .items-box-content.clearfix
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m482614109/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyload{:alt => "【超絶人気】オシャレ　腕時計☆ピンク", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m482614109_1.jpg?1476818619"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 【超絶人気】オシャレ　腕時計☆ピンク
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 840
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m812959243/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyload{:alt => "◆TVや雑誌で大人気♦︎ぐるぐる回るキラキラ時計◆在庫わずか", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m812959243_1.jpg?1476818601"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 ◆TVや雑誌で大人気♦︎ぐるぐる回るキラキラ時計◆在庫わずか
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 7,000
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m636023089/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyload{:alt => "最安値！即購入OK☆オシャレ　腕時計☆ライトブルー", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m636023089_1.jpg?1476818593"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 最安値！即購入OK☆オシャレ　腕時計☆ライトブルー
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 840
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m129628258/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyload{:alt => "☆ミサンガウォッチ ボヘミアン ブレスレット風 腕時計☆", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m129628258_1.jpg?1476818581"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 ☆ミサンガウォッチ ボヘミアン ブレスレット風 腕時計☆
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 780
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m593669869/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyload{:alt => "腕時計 ウォッチ ユニセックス メンズ レディース かっこいい かわいい スーツ", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m593669869_1.jpg?1476818564"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 腕時計 ウォッチ ユニセックス メンズ レディース かっこいい かわいい スーツ
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 1,480
-  -#     %section.items-box
-  -#       %a{:href => "https://item.mercari.com/jp/m435333105/"}
-  -#         %figure.items-box-photo
-  -#           %img.lazyload{:alt => "大人気！カラー5色展開！アンティーク腕時計♪レトロ☆", "data-src" => "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m435333105_1.jpg?1476818555"}/
-  -#         .items-box-body
-  -#           %h3.items-box-name.font-2 大人気！カラー5色展開！アンティーク腕時計♪レトロ☆
-  -#           .items-box-num.clearfix
-  -#             .items-box-price.font-5 ¥ 930
+            %span= link_to "コメントするにはユーザ登録が必要です", new_user_path, style: "color: white;"
+      -# %aside.modal{"data-close" => "modal", "data-modal" => "delete-comment"}
+      -#   .modal-inner.modal-banner
+      -#     .modal-body
+      -#       .modal-head.bold 確認
+      -#       %div{"data-comment" => "body"}
+      -#       %br/
+      -#       本当にこのコメントを削除してよろしいですか？
+      -#     %form{:action => "https://www.mercari.com/jp/comment/delete/", :method => "POST"}
+      -#       .clearfix
+      -#         .modal-btn.modal-btn-cancel{"data-close" => "modal"} キャンセル
+      -#         %button.modal-btn.modal-btn-submit{:type => "submit"}
+      -#           削除する
+      -#       %input{:name => "item_id", :type => "hidden", :value => "m513151689"}/
+      -#       %input{:name => "comment_id", :type => "hidden", :value => ""}/
+      -#       %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+      -#       %input{:name => "__csrf_value", :type => "hidden", :value => "cd66b1010940ea4320a076f9e2637486ebb99adde18c2e35ac2664d3221a3f4f48d04e5670bd5c38e5a2956a935f6cef7ca60bdbb76f970a7f48be490985d6ab"}/
+
   -# %aside.modal{"data-close" => "modal", "data-modal" => "report-item"}
   -#   .modal-inner.modal-banner
   -#     .modal-body

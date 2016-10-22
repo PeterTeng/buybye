@@ -52,7 +52,7 @@
         - if logged_in?
           %ul.pc-header-user-nav
             %li
-              %a.sp-header-user-icon.pc-header-nav-root{:href => "https://www.mercari.com/jp/mypage/"}
+              = link_to mypage_dashboard_path, class: "sp-header-user-icon pc-header-nav-root" do
                 %figure
                   %div
                     = image_tag current_user.image_url, width: 32
