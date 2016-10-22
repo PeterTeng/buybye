@@ -48,7 +48,7 @@ class Init < ActiveRecord::Migration[5.0]
       t.integer :transaction_status, null: false, default: 0
       t.integer :preservation_status, null: false
       t.boolean :is_sold, null: false, default: false
-      t.string :auther, null: false
+      t.string :auther
     end
 
     create_table :item_images, id: :uuid, default: "uuid_generate_v4()" do |t|

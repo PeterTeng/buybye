@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.integer "transaction_status",  default: 0,         null: false
     t.integer "preservation_status",                     null: false
     t.boolean "is_sold",             default: false,     null: false
-    t.string  "auther",                                  null: false
+    t.string  "auther"
     t.index ["college_id"], name: "index_items_on_college_id", using: :btree
     t.index ["depertment_id"], name: "index_items_on_depertment_id", using: :btree
     t.index ["undergraduate_id"], name: "index_items_on_undergraduate_id", using: :btree
