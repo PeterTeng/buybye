@@ -6,7 +6,7 @@ ExceptionNotification.configure do |config|
   end
 
   config.add_notifier :slack, {
-    webhook_url: Rails.application.secrets.slack_webhook_url,
+    webhook_url: Rails.application.secrets.slack_webhook_error_url,
   }
   config.ignored_exceptions = ''
 end
