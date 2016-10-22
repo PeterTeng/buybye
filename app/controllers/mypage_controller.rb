@@ -2,6 +2,8 @@ class MypageController < ApplicationController
 
   before_action :authenticated_user!
 
+  layout "mypage"
+
   def dashboard
   end
 
@@ -43,7 +45,7 @@ class MypageController < ApplicationController
 
   private def authenticated_user!
     if logged_in?
-      unless current_user == session[:user_id]
+      unless current_user.id == session[:user_id]
         redirect_to root_path
       end
     else

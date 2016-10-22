@@ -1,12 +1,15 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy]
 
   layout "mypage"
 
   def show
+    @item        = Item.find(params[:id])
     @exhibitor   = @item.user
-    @other_items = @exhibitor.items.limit(6)
+    @other_items = @exhibitor.items.limit(6).includes(:item_image)
+    @comment     = Comment.new
+    @commnets    = @item.comments.includes(:user)
   end
 
   def edit
@@ -16,13 +19,16 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @item           = Item.new
+    @collge         = College.first
+    @depertments    = Depertment.all
+    @undergraduates = Undergraduate.all
   end
 
   def create
-    @item = Item.new permit_params
+    @item = current_user.items.new permit_params
     if @item.save
-      redirect_to
+      redirect_to item_path @item
     else
       redirect_to :back, flash: { alert: "不正な情報です" }
     end
@@ -41,6 +47,10 @@ class ItemsController < ApplicationController
         permit(
           :user_id,
           :name,
+          :description,
+          :college_id,
+          :depertment_id,
+          :undergraduate_id,
           :price,
           :preservation_status,
           :auther,
