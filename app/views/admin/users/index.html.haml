@@ -27,5 +27,4 @@
                 %td= user.name
                 %td= user.email
                 %td
-                  = link_to "編集", edit_admin_user_path(user), class: "btn btn-white btn-sm"
                   = link_to "削除", admin_user_path(user), method: :delete, data: { confirm: 'Confirm?' }, class: "btn btn-danger btn-sm"
