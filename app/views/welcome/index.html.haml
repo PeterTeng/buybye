@@ -114,7 +114,7 @@
             %section.items-box
               = link_to item_path(item) do
                 %figure.items-box-photo
-                  = image_tag item.item_images.first.image_url, class: "lazyload"
+                  -# = image_tag item.item_images.first.image_url, class: "lazyload"
                 .items-box-body
                   %h3.items-box-name.font-2= item.name
                   .items-box-num.clearfix
