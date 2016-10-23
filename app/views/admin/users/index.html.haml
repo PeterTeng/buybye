@@ -1,0 +1,31 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    %h2 user
+    %ol.breadcrumb
+      %li= link_to "トップ", admin_users_path
+      %li.active
+        %strong 一覧
+  .col-lg-2
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .ibox.float-e-margins
+      .ibox-title
+        %h5 user
+      .ibox-content
+        %table.table.table-align-middle
+          %thead
+            %tr
+              %th id
+              %th image
+              %th user
+              %th email
+          %tbody
+            - @users.each do |user|
+              %tr
+                %td= user.id
+                %td= image_tag user.image_url, height: "40px"
+                %td= user.name
+                %td= user.email
+                %td
+                  = link_to "編集", edit_admin_user_path(user), class: "btn btn-white btn-sm"
+                  = link_to "削除", admin_user_path(user), method: :delete, data: { confirm: 'Confirm?' }, class: "btn btn-danger btn-sm"

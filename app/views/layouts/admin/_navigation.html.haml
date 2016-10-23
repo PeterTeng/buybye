@@ -11,10 +11,13 @@
                 %strong.font-bold User Name
               %span.text-muted.text-xs.block User Permission
         .logo-element IN+
-      -# %li{class: is_active_controller_and_action('admin/dashboards', 'index')}
-      -#   = link_to admin_path do
-      -#     %i.fa.fa-th-large
-      -#     %span.nav-label dashboards
+      %li{class: is_active_controller('admin/users')}
+        %a
+          %i.fa.fa-user
+          %span.nav-label= t('activerecord.models.user')
+          %span.fa.arrow
+        %ul.nav.nav-second-level
+          %li{class: is_active_controller_and_action('admin/users', 'index')}= link_to "一覧", admin_users_path
       -# %li{class: is_active_controller('admin/top_images')}
       -#   %a
       -#     %i.fa.fa-book
