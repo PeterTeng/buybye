@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   enable_extension "uuid-ossp"
 
   create_table "chat_rooms", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid "exhibit_id", null: false
-    t.index ["exhibit_id"], name: "index_chat_rooms_on_exhibit_id", using: :btree
+    t.uuid "item_id", null: false
+    t.index ["item_id"], name: "index_chat_rooms_on_item_id", using: :btree
   end
 
   create_table "chat_users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|

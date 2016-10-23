@@ -92,7 +92,7 @@ class Init < ActiveRecord::Migration[5.0]
     end
 
     create_table :chat_rooms, id: :uuid, default: "uuid_generate_v4()" do |t|
-      t.uuid :exhibit_id, null: false, index: true
+      t.uuid :item_id , null: false, index: true
     end
 
     create_table :chat_users, id: :uuid, default: "uuid_generate_v4()" do |t|
