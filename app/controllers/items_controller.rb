@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
     @exhibitor   = @item.user
     @other_items = @exhibitor.items.limit(6).includes(:item_image)
     @comment     = Comment.new
-    @commnets    = @item.comments.includes(:user)
+    @comments    = @item.comments.includes(:user)
   end
 
   def edit

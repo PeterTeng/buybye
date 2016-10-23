@@ -76,18 +76,18 @@
     .message-container
       .message-content
         %ul.message-items
-          - @commnets.each do |comment|
+          - @comments.each do |comment|
             - if comment.user.is_exhibitor?(@item)
               %li.clearfix.message-self
                 = link_to @item.user, class: "message-user" do
                   %figure
                     %div
-                      = image_tag commenter.user.image_url
-                    %figcaption.bold= commenter.user.name
+                      = image_tag comment.user.image_url
+                    %figcaption.bold= comment.user.name
                   .message-is-seller.message-is-seller-self 出品者
                 .message-body
                   .message-body-text
-                    = commenter
+                    = comment.content
                   .message-icons.clearfix
                     %time.message-icon-left
                       %i.icon-time
