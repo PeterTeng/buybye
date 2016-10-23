@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   # for login&out
   get 'login' => 'session#new'
   post 'login' => 'session#create'
-  delete 'logout' => 'sessions#destroy'
+  delete 'logout' => 'session#destroy'
 
   get '/admin', to: 'admin/dashboard#index'
   namespace :admin do
