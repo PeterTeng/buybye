@@ -1,6 +1,6 @@
 .l-content
   %section.item-box-container
-    %h2.item-name=@item.name
+    %h2.item-name= @item.name
     .item-main-content.clearfix
       .item-photo
         .owl-carousel.owl-loaded.owl-drag
@@ -46,9 +46,6 @@
           %tr
             %th 商品の状態
             %td= @item.preservation_status
-          %tr
-            %th 発送日の目安
-            %td 1~2日で発送
     .item-price-box.text-center
       %span.item-price.bold= number_to_currency(@item.price, unit: "¥", precision: 0)
     = link_to "購入", "", class: "item-buy-btn f18-24", "data-client" => "hidden"
@@ -60,7 +57,7 @@
     -#   .item-button-left
     -#     %button.item-button.item-button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m513151689", "data-toggle" => "like", :name => "like!", :type => "button"}
     -#       %i.icon-like-border
-    -#       %span いいね!
+    -#       %span= check_box_tag '','','', { data-favorite-id => @item.id}
     -#       %span.fade-in-down{"data-num" => "like"} 0
     -#     %a.item-button.item-button-report.clearfix{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
     -#       %i.icon-flag
@@ -97,6 +94,36 @@
                         %i.icon-delete
                   %i.icon-balloon
             - else
+              %li.clearfix
+                = link_to @item.user, class: "message-user" do
+                  %figure
+                    %div
+                      = image_tag comment.user.image_url
+                    %figcaption.bold= comment.user.name
+                .message-body
+                  .message-body-text= comment.content
+                  .message-icons.clearfix
+                    %time.message-icon-left
+                      %i.icon-time
+                    .message-icon-right
+              -# %li.clearfix.message-self
+              -#   = link_to @item.user, class: "message-user" do
+              -#     %figure
+              -#       %div
+              -#         = image_tag comment.user.image_url
+              -#       %figcaption.bold= comment.user.name
+              -#     .message-is-seller.message-is-seller-self 出品者
+              -#   .message-body
+              -#     .message-body-text
+              -#       = comment.content
+              -#     .message-icons.clearfix
+              -#       %time.message-icon-left
+              -#         %i.icon-time
+              -#         %span 0 秒前
+              -#       .message-icon-right
+              -#         .message-delete{"data-comment-id" => "805229883", "data-modal" => "delete-comment", "data-open" => "modal"}
+              -#           %i.icon-delete
+              -#     %i.icon-balloon
       .message-content
         - if logged_in?
           = form_for @comment, html: { class: "message-form" } do |f|
@@ -137,3 +164,8 @@
   -#       .modal-btn.modal-btn-cancel{"data-close" => "modal"} キャンセル
   -#       %a{:href => "https://www.mercari.com/jp/report/m513151689/"}
   -#         %button.modal-btn.modal-btn-submit はい
+:javascript
+  $(function() {
+    $("input[type=checkbox]").click
+      $.post
+  });
