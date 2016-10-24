@@ -16,6 +16,12 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
+  create_table "black_lists", force: :cascade do |t|
+    t.string   "email",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "chat_rooms", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid "item_id", null: false
     t.index ["item_id"], name: "index_chat_rooms_on_item_id", using: :btree

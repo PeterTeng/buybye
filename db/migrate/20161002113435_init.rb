@@ -70,6 +70,11 @@ class Init < ActiveRecord::Migration[5.0]
       t.timestamps null: false
     end
 
+    create_table :black_lists do |t|
+      t.string :email, null: false, uniqueness: true
+      t.timestamps null: false
+    end
+
     create_table :favorites do |t|
       t.uuid :user_id, null: false, index: true
       t.uuid :item_id, null: false, index: true

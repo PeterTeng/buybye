@@ -51,5 +51,6 @@ Rails.application.routes.draw do
     end
     resources :users
     resources :notifications
+    resources :black_lists
   end
 end

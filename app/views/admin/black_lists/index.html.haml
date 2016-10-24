@@ -1,0 +1,24 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    %h2 black list
+    %ol.breadcrumb
+      %li= link_to "トップ", admin_black_lists_path
+      %li.active
+        %strong 一覧
+  .col-lg-2
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .ibox.float-e-margins
+      .ibox-title
+        %h5 black list
+      .ibox-content
+        %table.table.table-align-middle
+          %thead
+            %tr
+              %th email
+              %th 作成日時
+          %tbody
+            - @black_lists.each do |black_list|
+              %tr
+                %td= black_list.email
+                %td= black_list.created_at.strftime("%c")

@@ -76,6 +76,7 @@ class User < ApplicationRecord
 
   def auto_delete
     if self.warned_count > 5
+      BlackList.create email: self.email
       self.destroy
     end
   end

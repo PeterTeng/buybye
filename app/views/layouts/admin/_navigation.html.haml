@@ -32,14 +32,13 @@
           %span.fa.arrow
         %ul.nav.nav-second-level
           %li{class: is_active_controller_and_action('admin/notifications', 'index')}= link_to "一覧", admin_notifications_path
-      -# %li{class: is_active_controller('admin/diaries')}
-      -#   %a
-      -#     %i.fa.fa-book
-      -#     %span.nav-label= t('activerecord.models.diary')
-      -#     %span.fa.arrow
-      -#   %ul.nav.nav-second-level
-      -#     %li{class: is_active_controller_and_action('admin/diaries', 'index')}= link_to "一覧", admin_diaries_path
-      -#     %li{class: is_active_controller_and_action('admin/diaries', 'new')}= link_to "追加", new_admin_diary_path
+      %li{class: is_active_controller('admin/black_lists')}
+        %a
+          %i.fa.fa-book
+          %span.nav-label= t('activerecord.models.black_list')
+          %span.fa.arrow
+        %ul.nav.nav-second-level
+          %li{class: is_active_controller_and_action('admin/black_lists', 'index')}= link_to "一覧", admin_black_lists_path
       -# %li{class: is_active_controller('admin/diary_categories')}
       -#   %a
       -#     %i.fa.fa-tags
