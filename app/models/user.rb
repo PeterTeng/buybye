@@ -62,6 +62,10 @@ class User < ApplicationRecord
     User.find_by email: email
   end
 
+  def is_black_list?(email)
+    BlackList.find_by email: email
+  end
+
   def sales_proceed
     self.exhibits.where(transaction_status: 1).pluck(:price).inject(:+)
   end

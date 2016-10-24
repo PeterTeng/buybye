@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    if @user.used_email? @user.email
+    if @user.used_email?(@user.email) && @user.is_black_list?
       redirect_to new_user_path, flash: { alert: "すでに使われているメールアドレスです" }
     else
       if @user.save
