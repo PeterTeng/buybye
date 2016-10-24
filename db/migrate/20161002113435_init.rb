@@ -49,11 +49,26 @@ class Init < ActiveRecord::Migration[5.0]
       t.integer :preservation_status, null: false
       t.boolean :is_sold, null: false, default: false
       t.string :auther
+      t.timestamps null: false
     end
 
     create_table :item_images, id: :uuid, default: "uuid_generate_v4()" do |t|
       t.uuid :item_id, null: false, index: true
       t.string :image, null: false
+    end
+
+    create_table :notifications do |t|
+      t.uuid :user_id, null: false, index: true
+      t.integer :status, null: false
+      t.text :content, null: false
+      t.boolean :is_read, null: false, default: false
+      t.timestamps null: false
+    end
+
+    create_table :news do |t|
+      t.string :title, null: false
+      t.text :content, null: false
+      t.timestamps null: false
     end
 
     create_table :favorites do |t|
@@ -89,6 +104,7 @@ class Init < ActiveRecord::Migration[5.0]
       t.uuid :user_id, null: false, index: true
       t.uuid :item_id, null: false, index: true
       t.text :content, null: false
+      t.timestamps null: false
     end
 
     create_table :chat_rooms, id: :uuid, default: "uuid_generate_v4()" do |t|

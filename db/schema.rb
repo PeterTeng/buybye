@@ -33,9 +33,11 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "comments", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid "user_id", null: false
-    t.uuid "item_id", null: false
-    t.text "content", null: false
+    t.uuid     "user_id",    null: false
+    t.uuid     "item_id",    null: false
+    t.text     "content",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_comments_on_item_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
@@ -60,19 +62,21 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "items", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.string  "type",                default: "Exhibit", null: false
-    t.uuid    "user_id",                                 null: false
-    t.uuid    "college_id",                              null: false
-    t.string  "depertment_id",                           null: false
-    t.string  "undergraduate_id",                        null: false
-    t.string  "name",                                    null: false
-    t.boolean "is_pickup",           default: false,     null: false
-    t.integer "price",                                   null: false
-    t.text    "description",                             null: false
-    t.integer "transaction_status",  default: 0,         null: false
-    t.integer "preservation_status",                     null: false
-    t.boolean "is_sold",             default: false,     null: false
-    t.string  "auther"
+    t.string   "type",                default: "Exhibit", null: false
+    t.uuid     "user_id",                                 null: false
+    t.uuid     "college_id",                              null: false
+    t.string   "depertment_id",                           null: false
+    t.string   "undergraduate_id",                        null: false
+    t.string   "name",                                    null: false
+    t.boolean  "is_pickup",           default: false,     null: false
+    t.integer  "price",                                   null: false
+    t.text     "description",                             null: false
+    t.integer  "transaction_status",  default: 0,         null: false
+    t.integer  "preservation_status",                     null: false
+    t.boolean  "is_sold",             default: false,     null: false
+    t.string   "auther"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.index ["college_id"], name: "index_items_on_college_id", using: :btree
     t.index ["depertment_id"], name: "index_items_on_depertment_id", using: :btree
     t.index ["undergraduate_id"], name: "index_items_on_undergraduate_id", using: :btree
@@ -91,6 +95,23 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   create_table "messages", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.text    "content",                 null: false
     t.boolean "is_read", default: false, null: false
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.text     "content",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.uuid     "user_id",                    null: false
+    t.integer  "status",                     null: false
+    t.text     "content",                    null: false
+    t.boolean  "is_read",    default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
   create_table "undergraduates", force: :cascade do |t|
