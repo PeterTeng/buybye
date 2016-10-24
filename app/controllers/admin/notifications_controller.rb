@@ -2,7 +2,7 @@ class Admin::NotificationsController < Admin::BaseController
 
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
   def index
-    @notification = Notification.all
+    @notifications = Notification.all.includes(:user)
   end
 
   def show

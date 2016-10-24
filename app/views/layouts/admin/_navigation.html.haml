@@ -18,13 +18,20 @@
           %span.fa.arrow
         %ul.nav.nav-second-level
           %li{class: is_active_controller_and_action('admin/users', 'index')}= link_to "一覧", admin_users_path
-      -# %li{class: is_active_controller('admin/top_images')}
-      -#   %a
-      -#     %i.fa.fa-book
-      -#     %span.nav-label= t('activerecord.models.top_image')
-      -#     %span.fa.arrow
-      -#   %ul.nav.nav-second-level
-      -#     %li{class: is_active_controller_and_action('admin/top_images', 'index')}= link_to "一覧", admin_top_images_path
+      %li{class: is_active_controller('admin/items')}
+        %a
+          %i.fa.fa-gear
+          %span.nav-label= t('activerecord.models.item')
+          %span.fa.arrow
+        %ul.nav.nav-second-level
+          %li{class: is_active_controller_and_action('admin/items', 'index')}= link_to "一覧", admin_items_path
+      %li{class: is_active_controller('admin/notifications')}
+        %a
+          %i.fa.fa-exclamation-triangle
+          %span.nav-label= t('activerecord.models.notification')
+          %span.fa.arrow
+        %ul.nav.nav-second-level
+          %li{class: is_active_controller_and_action('admin/notifications', 'index')}= link_to "一覧", admin_notifications_path
       -# %li{class: is_active_controller('admin/diaries')}
       -#   %a
       -#     %i.fa.fa-book

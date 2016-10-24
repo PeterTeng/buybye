@@ -1,0 +1,33 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    %h2 notifications
+    %ol.breadcrumb
+      %li= link_to "トップ", admin_notifications_path
+      %li.active
+        %strong 一覧
+  .col-lg-2
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .ibox.float-e-margins
+      .ibox-title
+        %h5 notification
+      .ibox-content
+        %table.table.table-align-middle
+          %thead
+            %tr
+              %th id
+              %th 警告者
+              %th ステータス
+              %th 作成日時
+              %th 警告数
+          %tbody
+            - @notifications.each do |notification|
+              %tr
+                %td= notification.id
+                %td= notification.user.name
+                %td= notification.status
+                %td= notification.created_at.strftime("%c")
+                %th= notification.user.warned_count
+                -# %td
+                -#   = link_to "詳細", item_path(item), class: "btn btn-default btn-sm"
+                -#   = link_to "削除", admin_item_path(item), method: :delete, data: { confirm: 'Confirm?' }, class: "btn btn-danger btn-sm"

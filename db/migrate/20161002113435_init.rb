@@ -60,7 +60,6 @@ class Init < ActiveRecord::Migration[5.0]
     create_table :notifications do |t|
       t.uuid :user_id, null: false, index: true
       t.integer :status, null: false
-      t.text :content, null: false
       t.boolean :is_read, null: false, default: false
       t.timestamps null: false
     end

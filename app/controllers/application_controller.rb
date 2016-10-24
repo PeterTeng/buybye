@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
-  def authenticated_user!
-    current_user.correct_user?
+
+  def sign_in!
+    redirect_to new_user_path unless current_user
   end
+
 end

@@ -36,4 +36,9 @@ class Item < ApplicationRecord
   enum transaction_status: Item::AVAILABLE_TRANSACTION_STATUS_HASH
   enum preservation_status: Item::AVAILABLE_PRESERVATION_STATUS_HASH
 
+
+  def deleted_your_item
+    self.user.
+    self.destroy
+  end
 end

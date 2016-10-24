@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, only: [:edit, :update, :destroy]
-
+  # before_action :sign_in!, only: [:new, :show]
   layout "mypage"
 
   def show

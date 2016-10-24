@@ -44,6 +44,11 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'admin/dashboard#index'
   namespace :admin do
+    resources :items do
+      member do
+        post :warning
+      end
+    end
     resources :users
     resources :notifications
   end

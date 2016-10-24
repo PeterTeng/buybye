@@ -22,12 +22,13 @@
 #
 
 class User < ApplicationRecord
-  has_many :items
-  has_many :exhibits
-  has_many :purchases
-  has_many :comments
-  has_many :favorites
+  has_many :items, dependent: :destroy
+  has_many :exhibits, dependent: :destroy
+  has_many :purchases, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :chat_room,through: :chat_room_users
+  has_many :notifications, dependent: :destroy
 
   attr_accessor :remember_token, :reset_token
 
@@ -67,5 +68,15 @@ class User < ApplicationRecord
 
   def is_exhibitor?(item)
     self == item.user
+  end
+
+  def warned_count
+    self.notifications.count
+  end
+
+  def auto_delete
+    if self.warned_count > 5
+      self.destroy
+    end
   end
 end
