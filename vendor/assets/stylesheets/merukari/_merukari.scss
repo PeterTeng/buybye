@@ -1,5 +1,7 @@
 /*! sanitize.css v3.2.0 | CC0 1.0 Public Domain | github.com/10up/sanitize.css */
 
+@import "./variables.scss";
+
 audio:not([controls]) {
     display: none
 }
@@ -352,7 +354,7 @@ button:disabled {
 .mypage-tabs li.active a,
 .listing-tabs li.active a,
 .review-history-tabs li.active a {
-    border-top: 2px solid #ea352d
+    border-top: 2px solid $primary-color;
 }
 .mypage-tabs a,
 .listing-tabs a,
@@ -559,7 +561,7 @@ button:disabled {
     }
 }
 .icon-like {
-    color: #ea352d
+    color: $primary-color
 }
 .icon-like-border {
     color: #ccc
@@ -652,7 +654,7 @@ a:hover {
     background-color: #333
 }
 .red {
-    background-color: #ea352d
+    background-color: $primary-color
 }
 .paging {
     margin-top: 10px
@@ -784,7 +786,7 @@ h3 {
     text-align: right
 }
 .font-red {
-    color: #ea352d
+    color: $primary-color
 }
 .font-white {
     color: #fff
@@ -995,7 +997,7 @@ h3 {
     position: absolute
 }
 .form-require {
-    background: #ea352d
+    background: $primary-color
 }
 .form-arbitrary {
     background: #ccc
@@ -1010,7 +1012,7 @@ h3 {
     font-size: 16px
 }
 .input-default.has-error {
-    border-color: #ea352d
+    border-color: $primary-color
 }
 .input-default:focus {
     border-color: #0099e8
@@ -1126,7 +1128,7 @@ h3 {
     cursor: pointer
 }
 .select-default.has-error {
-    border-color: #ea352d
+    border-color: $primary-color
 }
 .select-default:focus {
     border-color: #0099e8
@@ -1168,7 +1170,7 @@ h3 {
     background: #f5f5f5
 }
 .textarea-default.has-error {
-    border-color: #ea352d
+    border-color: $primary-color
 }
 .textarea-default:focus {
     border-color: #0099e8
@@ -1199,8 +1201,8 @@ h3 {
     line-height: 27px
 }
 .btn-red {
-    background: #ea352d;
-    border: 1px solid #ea352d;
+    background: $primary-color;
+    border: 1px solid $primary-color;
     color: #fff
 }
 .btn-red:hover {
@@ -1209,8 +1211,8 @@ h3 {
 }
 .btn-outline-red {
     background: #fff;
-    color: #ea352d;
-    border: 1px solid #ea352d
+    color: $primary-color;
+    border: 1px solid $primary-color
 }
 .btn-gray {
     background: #aaa;
@@ -1273,7 +1275,7 @@ h3 {
     font-size: 16px
 }
 .has-error-text {
-    color: #ea352d;
+    color: $primary-color;
     line-height: 1.5;
     font-size: 14px
 }
@@ -1491,7 +1493,7 @@ h3 {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #ea352d;
+    background: $primary-color;
     text-align: center;
     line-height: 20px;
     font-size: 12px;
@@ -1645,7 +1647,7 @@ h3 {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #ea352d;
+    background: $primary-color;
     text-align: center;
     line-height: 20px;
     font-size: 12px;
@@ -1716,7 +1718,7 @@ h3 {
 }
 .pc-header-nav-parent h3 a:hover,
 .pc-header-nav-parent h3 a.active {
-    background: #ea352d;
+    background: $primary-color;
     color: #fff
 }
 .pc-header-nav-child-wrap {
@@ -2096,7 +2098,7 @@ h3 {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: #ea352d;
+    background: $primary-color;
     color: #fff;
     text-align: center
 }
@@ -2750,7 +2752,7 @@ i[class*='icon-'] {
     float: right;
     width: auto;
     border: 0;
-    color: #ea352d
+    color: $primary-color
 }
 .search-category h2+a .icon-arrow-right {
     font-size: 10px
@@ -3200,7 +3202,7 @@ i[class*='icon-'] {
 }
 .item-sold-out-badge:after {
     border-width: 65px 65px 0 0;
-    border-color: #ea352d transparent transparent transparent
+    border-color: $primary-color transparent transparent transparent
 }
 @media screen and (min-width: 768px) {
     .item-sold-out-badge:after {
@@ -3512,7 +3514,7 @@ i[class*='icon-'] {
 }
 .message-self .message-user {
     float: right;
-    color: #ea352d
+    color: $primary-color
 }
 .message-self .message-user figcaption {
     left: auto;
@@ -3630,8 +3632,8 @@ i[class*='icon-'] {
     padding: 4px 6px;
     background: #fff;
     border-radius: 3px;
-    border: 1px solid #ea352d;
-    color: #ea352d
+    border: 1px solid $primary-color;
+    color: $primary-color
 }
 .settings-not-regist h3 {
     color: #888;
@@ -3688,7 +3690,7 @@ i[class*='icon-'] {
 }
 .pager-cell.active {
     color: #fff;
-    background: #ea352d
+    background: $primary-color
 }
 .pager-cell a {
     display: block;
@@ -3871,7 +3873,7 @@ body.modal-open {
 .modal-banner h2 {
     font-size: 22px;
     line-height: 1;
-    color: #ea352d
+    color: $primary-color
 }
 @media screen and (min-width: 768px) {
     .modal-banner h2 {
@@ -3950,7 +3952,7 @@ body.modal-open {
     display: block;
     width: 100%;
     margin: 32px 0 0;
-    background: #ea352d;
+    background: $primary-color;
     font-size: 16px;
     color: #fff;
     line-height: 50px
@@ -4003,20 +4005,20 @@ body.modal-open {
 }
 .progress-bar li.active {
     font-weight: bold;
-    color: #ea352d
+    color: $primary-color
 }
 .progress-bar li.active .progress-status {
-    background: #ea352d
+    background: $primary-color
 }
 .progress-bar li.active .progress-status:before {
-    background: #ea352d
+    background: $primary-color
 }
 .progress-bar li.through .progress-status {
-    background: #ea352d
+    background: $primary-color
 }
 .progress-bar li.through .progress-status:before,
 .progress-bar li.through .progress-status:after {
-    background: #ea352d
+    background: $primary-color
 }
 .progress-status {
     width: 12px;
@@ -4329,7 +4331,7 @@ body.modal-open {
     height: 40px;
     margin: 0 8px 0 0;
     border-radius: 50%;
-    background: #ea352d;
+    background: $primary-color;
     text-align: center;
     line-height: 40px;
     font-size: 24px;
@@ -4393,7 +4395,7 @@ body.modal-open {
     display: block;
     height: 60px;
     border-radius: 8px;
-    background: #ea352d;
+    background: $primary-color;
     color: #fff;
     line-height: 60px;
     text-align: center
@@ -4429,7 +4431,7 @@ body.modal-open {
     margin: 0 auto;
     border-radius: 50%;
     background: #f5f5f5;
-    color: #ea352d;
+    color: $primary-color;
     line-height: 120px;
     text-align: center
 }
@@ -4616,7 +4618,7 @@ body.modal-open {
     display: block;
     height: 56px;
     margin: 16px 0 0;
-    background: #ea352d;
+    background: $primary-color;
     color: #fff;
     line-height: 56px;
     text-align: center;
@@ -4648,7 +4650,7 @@ body.modal-open {
 .item-open-app {
     width: 100%;
     margin: 24px 0 0;
-    background: #ea352d;
+    background: $primary-color;
     color: #fff;
     line-height: 60px;
     text-align: center;
@@ -4748,9 +4750,9 @@ body.modal-open {
     animation: wobble 1s forwards
 }
 .item-button-like.is-liked {
-    border: 1px solid #ea352d;
+    border: 1px solid $primary-color;
     background: none;
-    color: #ea352d
+    color: $primary-color
 }
 .item-button-like .icon-loading {
     margin: 0 0 0 8px
@@ -4768,7 +4770,7 @@ body.modal-open {
 .item-download-head {
     height: 38px;
     margin: 16px 0 0;
-    background: #ea352d;
+    background: $primary-color;
     color: #fff;
     font-size: 18px;
     line-height: 38px
@@ -4893,7 +4895,7 @@ body.modal-open {
     opacity: 1;
     text-decoration: none;
     color: #fff;
-    background-color: #ea352d
+    background-color: $primary-color
 }
 .category-list-box {
     margin-top: 20px;
@@ -4959,7 +4961,7 @@ body.modal-open {
     opacity: 1;
     text-decoration: none;
     color: #fff;
-    background-color: #ea352d
+    background-color: $primary-color
 }
 @media screen and (min-width: 768px) {
     .brand-group-link-box-link-name {
@@ -5236,7 +5238,7 @@ body.modal-open {
     position: relative;
     display: inline-block;
     padding: 0 3px;
-    background: #ea352d;
+    background: $primary-color;
     color: #fff;
     font-size: 11px;
     line-height: 16px
@@ -5257,12 +5259,12 @@ body.modal-open {
 .user-official-badge:before {
     top: 0;
     border-width: 8px 5px 0 0;
-    border-color: #ea352d transparent transparent transparent
+    border-color: $primary-color transparent transparent transparent
 }
 .user-official-badge:after {
     bottom: 0;
     border-width: 8px 0 0 5px;
-    border-color: transparent transparent transparent #ea352d
+    border-color: transparent transparent transparent $primary-color
 }
 .mypage-user-icon {
     position: relative;
@@ -5408,7 +5410,7 @@ body.modal-open {
     color: #fff
 }
 .mypage-item-status.action-required {
-    background: #ea352d
+    background: $primary-color
 }
 .mypage-item-status.awaiting {
     background: #0099e8
@@ -5544,7 +5546,7 @@ body.modal-open {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #ea352d;
+    background: $primary-color;
     text-align: center;
     line-height: 24px;
     color: #fff;
@@ -6334,12 +6336,12 @@ body.modal-open {
 }
 .transact-attention h3 {
     font-size: 16px;
-    color: #ea352d
+    color: $primary-color
 }
 .transact-attention i {
     margin: 0 8px 0 0;
     font-size: 32px;
-    color: #ea352d;
+    color: $primary-color;
     vertical-align: middle
 }
 .transact-attention span {
@@ -6351,7 +6353,7 @@ body.modal-open {
     line-height: 1.5
 }
 .transact-attention .attention {
-    color: #ea352d
+    color: $primary-color
 }
 .transact-form-review {
     width: 280px;
@@ -6385,7 +6387,7 @@ body.modal-open {
     display: none
 }
 .transact-review-list input[type='radio']:checked+.transact-review-icon {
-    border-color: #ea352d
+    border-color: $primary-color
 }
 .transact-review-icon {
     position: relative;
@@ -6540,7 +6542,7 @@ body.modal-open {
     margin: 32px 0 8px 0
 }
 .transact-shipping-soyo .text-attention {
-    color: #ea352d
+    color: $primary-color
 }
 .rakuraku-content {
     text-align: center
@@ -6731,7 +6733,7 @@ body.modal-open {
     font-size: 14px
 }
 .news-private {
-    background: #ea352d
+    background: $primary-color
 }
 .news-entry {
     padding: 7.5%
@@ -6759,7 +6761,7 @@ body.modal-open {
 .contact-sub-head {
     margin: 32px 0 0;
     font-size: 14px;
-    color: #ea352d
+    color: $primary-color
 }
 .contact-sub-head:first-child {
     margin: 0
@@ -6925,7 +6927,7 @@ body.modal-open {
 }
 .rakuraku-merit h3 {
     font-size: 19px;
-    color: #ea352d
+    color: $primary-color
 }
 @media screen and (min-width: 768px) {
     .rakuraku-merit h3 {
@@ -7182,7 +7184,7 @@ body.modal-open {
 }
 .rakuraku-how h3 {
     font-size: 19px;
-    color: #ea352d
+    color: $primary-color
 }
 @media screen and (min-width: 768px) {
     .rakuraku-how h3 {
@@ -7258,7 +7260,7 @@ body.modal-open {
     width: 24px;
     margin: 0 8px 0 0;
     border-radius: 50%;
-    background: #ea352d;
+    background: $primary-color;
     text-align: center;
     color: #fff;
     line-height: 24px
