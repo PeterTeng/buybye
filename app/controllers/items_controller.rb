@@ -65,6 +65,7 @@ class ItemsController < ApplicationController
           :price,
           :preservation_status,
           :auther,
+          :created_at,
         )
   end
 end
