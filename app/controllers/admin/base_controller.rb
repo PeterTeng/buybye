@@ -1,5 +1,6 @@
 class Admin::BaseController < ApplicationController
 
+  # Activate admin authentication
   # http_basic_authenticate_with name: "buybye", password: "uooosugeee"
   # before_action :authenticated_admin!
 

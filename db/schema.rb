@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.string   "undergraduate_id",                        null: false
     t.string   "name",                                    null: false
     t.boolean  "is_pickup",           default: false,     null: false
+    t.boolean  "reported",            default: false,     null: false
     t.integer  "price",                                   null: false
     t.text     "description",                             null: false
     t.integer  "transaction_status",  default: 0,         null: false

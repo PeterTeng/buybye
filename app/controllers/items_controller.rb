@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token
+  before_action :set_item, only: [:edit, :update, :destroy, :report]
   # before_action :sign_in!, only: [:new, :show]
   layout "mypage"
 
@@ -35,6 +36,16 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def report
+    @item.update(
+      reported: true
+    )
+    redirect_to :back
+  end
+
+  def report_succeeded
   end
 
   private def set_item

@@ -27,6 +27,8 @@
                 %td= item.name
                 %td= item.created_at.strftime("%c")
                 %td
+                  - if item.reported
+                    = link_to "報告された商品", unreported_admin_item_path(item), method: :put, data: { confirm: '報告されたことを解除します、よろしいですか？' }, class: "btn btn-info btn-sm"
                   = link_to "詳細", item_path(item), class: "btn btn-default btn-sm"
                   = link_to "警告をする", warning_admin_item_path(item), method: :post, class: "btn btn-warning btn-sm"
-                  = link_to "削除", admin_item_path(item), method: :delete, data: { confirm: 'Confirm?' }, class: "btn btn-danger btn-sm"
+                  = link_to "削除", admin_item_path(item), method: :delete, data: { confirm: 'この処理は戻れません、よろしいですか？' }, class: "btn btn-danger btn-sm"

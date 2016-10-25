@@ -29,7 +29,14 @@ Rails.application.routes.draw do
   resources :comments
   resources :messages
   resources :chatrooms
-  resources :items
+  resources :items do
+    member do
+      put :report
+    end
+    collection do
+      get :report_succeeded
+    end
+  end
 
   #mypage actions
   MYPAGE_ACTION_ARRAY.each do |action_name|
@@ -47,6 +54,7 @@ Rails.application.routes.draw do
     resources :items do
       member do
         post :warning
+        put :unreported
       end
     end
     resources :users

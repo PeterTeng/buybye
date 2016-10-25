@@ -1,6 +1,6 @@
 class Admin::ItemsController < Admin::BaseController
 
-  before_action :set_item, only: [:destroy, :warning]
+  before_action :set_item, only: [:destroy, :warning, :unreported]
 
   def index
     @items = Item.all
@@ -18,6 +18,13 @@ class Admin::ItemsController < Admin::BaseController
     # @item.user.
     @item.destroy
     redirect_to :back
+  end
+
+  def unreported
+    @item.update(
+      reported: false
+    )
+    redirect_to :back, flash: {success: "報告を解除しました"}
   end
 
   private def set_item

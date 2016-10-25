@@ -53,22 +53,14 @@
       = link_to "購入ページへ", ""
     .item-description.f14
       = br @item.description
-    -# .item-button-container.clearfix
-    -#   .item-button-left
-    -#     %button.item-button.item-button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m513151689", "data-toggle" => "like", :name => "like!", :type => "button"}
-    -#       %i.icon-like-border
-    -#       %span= check_box_tag '','','', { data-favorite-id => @item.id}
-    -#       %span.fade-in-down{"data-num" => "like"} 0
-    -#     %a.item-button.item-button-report.clearfix{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
-    -#       %i.icon-flag
-    -#       %span 不適切な商品の報告
-    -#     %input{:name => "like_add_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/add/m513151689/"}/
-    -#     %input{:name => "like_del_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/delete/m513151689/"}/
-    -#     %input{:name => "__csrf_value", :type => "hidden", :value => "cd66b1010940ea4320a076f9e2637486ebb99adde18c2e35ac2664d3221a3f4f48d04e5670bd5c38e5a2956a935f6cef7ca60bdbb76f970a7f48be490985d6ab"}/
-    -#   .item-button-right
-    -#     %a{:href => "https://www.mercari.com/jp/safe/description/", :target => "_blank"}
-    -#       %i.icon-lock
-    -#       %span あんしん・あんぜんへの取り組み
+    .item-button-container.clearfix
+      .item-button-left
+        %button.item-button.item-button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m513151689", "data-toggle" => "like", :name => "like!", :type => "button"}
+          %i.icon-like-border
+          %span.fade-in-down{"data-num" => "like"} 0
+        = link_to report_item_path(@item), method: :put, class: "item-button item-button-report clearfix" do
+          %i.icon-flag
+          %span 不適切な商品の報告
   .item-detail-message
     .message-container
       .message-content
