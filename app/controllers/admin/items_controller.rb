@@ -3,7 +3,7 @@ class Admin::ItemsController < Admin::BaseController
   before_action :set_item, only: [:destroy, :warning, :unreported]
 
   def index
-    @items = Item.all
+    @items = Item.all.includes(:user).where(users: { is_disabled: false })
   end
 
   def warning

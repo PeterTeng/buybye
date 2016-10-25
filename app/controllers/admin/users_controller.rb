@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: [:show, :destroy]
 
   def index
-    @users = User.all
+    @users = User.where is_disabled: false
   end
 
   def show

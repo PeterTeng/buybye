@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20161002113435) do
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.boolean  "admin",                    default: false, null: false
+    t.boolean  "is_disabled",              default: false, null: false
     t.string   "email",                                    null: false
     t.string   "password_digest",                          null: false
     t.string   "name"

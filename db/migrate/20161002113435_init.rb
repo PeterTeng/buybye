@@ -5,7 +5,7 @@ class Init < ActiveRecord::Migration[5.0]
     create_table :users, id: :uuid, default: "uuid_generate_v4()" do |t|
       # for admin
       t.boolean :admin, null: false, default: false
-
+      t.boolean :is_disabled, null: false, default: false
       # for user
       t.string :email, null: false, uniqueness: true
       t.string :password_digest, null: false

@@ -1,29 +1,103 @@
 .row.wrapper.border-bottom.white-bg.page-heading
   .col-lg-10
-    %h2 取引一覧
+    %h2 User growth rate
     %ol.breadcrumb
-      %li.active
-        %strong 一覧
+      %li.active user addon
   .col-lg-2
 .wrapper.wrapper-content.animated.fadeInRight
   .row
-    .ibox.float-e-margins
-      .ibox-title
-        %h5 取引情報
-      .ibox-content
-        %table.table.table-align-middle
-          -# %thead
-          -#   %tr
-          -#     %th ユーザの名前
-          -#     %th ユーザの画像
-          -#     %th 振り込まれた日
-          -#     %th 金額
-          -#     %th 返金する
-          -# %tbody
-          -#   - @billings.each do |billing|
-          -#     %tr
-          -#       %td= billing.user.name
-          -#       %td= image_tag billing.user.image_or_default_url, width: "40px"
-          -#       %td= billing.created_at.strftime("%Y-%m-%d")
-          -#       %td.number_font= number_to_currency billing.amount
-          -#       %td= link_to "返金処理をする",admin_refund_stripe_path(billing_id: billing.id), data: { confirm: 'この手順は戻れません。よろしいですか？' }, method: :post, class: "btn btn-danger btn-s"
+    .col-md-12
+      .ibox.float-e-margins
+        .ibox-title
+          %span.label.label-info.pull-right
+            %i.fa.fa-clock-o
+            Update on #{ Date.today.strftime("%m/%d %Y") }
+          %h5 Followers
+        .ibox-content
+          %h1.no-margins= User.count
+          .stat-percent.font-bold.text-success
+            20%
+            %i.fa.fa-level-up
+          %small followers
+  .row
+    .col-lg-12
+      - if @days
+        .ibox.float-e-margins
+          .ibox-content
+            %div
+              %h3.font-bold.no-margins
+                Followers Weekly Report
+            .m-t-sm
+              .row
+                .col-md-12
+                  %div
+                    %canvas#followerChart{:height => "114"}
+      - else
+        .text-center
+          データを同期中です。しばらくお待ち下さい。
+:javascript
+  $(function() {
+    var followerData = {
+      labels: #{@days},
+      datasets: [
+      {
+        label: "フォローワー数",
+        borderColor: "rgba(28,132,198,0.5)",
+        backgroundColor: "rgba(28,132,198,0.7)",
+        pointColor: "rgba(28,132,198,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(28,132,198,1)",
+        data: #{@follower_counts},
+      }
+      ]
+    };
+
+    var aveLikeData = {
+      labels: #{@days},
+      datasets: [
+      {
+        label: "平均Like数",
+        borderColor: "rgba(28,132,198,0.5)",
+        backgroundColor: "rgba(28,132,198,0.7)",
+        pointColor: "rgba(28,132,198,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(28,132,198,1)",
+        data: #{@ave_like_counts},
+      }
+      ]
+    };
+
+    var lineOptions = {
+      scaleShowGridLines: true,
+      scaleGridLineColor: "rgba(0,0,0,.05)",
+      scaleGridLineWidth: 1,
+      bezierCurve: true,
+      bezierCurveTension: 0.4,
+      pointDot: true,
+      pointDotRadius: 4,
+      pointDotStrokeWidth: 1,
+      pointHitDetectionRadius: 20,
+      datasetStroke: true,
+      datasetStrokeWidth: 2,
+      datasetFill: true,
+      responsive: true,
+    };
+
+
+    var ctx_follower = document.getElementById("followerChart").getContext("2d");
+    var myNewChart = new Chart(ctx_follower, {
+      type: "line",
+      data: followerData,
+      options: lineOptions
+    })
+
+
+    var ctx_ave_like = document.getElementById("aveLikeChart").getContext("2d");
+    var myNewChart = new Chart(ctx_ave_like, {
+      type: "line",
+      data: aveLikeData,
+      options: lineOptions
+    })
+  });
