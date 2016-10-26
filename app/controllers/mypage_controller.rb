@@ -17,12 +17,15 @@ class MypageController < ApplicationController
   end
 
   def ex_exhibiting
+    @exhibitings = current_user.items.where transaction_status: 0
   end
 
   def ex_trading
+    @tradings = current_user.items.where transaction_status: 1
   end
 
   def ex_settle
+    @settleds = current_user.items.where transaction_status: 1
   end
 
   def pur_trading

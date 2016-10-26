@@ -1,0 +1,12 @@
+%li{ class: is_active_action('ex_exhibiting') }
+  %h3
+    = link_to mypage_ex_exhibiting_path do
+      出品中
+%li{ class: is_active_action('ex_trading') }
+  %h3
+    = link_to mypage_ex_trading_path do
+      取引中
+%li{ class: is_active_action('ex_settle') }
+  %h3
+    = link_to mypage_ex_settle_path do
+      売却済み

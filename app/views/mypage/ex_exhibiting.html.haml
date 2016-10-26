@@ -1,0 +1,36 @@
+%section.mypage-tab-container
+  %h2.mypage-tab-head 出品した商品
+  %ul.listing-tabs
+    = render 'mypage/tabs'
+  .tab-content
+    %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+      - unless @exhibitings.empty?
+        - @exhibitings.each do |exhibiting|
+          %li
+            = link_to item_path(exhibiting), class: "mypage-item-link" do
+              %figure
+                = image_tag ""
+              .mypage-item-body
+                .mypage-item-text
+                  = exhibiting.description.truncate(30)
+                %div
+                  %span.listing-item-count
+                    %i.icon-like-border
+                    %span= exhibiting.favorites.count
+                  %span.listing-item-count
+                    %i.icon-message
+                    %span= exhibiting.comments.count
+                  .mypage-item-status.bold.awaiting
+                    出品中
+              %i.icon-arrow-right
+      - else
+        %li.mypage-item-not-found.bold 出品中の商品がありません
+
+
+-# %ul.mypage-history.pager
+-#   %li.pager-prev.pager-cell
+-#     %a{:href => "/jp/mypage/listings/listing/?min_pager_id=4852185869"}
+-#       %i.icon-arrow-left
+-#   %li.pager-next.pager-cell
+-#     %a{:href => "/jp/mypage/listings/listing/?max_pager_id=4852185869"}
+-#       %i.icon-arrow-right
