@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   create_table "items", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "type",                default: "Exhibit", null: false
     t.uuid     "user_id",                                 null: false
+    t.uuid     "buyer_id"
     t.uuid     "college_id",                              null: false
     t.string   "depertment_id",                           null: false
     t.string   "undergraduate_id",                        null: false
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.string   "auther"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
+    t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["college_id"], name: "index_items_on_college_id", using: :btree
     t.index ["depertment_id"], name: "index_items_on_depertment_id", using: :btree
     t.index ["undergraduate_id"], name: "index_items_on_undergraduate_id", using: :btree

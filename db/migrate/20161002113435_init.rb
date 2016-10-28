@@ -38,6 +38,7 @@ class Init < ActiveRecord::Migration[5.0]
     create_table :items, id: :uuid, default: "uuid_generate_v4()" do |t|
       t.string :type, null: false, default: "Exhibit"
       t.uuid :user_id, null: false, index: true
+      t.uuid :buyer_id, index: true
       t.uuid :college_id, null: false, index: true
       t.string :depertment_id, null: false, index: true
       t.string :undergraduate_id, null: false, index: true
