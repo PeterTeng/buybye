@@ -45,6 +45,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'sass-rails'
+
+#for rails console
+gem 'rb-readline'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-toastr'
   gem 'rails-assets-flexslider'
