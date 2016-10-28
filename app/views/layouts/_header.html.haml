@@ -2,19 +2,20 @@
   @colleges = College.all.includes(:depertments).includes(:undergraduates)
 %header.sp-header.visible-sp
   .sp-header-inner.clearfix
-    %h1
-      = link_to root_path do
-        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg"
-    .sp-header-user-nav.clearfix
-      = link_to root_path, class: "sp-header-user-icon" do
-        %figure
-          %div
-            %img{:alt => "", "data-pin-nopin" => "true", :src => "//static-mercari-jp-imgtr2.akamaized.net/thumb/members/450471425.jpg?1453634490", :width => "32"}/
-          %figcaption
-            = current_user.notifications.count
-      %form.sp-header-form{:action => "https://www.mercari.com/jp/search/"}
-        %input.sp-header-search.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
-        %i.icon-search
+    - if logged_in?
+      %h1
+        = link_to root_path do
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg"
+      .sp-header-user-nav.clearfix
+        = link_to root_path, class: "sp-header-user-icon" do
+          %figure
+            %div
+              %img{:alt => "", "data-pin-nopin" => "true", :src => "//static-mercari-jp-imgtr2.akamaized.net/thumb/members/450471425.jpg?1453634490", :width => "32"}/
+            %figcaption
+              = current_user.notifications.count
+        %form.sp-header-form{:action => "https://www.mercari.com/jp/search/"}
+          %input.sp-header-search.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
+          %i.icon-search
   %nav.sp-header-nav
     %ul
       %li
