@@ -123,6 +123,7 @@ class Init < ActiveRecord::Migration[5.0]
     end
 
     create_table :messages, id: :uuid, default: "uuid_generate_v4()" do |t|
+      t.uuid :chat_room_id, null: false, index: true
       t.uuid :user_id, null: false
       t.text :content, null: false
       t.boolean :is_read, null: false, default: false
