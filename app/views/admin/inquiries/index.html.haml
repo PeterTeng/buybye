@@ -1,0 +1,40 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    %h2 inquiries
+    %ol.breadcrumb
+      %li= link_to "トップ", admin_inquiries_path
+      %li.active
+        %strong 一覧
+  .col-lg-2
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .ibox.float-e-margins
+      .ibox-title
+        %h5 inquiry
+      .ibox-content
+        %table.table.table-align-middle
+          %thead
+            %tr
+              %th user image
+              %th user name
+              %th user email
+              %th nickname
+              %th title
+              %th content
+              %th created_at
+          %tbody
+            - @inquiries.each do |inquiry|
+              %tr
+                %th= link_to (image_tag inquiry.user.image_url, height: 40), user_path(inquiry.user)
+                %td= inquiry.user.name
+                %td= inquiry.user.email
+                %td= inquiry.nickname
+                %td= inquiry.title
+                %td= inquiry.content
+                %td= inquiry.created_at.strftime("%c")
+                %td
+                  - unless inquiry.is_acknowledged
+                    = link_to "お問い合わせ対応済みにする", acknowledged_admin_inquiry_path(inquiry), method: :put, class: "btn btn-warning btn-sm"
+                  - else
+                    .btn.btn-info.btn-sm
+                      お問い合わせ対応済み

@@ -12,7 +12,8 @@ MYPAGE_ACTION_ARRAY =
   "reviews",
   "profile",
   "mail_password",
-  "logout"
+  "logout",
+  "inquiry"
  ]
 
 Rails.application.routes.draw do
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
       get :report_succeeded
     end
   end
+  resources :inquiries
 
   #mypage actions
   MYPAGE_ACTION_ARRAY.each do |action_name|
@@ -52,6 +54,11 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'admin/dashboard#index'
   namespace :admin do
+    resources :inquiries do
+      member do
+        put :acknowledged
+      end
+    end
     resources :items do
       member do
         post :warning

@@ -8,17 +8,17 @@
       %li
         = link_to mypage_notification_path, class: "mypage-nav-list-item" do
           お知らせ
-          %i.icon-arrow-right
+          %i.fa.fa-angle-right
       %li
         = link_to mypage_to_do_list_path, class: "mypage-nav-list-item" do
           やることリスト
-          %i.icon-arrow-right
+          %i.fa.arrows
       %li
         = link_to mypage_favorite_list_path, class: "mypage-nav-list-item" do
           いいね！一覧
           %i.icon-arrow-right
       %li
-        = link_to "", class: "mypage-nav-list-item" do
+        = link_to new_item_path, class: "mypage-nav-list-item" do
           出品する
           %i.icon-arrow-right
       %li
@@ -44,6 +44,10 @@
       %li
         = link_to mypage_reviews_path, class: "mypage-nav-list-item" do
           評価一覧
+          %i.icon-arrow-right
+      %li
+        = link_to mypage_inquiry_path, class: "mypage-nav-list-item" do
+          お問い合わせ
           %i.icon-arrow-right
       -# %li
       -#   %a.mypage-nav-list-item{:href => "/jp/mypage/support/"}

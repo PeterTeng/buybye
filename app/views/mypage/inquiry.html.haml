@@ -1,0 +1,15 @@
+%section.l-chapter-container
+  %h2.l-chapter-head お問い合わせ
+  = form_for @inquiry, html: { role: 'form', class: 'l-single-inner'} do |f|
+    = f.hidden_field :user_id, value: current_user.id
+    .form-group
+      %label ニックネーム　
+      = f.text_field :nickname, class: "input-default"
+    .form-group
+      %label タイトル　
+      = f.text_field :title, class: "input-default"
+    .form-group
+      %label 内容
+      %span.form-require 必須
+      = f.text_area :content, class: "input-default"
+    %button.btn-default.btn-red{:type => "submit"} 送信する

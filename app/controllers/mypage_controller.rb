@@ -29,6 +29,11 @@ class MypageController < ApplicationController
   end
 
   def pur_trading
+    @trading = current_user
+  end
+
+  def inquiry
+    @inquiry = Inquiry.new
   end
 
   def pur_past_trade
