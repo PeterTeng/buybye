@@ -97,8 +97,8 @@ User.create(
   ]
 )
 
-User.all.each do |user|
-  user.items.create(
+User.all.each do |exhibitor|
+  exhibitor.items.create(
     [
       {
         name: "線形代数Ⅰ",

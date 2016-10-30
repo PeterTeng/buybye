@@ -36,9 +36,8 @@ class Init < ActiveRecord::Migration[5.0]
     end
 
     create_table :items, id: :uuid, default: "uuid_generate_v4()" do |t|
-      t.string :type, null: false, default: "Exhibit"
-      t.uuid :user_id, null: false, index: true
-      t.uuid :buyer_id, index: true
+      t.uuid :user_id, null: false, index: true #出品者
+      t.uuid :buyer_id, index: true #購入者
       t.uuid :college_id, null: false, index: true
       t.string :depertment_id, null: false, index: true
       t.string :undergraduate_id, null: false, index: true
@@ -126,6 +125,15 @@ class Init < ActiveRecord::Migration[5.0]
       t.uuid :user_id, null: false
       t.text :content, null: false
       t.boolean :is_read, null: false, default: false
+    end
+
+    create_table :inquiries do |t|
+      t.boolean :is_acknowledged, null: false, default: false
+      t.uuid :user_id, null: false, index: true
+      t.string :title
+      t.text :content, null: false
+      t.string :nickname
+      t.timestamps null: false
     end
 
   end

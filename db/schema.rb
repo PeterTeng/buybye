@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
   end
 
+  create_table "inquiries", force: :cascade do |t|
+    t.boolean  "is_acknowledged", default: false, null: false
+    t.uuid     "user_id",                         null: false
+    t.string   "title"
+    t.text     "content",                         null: false
+    t.string   "nickname"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["user_id"], name: "index_inquiries_on_user_id", using: :btree
+  end
+
   create_table "item_images", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid   "item_id", null: false
     t.string "image",   null: false
@@ -68,23 +79,22 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "items", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.string   "type",                default: "Exhibit", null: false
-    t.uuid     "user_id",                                 null: false
+    t.uuid     "user_id",                             null: false
     t.uuid     "buyer_id"
-    t.uuid     "college_id",                              null: false
-    t.string   "depertment_id",                           null: false
-    t.string   "undergraduate_id",                        null: false
-    t.string   "name",                                    null: false
-    t.boolean  "is_pickup",           default: false,     null: false
-    t.boolean  "reported",            default: false,     null: false
-    t.integer  "price",                                   null: false
-    t.text     "description",                             null: false
-    t.integer  "transaction_status",  default: 0,         null: false
-    t.integer  "preservation_status",                     null: false
-    t.boolean  "is_sold",             default: false,     null: false
+    t.uuid     "college_id",                          null: false
+    t.string   "depertment_id",                       null: false
+    t.string   "undergraduate_id",                    null: false
+    t.string   "name",                                null: false
+    t.boolean  "is_pickup",           default: false, null: false
+    t.boolean  "reported",            default: false, null: false
+    t.integer  "price",                               null: false
+    t.text     "description",                         null: false
+    t.integer  "transaction_status",  default: 0,     null: false
+    t.integer  "preservation_status",                 null: false
+    t.boolean  "is_sold",             default: false, null: false
     t.string   "auther"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["college_id"], name: "index_items_on_college_id", using: :btree
     t.index ["depertment_id"], name: "index_items_on_depertment_id", using: :btree
