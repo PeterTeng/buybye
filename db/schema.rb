@@ -113,10 +113,12 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "messages", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid    "chat_room_id",                 null: false
-    t.uuid    "user_id",                      null: false
-    t.text    "content",                      null: false
-    t.boolean "is_read",      default: false, null: false
+    t.uuid     "chat_room_id",                 null: false
+    t.uuid     "user_id",                      null: false
+    t.text     "content",                      null: false
+    t.boolean  "is_read",      default: false, null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["chat_room_id"], name: "index_messages_on_chat_room_id", using: :btree
   end
 

@@ -127,6 +127,7 @@ class Init < ActiveRecord::Migration[5.0]
       t.uuid :user_id, null: false
       t.text :content, null: false
       t.boolean :is_read, null: false, default: false
+      t.timestamps null: false
     end
 
     create_table :inquiries do |t|
