@@ -50,6 +50,7 @@ class Init < ActiveRecord::Migration[5.0]
       t.integer :preservation_status, null: false
       t.boolean :is_sold, null: false, default: false
       t.string :auther
+      t.date :sold_at
       t.timestamps null: false
     end
 

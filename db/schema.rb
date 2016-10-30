@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.integer  "preservation_status",                 null: false
     t.boolean  "is_sold",             default: false, null: false
     t.string   "auther"
+    t.date     "sold_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
