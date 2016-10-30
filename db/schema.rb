@@ -22,16 +22,16 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chat_room_users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid "user_id",      null: false
+    t.uuid "chat_room_id", null: false
+    t.index ["chat_room_id"], name: "index_chat_room_users_on_chat_room_id", using: :btree
+    t.index ["user_id"], name: "index_chat_room_users_on_user_id", using: :btree
+  end
+
   create_table "chat_rooms", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.uuid "item_id", null: false
     t.index ["item_id"], name: "index_chat_rooms_on_item_id", using: :btree
-  end
-
-  create_table "chat_users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid "user_id",      null: false
-    t.uuid "chat_room_id", null: false
-    t.index ["chat_room_id"], name: "index_chat_users_on_chat_room_id", using: :btree
-    t.index ["user_id"], name: "index_chat_users_on_user_id", using: :btree
   end
 
   create_table "colleges", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "messages", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid    "user_id",                 null: false
     t.text    "content",                 null: false
     t.boolean "is_read", default: false, null: false
   end
