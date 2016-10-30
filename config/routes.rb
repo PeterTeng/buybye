@@ -28,10 +28,11 @@ Rails.application.routes.draw do
 
   resources :comments
   resources :messages
-  resources :chatrooms
+  resources :chat_rooms
   resources :items do
     member do
       put :report
+      post :purchase
     end
     collection do
       get :report_succeeded
