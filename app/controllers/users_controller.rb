@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :dashboard]
   before_action :correct_user, only: [:edit, :update, :dashboard]
 
+  #TODO implement slack notitcation after save user data
+  # after_save :slack_notification!, only: [:create]
+
   layout :resolve_layout
 
   def dashboard
@@ -24,8 +27,6 @@ class UsersController < ApplicationController
       if @user.save
         log_in @user
         remember @user
-        NotifySlackWorker.new.perform("new user", ":beers:", "#{@user.name}" )
-        # SignUpNotifer.send_user(@user).deliver_now
         redirect_to root_path
       else
         redirect_to mypage_dashboard_path, flash: { alert: "メールアドレスかパスワードのいずれかが間違えております" }
@@ -65,5 +66,9 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     redirect_to dashboard_user_path @user unless correct_user? @user
   end
+
+  # private def slack_notification!
+  #   NotifySlackWorker.new.perform("new user", ":beers:", "#{@user.name}" )
+  # end
 
 end

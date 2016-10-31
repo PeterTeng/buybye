@@ -28,7 +28,11 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   resources :comments
-  resources :messages
+  resources :messages do
+    collection do
+      post :send_comment
+    end
+  end
   resources :chat_rooms
   resources :items do
     member do

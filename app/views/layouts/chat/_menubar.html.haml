@@ -1,0 +1,30 @@
+.l-side
+  %section.l-side-container
+    %h3.transact-info-head 取引情報
+    .transact-info-inner
+      %ul.transact-info-table
+        %li.transact-info-table-row
+          %span.transact-info-table-cell 商品
+          %ul.transact-info-table-cell
+            %li
+              = link_to @item do
+                = image_tag @item.item_images.first.image_url, height: 60
+                .transact-info-item.bold
+                  = @item.name
+                  %br/
+                  = number_to_currency(@item.price, unit: "¥", precision: 0)
+        %li.transact-info-table-row
+          %span.transact-info-table-cell 購入日時
+          %ul.transact-info-table-cell
+            %li= @item.sold_at.strftime("%c")
+  %section.l-side-container
+    %h3.transact-info-head 出品者情報
+    .transact-info-inner
+      = link_to @item.user, class: "transaction-user-icon" do
+        %figure
+          %div
+            = image_tag  @item.user.image_url, width: 40
+          %figcaption.bold
+            .transact-user-name
+              = @item.user.introduce
+        %i.icon-arrow-right

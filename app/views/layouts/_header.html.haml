@@ -1,5 +1,5 @@
 :ruby
-  @colleges = College.all.includes(:depertments).includes(:undergraduates)
+  @colleges = College.includes(depertments: [:undergraduates])
 %header.sp-header.visible-sp
   .sp-header-inner.clearfix
     - if logged_in?
@@ -20,9 +20,9 @@
     %ul
       %li
         - @colleges.first.depertments do |depertment|
-          = link_to depertment.name, "", "data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_#{depertment.name}"
-      %li
-        %a.active-category{"data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_ブランド一覧", :href => "https://www.mercari.com/jp/brand/"} ブランド一覧
+          = link_to depertment.name, "", "data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_#{depertment.name}", class: "active-category"
+      -# %li
+      -#   %a.active-category{"data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_ブランド一覧", :href => "https://www.mercari.com/jp/brand/"} ブランド一覧
 %header.pc-header.visible-pc
   .pc-header-inner
     .clearfix
@@ -49,7 +49,7 @@
                         = link_to depertment.name, ""
                         %ul.pc-header-nav-grand-child-wrap{"data-mega" => "3"}
                           %li.pc-header-nav-grand-child
-                            - college.undergraduates.each do |undergraduate|
+                            - depertment.undergraduates.each do |undergraduate|
                               = link_to undergraduate.name, ""
       .l-right
         - if logged_in?

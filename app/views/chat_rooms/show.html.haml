@@ -1,0 +1,47 @@
+.item-detail-message
+  .message-container
+    .message-content
+      = form_for @message, html: { class: "message-form" } do |f|
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.hidden_field :chat_room_id, value: @chat_room.id
+        = f.hidden_field :user_id, value: current_user.id
+        = f.text_area :content, class: "textarea-default"
+        %button.message-submit.btn-default.btn-red{:type => "submit"}
+          %i.icon-message
+          %span 送信する
+    .message-content
+      %ul.message-items
+        - @messages.each do |message|
+          - if message.user  == @exhibitor
+            %li.clearfix.message-self
+              = link_to @item.user, class: "message-user" do
+                %figure
+                  %div
+                    = image_tag message.user.image_url
+                  %figcaption.bold= message.user.name
+                .message-is-seller.message-is-seller-self 出品者
+              .message-body
+                .message-body-text
+                  = message.content
+                .message-icons.clearfix
+                  %time.message-icon-left
+                    %i.icon-time
+                    %span= message.created_at.strftime("%c")
+                  .message-icon-right
+                    .message-delete{"data-comment-id" => "805229883", "data-modal" => "delete-comment", "data-open" => "modal"}
+                      %i.icon-delete
+                %i.icon-balloon
+          - else
+            %li.clearfix
+              = link_to @item.user, class: "message-user" do
+                %figure
+                  %div
+                    = image_tag message.user.image_url
+                  %figcaption.bold= message.user.name
+              .message-body
+                .message-body-text= message.content
+                .message-icons.clearfix
+                  %time.message-icon-left
+                    %i.icon-time
+                    %span= message.created_at.strftime("%c")
+                  .message-icon-right

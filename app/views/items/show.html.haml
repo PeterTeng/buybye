@@ -48,7 +48,7 @@
             %td= @item.preservation_status
     .item-price-box.text-center
       %span.item-price.bold= number_to_currency(@item.price, unit: "¥", precision: 0)
-    = link_to "購入", "", class: "item-buy-btn f18-24", "data-client" => "hidden"
+    = link_to "購入", purchase_item_path(@item), method: :post, class: "item-buy-btn f18-24", "data-client" => "hidden"
     .item-buy-btn-client{"data-client" => "visible"}
       = link_to "購入ページへ", ""
     .item-description.f14
