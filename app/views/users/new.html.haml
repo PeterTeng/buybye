@@ -6,4 +6,7 @@
         .form-group
           = f.text_field :name, placeholder: "ニックネームを入力してください", class: "login-input-text input-default", required: true
         = render 'registrate/form', f: f
+        .div{ style: "padding: 10px; 0" }
+          = f.check_box :agreement, as: :boolean, checked: false, required: true
+          利用規約とプライバシーポリシーに同意する
         %button{ "type" => "submit",  class: "login-submit btn-default btn-red"} 新規登録

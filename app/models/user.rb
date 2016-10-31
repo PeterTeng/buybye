@@ -22,6 +22,7 @@
 #
 
 class User < ApplicationRecord
+
   has_many :items, dependent: :destroy
   has_many :exhibits, dependent: :destroy
   has_many :purchases, dependent: :destroy
@@ -32,6 +33,9 @@ class User < ApplicationRecord
   has_many :chat_room,through: :chat_room_users
   has_many :notifications, dependent: :destroy
   has_many :inquiries
+
+  validates_acceptance_of :agreement, allow_nil: false, on: :create
+
   attr_accessor :remember_token, :reset_token
 
   has_secure_password
