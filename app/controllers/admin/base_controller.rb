@@ -7,7 +7,9 @@ class Admin::BaseController < ApplicationController
   layout "admin"
 
   private def authenticated_admin!
-    redirect_to root_path unless current_user.try(:admin?)
+    unless current_user.try(:admin?)
+      not_found
+    end
   end
 
 end
