@@ -22,6 +22,9 @@ gem 'gon'
 #for cron
 gem 'whenever'
 
+#for search
+gem 'ransack'
+
 gem 'sidekiq'
 
 #for notification
