@@ -25,6 +25,7 @@ gem 'whenever'
 #for search
 gem 'ransack'
 
+#for Asynchronous processing
 gem 'sidekiq'
 
 #for notification
