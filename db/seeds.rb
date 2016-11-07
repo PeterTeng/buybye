@@ -85,14 +85,16 @@ end
 User.create(
   [
     {
-      name: "ヤマダ",
+      name: "aaa",
       email: "xxx@gmail.com",
       password_digest: BCrypt::Password.create("1111111", cost: cost),
+      agreement: true,
     },
     {
-      name: "タナカ",
+      name: "bbb",
       email: "yyy@gmail.com",
       password_digest: BCrypt::Password.create("1111111", cost: cost),
+      agreement: true,
     },
   ]
 )
