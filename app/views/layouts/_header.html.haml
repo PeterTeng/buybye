@@ -1,5 +1,7 @@
 :ruby
   @colleges = College.includes(depertments: [:undergraduates])
+  @q = Item.ransack params[:q]
+  @items = @q.result distinct: true
 %header.sp-header.visible-sp
   .sp-header-inner.clearfix
     - if logged_in?
@@ -13,14 +15,16 @@
               %img{:alt => "", "data-pin-nopin" => "true", :src => "//static-mercari-jp-imgtr2.akamaized.net/thumb/members/450471425.jpg?1453634490", :width => "32"}/
             %figcaption
               = current_user.notifications.count
-        %form.sp-header-form{:action => "https://www.mercari.com/jp/search/"}
-          %input.sp-header-search.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
+        - @q          = Item.search params[:q]
+        - @items      = @q.result distinct: true
+        = search_form_for @q, url: search_items_path , html: { role: 'form', class: 'sp-header-form', method: :post } do |f|
+          = f.search_field :name_cont, class: 'sp-header-search input-default', placeholder: 'キーワードから探す', type: 'search'
           %i.icon-search
   %nav.sp-header-nav
     %ul
       %li
         - @colleges.first.depertments do |depertment|
-          = link_to depertment.name, "", "data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_#{depertment.name}", class: "active-category"
+          = link_to depertment.name, "", class: "active-category"
       -# %li
       -#   %a.active-category{"data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_ブランド一覧", :href => "https://www.mercari.com/jp/brand/"} ブランド一覧
 %header.pc-header.visible-pc
@@ -28,10 +32,13 @@
     .clearfix
       %h1.l-left
         = link_to root_path do
-          %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg"}/
-      %form.pc-header-form.l-right{:action => "https://www.mercari.com/jp/search/"}
-        %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
+          = image_tag 'buybye_icon_2.png', width: 20
+      = search_form_for @q, url: search_items_path , html: { role: 'form', class: 'pc-header-form l-right', method: :post } do |f|
+        = f.search_field :name_cont, class: 'sp-header-search input-default', placeholder: 'キーワードから探す', type: 'search'
         %i.icon-search
+      -# %form.pc-header-form.l-right{:action => "https://www.mercari.com/jp/search/"}
+      -#   %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
+      -#   %i.icon-search
     .pc-header-nav-box.clearfix
       %nav.l-left
         %ul.pc-header-nav
@@ -69,12 +76,14 @@
                       = current_user.name
                   %ul.pc-header-mypage-review-listing
                     %li
-                      %a{:href => "https://www.mercari.com/jp/mypage/review/history/"} 評価:
+                      = link_to '評価, ""'
+                      -# %a{:href => "https://www.mercari.com/jp/mypage/review/history/"} 評価:
                     %li
-                      %a{:href => "https://www.mercari.com/jp/mypage/listings/listing/"} 出品数:
+                      = link_to '', ''
+                      -# %a{:href => "https://www.mercari.com/jp/mypage/listings/listing/"} 出品数:
                   %ul.pc-header-mypage-sales-point
                     %li
-                      %a.clearfix{:href => "https://www.mercari.com/jp/mypage/sales/"}
+                      = link_to '', class: 'clearfix' do
                         .l-left 売上金
                         .l-right
                           = number_to_currency(current_user.sales_proceed, unit: "¥", precision: 0)
