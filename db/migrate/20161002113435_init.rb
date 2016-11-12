@@ -82,6 +82,11 @@ class Init < ActiveRecord::Migration[5.0]
       t.uuid :item_id, null: false, index: true
     end
 
+    create_table :favorite_users do |t|
+      t.uuid :liker_id, null: false, index: true
+      t.uuid :liked_id, null: false, index: true
+    end
+
     create_table :colleges, id: :uuid, default: "uuid_generate_v4()" do |t|
       t.string :name, null: false, uniqueness: true
     end

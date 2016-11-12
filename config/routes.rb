@@ -33,6 +33,9 @@ Rails.application.routes.draw do
       post :send_comment
     end
   end
+
+  # match 'search' => 'item#search', via: [:get, :post], as: :search
+
   resources :chat_rooms
   resources :items do
     member do
@@ -41,6 +44,7 @@ Rails.application.routes.draw do
     end
     collection do
       get :report_succeeded
+      post :search
     end
   end
   resources :inquiries

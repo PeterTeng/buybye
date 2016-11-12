@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.index ["college_id"], name: "index_depertments_on_college_id", using: :btree
   end
 
+  create_table "favorite_users", force: :cascade do |t|
+    t.uuid "liker_id", null: false
+    t.uuid "liked_id", null: false
+    t.index ["liked_id"], name: "index_favorite_users_on_liked_id", using: :btree
+    t.index ["liker_id"], name: "index_favorite_users_on_liker_id", using: :btree
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.uuid "user_id", null: false
     t.uuid "item_id", null: false

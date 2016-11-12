@@ -18,7 +18,7 @@ class Item < ApplicationRecord
 
   has_many :comments
   has_many :item_images, dependent: :destroy
-  has_many :favorites
+  has_many :favorites, through: :favorite_users
 
   belongs_to :college
   belongs_to :depertment
@@ -37,9 +37,4 @@ class Item < ApplicationRecord
   enum transaction_status: Item::AVAILABLE_TRANSACTION_STATUS_HASH
   enum preservation_status: Item::AVAILABLE_PRESERVATION_STATUS_HASH
 
-
-  def deleted_your_item
-    self.user.
-    self.destroy
-  end
 end

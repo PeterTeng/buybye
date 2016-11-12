@@ -24,6 +24,7 @@
 class User < ApplicationRecord
 
   has_many :items, dependent: :destroy
+  has_many :favorites, class_name: "User", through: :favorite_users
   has_many :exhibits, dependent: :destroy
   has_many :purchases, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -76,9 +77,9 @@ class User < ApplicationRecord
     self.items.where(transaction_status: 1).pluck(:price).inject(:+)
   end
 
-  # def is_exhibitor?(item)
-  #   self == item.user
-  # end
+  def is_exhibitor?(item)
+    self == item.user
+  end
 
   def warned_count
     self.notifications.count

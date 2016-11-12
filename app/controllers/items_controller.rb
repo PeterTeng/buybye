@@ -40,6 +40,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    render nothing: true
+    @item.destroy
+  end
+
+  def search
+    binding.pry
   end
 
   def report
@@ -58,6 +64,7 @@ class ItemsController < ApplicationController
       sold_at: Date.today,
       buyer_id: current_user.id
     )
+    @item.update buyer_id: current_user.id
     new_chat.join current_user.id
     new_chat.join @item.user.id
     redirect_to chat_room_path(new_chat)
