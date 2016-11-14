@@ -1,0 +1,15 @@
+%section.l-chapter-container
+  %h2.l-chapter-head いいね！一覧
+  - if current_user.like.empty?
+    %ul.mypage-item-list
+      %li.mypage-item-not-found.bold いいね！がありません
+  - else
+    - current_user.like.each do |favorite|
+      %ul.mypage-item-list
+        %li
+          = link_to item_path(favorite), class: 'mypage-item-link' do
+            %figure
+              = image_tag favorite.item_images.first.image_url, width: 30
+            .mypage-item-text= favorite.name
+            .mypage-item-text= number_to_currency(favorite.price, unit: "¥", precision: 0)
+            %i.icon-arrow-right
