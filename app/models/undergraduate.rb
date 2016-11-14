@@ -3,6 +3,7 @@
 # Table name: undergraduates
 #
 #  id            :integer          not null, primary key
+#  college_id    :uuid             not null
 #  depertment_id :string           not null
 #  name          :string           not null
 #

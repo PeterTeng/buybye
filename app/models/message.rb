@@ -2,9 +2,13 @@
 #
 # Table name: messages
 #
-#  id      :uuid             not null, primary key
-#  content :text             not null
-#  is_read :boolean          default(FALSE), not null
+#  id           :uuid             not null, primary key
+#  chat_room_id :uuid             not null
+#  user_id      :uuid             not null
+#  content      :text             not null
+#  is_read      :boolean          default(FALSE), not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 class Message < ApplicationRecord

@@ -3,15 +3,23 @@
 # Table name: items
 #
 #  id                  :uuid             not null, primary key
-#  type                :string           default("Exhibit"), not null
 #  user_id             :uuid             not null
+#  buyer_id            :uuid
+#  college_id          :uuid             not null
+#  depertment_id       :string           not null
+#  undergraduate_id    :string           not null
 #  name                :string           not null
 #  is_pickup           :boolean          default(FALSE), not null
+#  reported            :boolean          default(FALSE), not null
 #  price               :integer          not null
-#  transaction_status  :integer          not null
+#  description         :text             not null
+#  transaction_status  :integer          default("出品中"), not null
 #  preservation_status :integer          not null
-#  is_sold             :boolean          not null
-#  auther              :string           not null
+#  is_sold             :boolean          default(FALSE), not null
+#  auther              :string
+#  sold_at             :date
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 
 class Item < ApplicationRecord
