@@ -18,7 +18,8 @@ class Item < ApplicationRecord
 
   has_many :comments
   has_many :item_images, dependent: :destroy
-  has_many :favorites, through: :favorite_users
+  has_many :like_users
+  has_many :liker, class_name: "User", through: :like_users
 
   belongs_to :college
   belongs_to :depertment

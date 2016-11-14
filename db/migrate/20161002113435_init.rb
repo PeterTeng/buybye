@@ -18,7 +18,6 @@ class Init < ActiveRecord::Migration[5.0]
       t.integer :gender
       t.integer :undergraduate
       t.integer :department
-      t.uuid :favorites, array: true
 
       #user links
       t.string :twitter_link
@@ -77,14 +76,9 @@ class Init < ActiveRecord::Migration[5.0]
       t.timestamps null: false
     end
 
-    create_table :favorites do |t|
-      t.uuid :user_id, null: false, index: true
-      t.uuid :item_id, null: false, index: true
-    end
-
-    create_table :favorite_users do |t|
+    create_table :like_users do |t|
       t.uuid :liker_id, null: false, index: true
-      t.uuid :liked_id, null: false, index: true
+      t.uuid :like_id, null: false, index: true
     end
 
     create_table :colleges, id: :uuid, default: "uuid_generate_v4()" do |t|
