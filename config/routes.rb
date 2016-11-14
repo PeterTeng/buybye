@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   end
 
   # match 'search' => 'item#search', via: [:get, :post], as: :search
+  post 'like' => 'like#create'
 
   resources :chat_rooms
   resources :items do

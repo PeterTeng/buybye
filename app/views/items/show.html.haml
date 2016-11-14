@@ -55,11 +55,12 @@
       = br @item.description
     .item-button-container.clearfix
       .item-button-left
-        %button.item-button.item-button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m513151689", "data-toggle" => "like", :name => "like!", :type => "button"}
-          %i.icon-like-border
-          %span.fade-in-down{"data-num" => "like"} 0
+        = link_to like_path(item_id: @item.id, user_id: current_user.id), method: :post do
+          %button.item-button.item-button-like
+            %i.fa.fa-heart-o
+            %span.fade-in-down= @item.liker.count
         = link_to report_item_path(@item), method: :put, class: "item-button item-button-report clearfix" do
-          %i.icon-flag
+          %i.fa.fa-exclamation
           %span 不適切な商品の報告
   .item-detail-message
     .message-container

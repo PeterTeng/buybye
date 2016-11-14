@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       if @user.save
         log_in @user
         remember @user
+        NotifySlackWorker.new.perform("new user", ":beers:", "#{@user.name}" )
         redirect_to mypage_dashboard_path
       else
         redirect_to mypage_dashboard_path, flash: { alert: "メールアドレスかパスワードのいずれかが間違えております" }

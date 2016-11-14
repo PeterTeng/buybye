@@ -27,15 +27,12 @@
 class User < ApplicationRecord
 
   has_many :items, dependent: :destroy
-  has_many :like_users
-  has_many :like, class_name: "Item", through: :like_users
-  has_many :exhibits, dependent: :destroy
-  has_many :purchases, dependent: :destroy
+  has_many :like_users, foreign_key: :liker_id
+  has_many :like, class_name: "Item", through: :like_users, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
   has_many :messages
   has_many :chat_room_users
-  has_many :chat_room,through: :chat_room_users
+  has_many :chat_room, through: :chat_room_users
   has_many :notifications, dependent: :destroy
   has_many :inquiries
 
@@ -79,6 +76,12 @@ class User < ApplicationRecord
 
   def sales_proceed
     self.items.where(transaction_status: 1).pluck(:price).inject(:+)
+  end
+
+  def like!(item_id)
+    self.like_users.create(
+      like_id: item_id,
+    )
   end
 
   def is_exhibitor?(item)

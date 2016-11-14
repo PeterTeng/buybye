@@ -13,6 +13,7 @@ class ChatRoom < ApplicationRecord
   has_many :messages
 
   has_one :item
+
   def join(user_id)
     self.chat_room_users.create(user_id: user_id)
   end
