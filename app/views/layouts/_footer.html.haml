@@ -9,11 +9,12 @@
     buybye
   %p.footer-copyright
     %small © 2016 Mercari
-- if current_user
-  = link_to new_item_path, class: "footer-sell-btn" do
-    %div 出品
-    %i.fa.fa-book.fa-5x{ style: "margin: 20px 0 0; font-size: 54px;" }
-- else
-  = link_to login_path, class: "footer-sell-btn" do
-    %div 出品
-    %i.fa.fa-book.fa-5x{ style: "margin: 20px 0 0; font-size: 54px;" }
+- unless params[:controller] == session
+  - if current_user
+    = link_to new_item_path, class: "footer-sell-btn" do
+      %div 出品
+      %i.fa.fa-book.fa-5x{ style: "margin: 20px 0 0; font-size: 54px;" }
+  - else
+    = link_to login_path, class: "footer-sell-btn" do
+      %div 出品
+      %i.fa.fa-book.fa-5x{ style: "margin: 20px 0 0; font-size: 54px;" }
