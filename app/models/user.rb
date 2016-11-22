@@ -100,4 +100,25 @@ class User < ApplicationRecord
       )
     end
   end
+
+  def stripe_customer
+    return nil if self.stripe_cus_id.nil?
+
+    customer = Stripe::Customer.retrieve self.stripe_cus_id
+
+    if customer.deleted?
+      nil
+    else
+      customer
+    end
+  end
+
+  def create_card_information(params)
+    self.update(
+      card_owner: params[:card_owner],
+      brand_name: params[:brand_name],
+      country: params[:country],
+      last_4_number: params[:last_4_number]
+    )
+  end
 end
