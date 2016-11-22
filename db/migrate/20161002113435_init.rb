@@ -23,6 +23,13 @@ class Init < ActiveRecord::Migration[5.0]
       t.string :twitter_link
       t.string :facebook_link
 
+      #for stripe
+      t.string :stripe_cus_id, index: true
+      t.string :card_owner
+      t.string :country
+      t.string :brand_name
+      t.integer :last_4_number
+
       #user evaluation
       t.integer :good_evaluation_count, null: false, default: 0
       t.integer :neutral_evaluation_count, null: false, default: 0

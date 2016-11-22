@@ -160,12 +160,18 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.integer  "department"
     t.string   "twitter_link"
     t.string   "facebook_link"
+    t.string   "stripe_cus_id"
+    t.string   "card_owner"
+    t.string   "country"
+    t.string   "brand_name"
+    t.integer  "last_4_number"
     t.integer  "good_evaluation_count",    default: 0,     null: false
     t.integer  "neutral_evaluation_count", default: 0,     null: false
     t.integer  "bad_evaluation_count",     default: 0,     null: false
     t.string   "remember_digest"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.index ["stripe_cus_id"], name: "index_users_on_stripe_cus_id", using: :btree
   end
 
 end
