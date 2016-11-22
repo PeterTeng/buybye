@@ -13,7 +13,8 @@ MYPAGE_ACTION_ARRAY =
   "profile",
   "mail_password",
   "logout",
-  "inquiry"
+  "inquiry",
+  "card_information"
  ]
 
 Rails.application.routes.draw do
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
+  resources :billings
   resources :comments
   resources :messages do
     collection do
