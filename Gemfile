@@ -14,6 +14,8 @@ gem 'bcrypt'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 
+#for card information
+gem 'stripe'
 
 #for tag
 gem 'acts-as-taggable-on'
