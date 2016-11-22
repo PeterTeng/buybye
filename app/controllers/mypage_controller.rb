@@ -51,6 +51,22 @@ class MypageController < ApplicationController
   def logout
   end
 
+  def card_information
+    @stripe_params    = {
+      "data-currency"          => "usd",
+      "data-description"       => "buybye",
+      "data-image"             => "/assets/buybye_icon_5.2.4-39e6030fce179f236a53c64cfd4f569749523a41fa363510e83e140a7a0c0ace.png",
+      "data-key"               =>  Rails.application.secrets.stripe["publishable_key"],
+      "data-locale"            => "auto",
+      "data-name"              => "buybye",
+      "data-email"             => current_user.email,
+      "data-allow-remember-me" => "false",
+      "data-panel-label"       => "送信",
+      "data-label"             => "カード情報を更新する",
+      :src                     => "https://checkout.stripe.com/checkout.js"
+    }
+  end
+
   private def authenticated_user!
     if logged_in?
       unless current_user.id == session[:user_id]
