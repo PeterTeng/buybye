@@ -2,23 +2,23 @@
   %nav.mypage-nav
     %ul.mypage-nav-list
       %li
-        = link_to mypage_dashboard_path, class: "mypage-nav-list-item" do
+        = link_to mypage_dashboard_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'dashboard')}" do
           マイページ
           %i.icon-arrow-right
       %li
-        = link_to mypage_notification_path, class: "mypage-nav-list-item" do
+        = link_to mypage_notification_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'notification')}" do
           お知らせ
           %i.fa.fa-angle-right
       %li
-        = link_to mypage_card_information_path, class: "mypage-nav-list-item" do
+        = link_to mypage_card_information_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'card_information')}" do
           カード情報
           %i.fa.fa-angle-right
       %li
-        = link_to mypage_to_do_list_path, class: "mypage-nav-list-item" do
+        = link_to mypage_to_do_list_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'to_do_list')}" do
           やることリスト
           %i.fa.arrows
       %li
-        = link_to mypage_favorite_list_path, class: "mypage-nav-list-item" do
+        = link_to mypage_favorite_list_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'favorite_list')}" do
           いいね！一覧
           %i.icon-arrow-right
       %li
@@ -26,31 +26,31 @@
           出品する
           %i.icon-arrow-right
       %li
-        = link_to mypage_ex_exhibiting_path, class: "mypage-nav-list-item" do
+        = link_to mypage_ex_exhibiting_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'ex_exhibiting')}" do
           出品した商品 - 出品中
           %i.icon-arrow-right
       %li
-        = link_to mypage_ex_trading_path, class: "mypage-nav-list-item" do
+        = link_to mypage_ex_trading_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'ex_trading')}" do
           出品した商品 - 取引中
           %i.icon-arrow-right
       %li
-        = link_to mypage_ex_settle_path, class: "mypage-nav-list-item" do
+        = link_to mypage_ex_settle_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'ex_settle')}" do
           出品した商品 - 売却済み
           %i.icon-arrow-right
       %li
-        = link_to mypage_pur_trading_path, class: "mypage-nav-list-item" do
+        = link_to mypage_pur_trading_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'pur_trading')}" do
           購入した商品 - 取引中
           %i.icon-arrow-right
       %li
-        = link_to mypage_pur_past_trade_path, class: "mypage-nav-list-item" do
+        = link_to mypage_pur_past_trade_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'pur_past_trade')}" do
           購入した商品 - 過去の取引
           %i.icon-arrow-right
       %li
-        = link_to mypage_reviews_path, class: "mypage-nav-list-item" do
+        = link_to mypage_reviews_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'reviews')}" do
           評価一覧
           %i.icon-arrow-right
       %li
-        = link_to mypage_inquiry_path, class: "mypage-nav-list-item" do
+        = link_to mypage_inquiry_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'inquiry')}" do
           お問い合わせ
           %i.icon-arrow-right
       -# %li
@@ -64,7 +64,7 @@
           プロフィール
           %i.icon-arrow-right
       %li
-        = link_to mypage_mail_password_path, class: "mypage-nav-list-item" do
+        = link_to mypage_mail_password_path, class: "mypage-nav-list-item #{is_active_controller_and_action('mypage', 'dashboard')}" do
           メール/パスワード
           %i.icon-arrow-right
       %li
