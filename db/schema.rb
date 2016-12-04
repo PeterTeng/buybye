@@ -16,6 +16,15 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
+  create_table "billings", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "user_id",                         null: false
+    t.integer  "amount_with_tax",                 null: false
+    t.boolean  "is_paid",         default: false, null: false
+    t.string   "charge_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
   create_table "black_lists", force: :cascade do |t|
     t.string   "email",      null: false
     t.datetime "created_at", null: false
@@ -72,23 +81,24 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "items", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid     "user_id",                             null: false
+    t.uuid     "user_id",                              null: false
     t.uuid     "buyer_id"
-    t.uuid     "college_id",                          null: false
-    t.string   "depertment_id",                       null: false
-    t.string   "undergraduate_id",                    null: false
-    t.string   "name",                                null: false
-    t.boolean  "is_pickup",           default: false, null: false
-    t.boolean  "reported",            default: false, null: false
-    t.integer  "price",                               null: false
-    t.text     "description",                         null: false
-    t.integer  "transaction_status",  default: 0,     null: false
-    t.integer  "preservation_status",                 null: false
-    t.boolean  "is_sold",             default: false, null: false
+    t.uuid     "college_id",                           null: false
+    t.string   "depertment_id",                        null: false
+    t.string   "undergraduate_id",                     null: false
+    t.string   "name",                                 null: false
+    t.boolean  "is_pickup",            default: false, null: false
+    t.boolean  "reported",             default: false, null: false
+    t.integer  "row_price",                            null: false
+    t.integer  "include_margin_price",                 null: false
+    t.text     "description",                          null: false
+    t.integer  "transaction_status",   default: 0,     null: false
+    t.integer  "preservation_status",                  null: false
+    t.boolean  "is_sold",              default: false, null: false
     t.string   "auther"
     t.date     "sold_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["college_id"], name: "index_items_on_college_id", using: :btree
     t.index ["depertment_id"], name: "index_items_on_depertment_id", using: :btree

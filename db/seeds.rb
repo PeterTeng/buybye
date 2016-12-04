@@ -1,3 +1,4 @@
+require 'pry'
 cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
 
 College.create(
@@ -104,7 +105,8 @@ User.all.each do |exhibitor|
     [
       {
         name: "線形代数Ⅰ",
-        price: "1000",
+        row_price: "1000",
+        include_margin_price: 1000*1.1,
         transaction_status: 1,
         preservation_status: 2,
         is_sold: false,
@@ -127,7 +129,8 @@ User.all.each do |exhibitor|
       },
       {
         name: "データ構造とアルゴリズム",
-        price: "3000",
+        row_price: "3000",
+        include_margin_price: 3000*1.1,
         transaction_status: 0,
         preservation_status: 2,
         is_sold: false,

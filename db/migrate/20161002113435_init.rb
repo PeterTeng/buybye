@@ -50,7 +50,8 @@ class Init < ActiveRecord::Migration[5.0]
       t.string :name, null: false
       t.boolean :is_pickup, null: false, default: false
       t.boolean :reported, null: false, default: false
-      t.integer :price, null: false
+      t.integer :row_price, null: false
+      t.integer :include_margin_price, null: false
       t.text :description, null: false
       t.integer :transaction_status, null: false, default: 0
       t.integer :preservation_status, null: false
@@ -75,6 +76,15 @@ class Init < ActiveRecord::Migration[5.0]
     create_table :news do |t|
       t.string :title, null: false
       t.text :content, null: false
+      t.timestamps null: false
+    end
+
+    create_table :billings, id: :uuid, default: "uuid_generate_v4()" do |t|
+      t.uuid :user_id, null: false
+      t.integer :amount_with_tax, null: false
+      t.boolean :is_paid, null: false, default: false
+      t.string :charge_id
+
       t.timestamps null: false
     end
 
