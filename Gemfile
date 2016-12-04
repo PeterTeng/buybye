@@ -14,7 +14,7 @@ gem 'bcrypt'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 
-#for card information
+#for payment
 gem 'stripe'
 
 #for tag
@@ -49,6 +49,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'sass-rails'
+gem 'fancybox2-rails'
+
 
 #for rails console
 gem 'rb-readline'
@@ -74,7 +76,6 @@ group :development do
   gem 'capistrano3-puma'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
-  gem 'better_errors'
   gem 'pry'
 end
 

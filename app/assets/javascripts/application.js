@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require init_fancybox
+//= require fancybox
 //= require merukari/merukari.js
 //= require turbolinks
