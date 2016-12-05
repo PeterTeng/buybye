@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.boolean  "is_pickup",            default: false, null: false
     t.boolean  "reported",             default: false, null: false
     t.integer  "row_price",                            null: false
-    t.integer  "include_margin_price",                 null: false
+    t.integer  "include_margin_price"
     t.text     "description",                          null: false
     t.integer  "transaction_status",   default: 0,     null: false
     t.integer  "preservation_status",                  null: false

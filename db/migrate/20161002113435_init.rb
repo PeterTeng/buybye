@@ -51,7 +51,7 @@ class Init < ActiveRecord::Migration[5.0]
       t.boolean :is_pickup, null: false, default: false
       t.boolean :reported, null: false, default: false
       t.integer :row_price, null: false
-      t.integer :include_margin_price, null: false
+      t.integer :include_margin_price
       t.text :description, null: false
       t.integer :transaction_status, null: false, default: 0
       t.integer :preservation_status, null: false

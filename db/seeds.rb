@@ -77,7 +77,39 @@ College.all.each do |college|
         {
           college_id: college.id,
           name: "経済"
-        }
+        },
+        {
+          college_id: college.id,
+          name: "経済"
+        },
+        {
+          college_id: college.id,
+          name: "経済"
+        },
+        {
+          college_id: college.id,
+          name: "経済"
+        },
+        {
+          college_id: college.id,
+          name: "経済"
+        },
+        {
+          college_id: college.id,
+          name: "経済"
+        },
+        {
+          college_id: college.id,
+          name: "経済"
+        },
+        {
+          college_id: college.id,
+          name: "経済"
+        },
+        {
+          college_id: college.id,
+          name: "経済"
+        },
       ]
     )
   end
