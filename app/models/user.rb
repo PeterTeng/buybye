@@ -35,8 +35,12 @@ class User < ApplicationRecord
   has_many :chat_room, through: :chat_room_users
   has_many :notifications, dependent: :destroy
   has_many :inquiries
+  has_many :billings, dependent: :destroy
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates_acceptance_of :agreement, allow_nil: false, on: :create
+  validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
   attr_accessor :remember_token, :reset_token
 
@@ -70,12 +74,12 @@ class User < ApplicationRecord
     User.find_by email: email
   end
 
-  def is_black_list?(email)
-    BlackList.find_by email: email
+  def is_black_list?
+    BlackList.find_by email: self.email
   end
 
   def sales_proceed
-    self.items.where(transaction_status: 1).pluck(:price).inject(:+)
+    self.items.where(transaction_status: 1).pluck(:row_price).inject(:+)
   end
 
   def like!(item_id)
@@ -103,9 +107,7 @@ class User < ApplicationRecord
 
   def stripe_customer
     return nil if self.stripe_cus_id.nil?
-
     customer = Stripe::Customer.retrieve self.stripe_cus_id
-
     if customer.deleted?
       nil
     else
