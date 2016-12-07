@@ -24,6 +24,11 @@ module ApplicationHelper
     html_escape(str).gsub(/\r\n|\r|\n/, "<br />").html_safe
   end
 
+  def disable_purchase_button(item)
+    if item.is_sold == true
+      "disable"
+    end
+  end
 end
 
 module ActionView
