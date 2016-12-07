@@ -9,11 +9,13 @@ class ItemsController < ApplicationController
   layout "mypage"
 
   def show
-    @item        = Item.includes(:item_images).includes(:user).includes(:college).includes(:depertment).includes(:undergraduate).find(params[:id])
-    @exhibitor   = @item.user
-    @other_items = @exhibitor.items.limit(6).includes(:item_image)
-    @comment     = Comment.new
-    @comments    = @item.comments.includes(:user)
+    current_user  = current_user.includes(:items) if current_user
+    @item         = Item.includes(:item_images).includes(:user).includes(:college).includes(:depertment).includes(:undergraduate).find(params[:id])
+    @exhibitor    = @item.user
+    @other_items  = @exhibitor.items.limit(6).includes(:item_image)
+    @comment      = Comment.new
+    @comments     = @item.comments.includes(:user)
+    # @review_count = @user.good_evaluation_count +
   end
 
   def edit
@@ -45,7 +47,6 @@ class ItemsController < ApplicationController
   end
 
   def search
-    binding.pry
   end
 
   def report
@@ -59,16 +60,13 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    new_chat = ChatRoom.create item_id: @item.id
-    @item.update(
-      sold_at: Date.today,
-      buyer_id: current_user.id
-    )
-    @item.update buyer_id: current_user.id
-    new_chat.join current_user.id
-    new_chat.join @item.user.id
-    redirect_to chat_room_path(new_chat)
+    CreateNewChatService.call(@item.id, current_user.id, @item.user.id)
+    update_item_after_pucahsed!(@item)
+    CreateTradeService.exec(@item, current_user, @item.user)
+    # TODO この2つの処理はdelayed jobをかませたい
     NotifySlackWorker.new.perform('transaction succeeded', ':congratulations:','取引が行われました')
+    CreateBillingService.call(@item, current_user)
+    redirect_to root_path
   end
 
   private def set_item
@@ -85,7 +83,8 @@ class ItemsController < ApplicationController
           :college_id,
           :depertment_id,
           :undergraduate_id,
-          :price,
+          :row_price,
+          :price_with_margin,
           :preservation_status,
           :auther,
           :created_at,
@@ -100,4 +99,11 @@ class ItemsController < ApplicationController
     redirect_to :back, flash[:danger] = message
   end
 
+  private def update_item_after_pucahsed!(item)
+    item.update(
+      sold_at: Date.today,
+      buyer_id: current_user.id,
+      transaction_status: 1,
+    )
+  end
 end
