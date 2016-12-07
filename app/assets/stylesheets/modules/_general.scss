@@ -1,0 +1,301 @@
+audio:not([controls]) {
+    display: none
+}
+button {
+    -webkit-appearance: button;
+    overflow: visible
+}
+details {
+    display: block
+}
+html {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%
+}
+input {
+    -webkit-border-radius: 0
+}
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button
+}
+input[type="number"] {
+    width: auto
+}
+input[type="search"] {
+    -webkit-appearance: textfield
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+main {
+    display: block
+}
+pre {
+    overflow: auto
+}
+progress {
+    display: inline-block
+}
+small {
+    font-size: 75%
+}
+summary {
+    display: block
+}
+svg:not(:root) {
+    overflow: hidden
+}
+template {
+    display: none
+}
+textarea {
+    overflow: auto
+}
+[hidden] {
+    display: none
+}
+*,
+::before,
+::after {
+    box-sizing: inherit
+}
+* {
+    font-size: inherit;
+    line-height: inherit
+}
+::before,
+::after {
+    text-decoration: inherit;
+    vertical-align: inherit
+}
+*,
+::before,
+::after {
+    border-style: solid;
+    border-width: 0
+}
+* {
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0
+}
+:root {
+    background-color: $white-color;
+    box-sizing: border-box;
+    color: $black-color;
+    cursor: default;
+    font: 100% / 1.5 sans-serif
+}
+a {
+    text-decoration: none
+}
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle
+}
+button,
+input,
+select,
+textarea {
+    background-color: transparent
+}
+button,
+input,
+select,
+textarea {
+    color: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit
+}
+button,
+[type="button"],
+[type="date"],
+[type="datetime"],
+[type="datetime-local"],
+[type="email"],
+[type="month"],
+[type="number"],
+[type="password"],
+[type="reset"],
+[type="search"],
+[type="submit"],
+[type="tel"],
+[type="text"],
+[type="time"],
+[type="url"],
+[type="week"],
+select,
+textarea {
+    min-height: 1.5em
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace
+}
+nav ol,
+nav ul {
+    list-style: none
+}
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none
+}
+select::-ms-expand {
+    display: none
+}
+select::-ms-value {
+    color: currentColor
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+textarea {
+    resize: vertical
+}
+::-moz-selection {
+    background-color: $selection-color;
+    color: $white-color;
+    text-shadow: none
+}
+::selection {
+    background-color: $selection-color;
+    color: $white-color;
+    text-shadow: none
+}
+[aria-busy="true"] {
+    cursor: progress
+}
+[aria-controls] {
+    cursor: pointer
+}
+[aria-disabled] {
+    cursor: default
+}
+[hidden][aria-hidden="false"] {
+    clip: rect(0 0 0 0);
+    display: inherit;
+    position: absolute
+}
+[hidden][aria-hidden="false"]:focus {
+    clip: auto
+}
+a,
+area,
+button,
+input,
+label,
+select,
+textarea,
+[tabindex] {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation
+}
+html {
+    overflow-y: auto
+}
+:root {
+    cursor: auto
+}
+::-moz-selection {
+    color: currentColor
+}
+::selection {
+    color: currentColor
+}
+ul,
+ol {
+    list-style: none
+}
+address {
+    font-style: normal
+}
+img {
+    vertical-align: middle
+}
+input {
+    border: 0;
+    outline: 0;
+    font-family: inherit;
+    // -webkit-appearance: none;
+    -moz-appearance: none
+}
+input[type='checkbox']:focus,
+input[type='radio']:focus {
+    outline: 0
+}
+input[type='number'] {
+    -moz-appearance: textfield
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none
+}
+input[type='search'] {
+    -webkit-appearance: none
+}
+label {
+    display: inline-block
+}
+textarea {
+    border-radius: 0;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none
+}
+select {
+    outline: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none
+}
+button {
+    border: 0;
+    outline: 0;
+    cursor: pointer
+}
+button:disabled {
+    cursor: not-allowed
+}
+
+/*  -- reset -- */
+
+html {
+    height: 100%
+}
+body {
+    position: relative;
+    min-height: 100%;
+    background: $background-color;
+    font-family: "jaf-domus", "Hiragino Sans", sans-serif;
+    font-size: 14px;
+    color: $black-color;
+    line-height: 1
+}
+a {
+    color: $link-color;
+    text-decoration: none
+}
+a:hover {
+    text-decoration: underline;
+    opacity: .7
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both
+}
+.gray-space {
+    height: 20px;
+    background-color: $background-color
+}
