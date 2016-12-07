@@ -51,21 +51,6 @@ College.all.each do |college|
       {
         name: "文"
       },
-      {
-        name: ""
-      },
-      {
-        name: ""
-      },
-      {
-        name: ""
-      },
-      {
-        name: ""
-      },
-      {
-        name: ""
-      },
     ]
   )
 end
@@ -138,11 +123,12 @@ User.all.each do |exhibitor|
       {
         name: "線形代数Ⅰ",
         row_price: "1000",
-        include_margin_price: 1000*1.1,
+        price_with_margin: 1000*1.1,
         transaction_status: 1,
         preservation_status: 2,
         is_sold: false,
         auther: "山田 太郎",
+        image: File.open("./public/img/test_data/exhibits/exhibit_image_1.jpg"),
         description: "刑法総論　第二版
                       西田典之
                       定価3,300円
@@ -162,11 +148,12 @@ User.all.each do |exhibitor|
       {
         name: "データ構造とアルゴリズム",
         row_price: "3000",
-        include_margin_price: 3000*1.1,
+        price_with_margin: 3000*1.1,
         transaction_status: 0,
         preservation_status: 2,
         is_sold: false,
         auther: "山田 太郎",
+        image: File.open("./public/img/test_data/exhibits/exhibit_image_1.jpg"),
         description: "刑法総論　第二版
                       西田典之
                       定価3,300円
@@ -183,19 +170,6 @@ User.all.each do |exhibitor|
         depertment_id: Depertment.first.id,
         undergraduate_id: Undergraduate.first.id,
       }
-    ]
-  )
-end
-
-Item.all.each do |item|
-  item.item_images.create(
-    [
-      {
-        image: File.open("./public/img/test_data/exhibits/exhibit_image_1.jpg")
-      },
-      {
-        image: File.open("./public/img/test_data/exhibits/exhibit_image_1.jpg")
-      },
     ]
   )
 end

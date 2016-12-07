@@ -51,7 +51,8 @@ class Init < ActiveRecord::Migration[5.0]
       t.boolean :is_pickup, null: false, default: false
       t.boolean :reported, null: false, default: false
       t.integer :row_price, null: false
-      t.integer :include_margin_price
+      t.string :image, null: false
+      t.integer :price_with_margin
       t.text :description, null: false
       t.integer :transaction_status, null: false, default: 0
       t.integer :preservation_status, null: false
@@ -59,6 +60,13 @@ class Init < ActiveRecord::Migration[5.0]
       t.string :auther
       t.date :sold_at
       t.timestamps null: false
+    end
+
+    create_table :trades, id: :uuid, default: "uuid_generate_v4()" do |t|
+      t.uuid :item_id, null: false, index: true
+      t.uuid :buyer_id, null: false, index: true
+      t.uuid :user_id, null: false, index: true
+      t.string :trade_token, null: false, index: true
     end
 
     create_table :item_images, id: :uuid, default: "uuid_generate_v4()" do |t|

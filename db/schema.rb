@@ -81,24 +81,25 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "items", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid     "user_id",                              null: false
+    t.uuid     "user_id",                             null: false
     t.uuid     "buyer_id"
-    t.uuid     "college_id",                           null: false
-    t.string   "depertment_id",                        null: false
-    t.string   "undergraduate_id",                     null: false
-    t.string   "name",                                 null: false
-    t.boolean  "is_pickup",            default: false, null: false
-    t.boolean  "reported",             default: false, null: false
-    t.integer  "row_price",                            null: false
-    t.integer  "include_margin_price"
-    t.text     "description",                          null: false
-    t.integer  "transaction_status",   default: 0,     null: false
-    t.integer  "preservation_status",                  null: false
-    t.boolean  "is_sold",              default: false, null: false
+    t.uuid     "college_id",                          null: false
+    t.string   "depertment_id",                       null: false
+    t.string   "undergraduate_id",                    null: false
+    t.string   "name",                                null: false
+    t.boolean  "is_pickup",           default: false, null: false
+    t.boolean  "reported",            default: false, null: false
+    t.integer  "row_price",                           null: false
+    t.string   "image",                               null: false
+    t.integer  "price_with_margin"
+    t.text     "description",                         null: false
+    t.integer  "transaction_status",  default: 0,     null: false
+    t.integer  "preservation_status",                 null: false
+    t.boolean  "is_sold",             default: false, null: false
     t.string   "auther"
     t.date     "sold_at"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["college_id"], name: "index_items_on_college_id", using: :btree
     t.index ["depertment_id"], name: "index_items_on_depertment_id", using: :btree
@@ -146,6 +147,17 @@ ActiveRecord::Schema.define(version: 20161002113435) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+  end
+
+  create_table "trades", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid   "item_id",     null: false
+    t.uuid   "buyer_id",    null: false
+    t.uuid   "user_id",     null: false
+    t.string "trade_token", null: false
+    t.index ["buyer_id"], name: "index_trades_on_buyer_id", using: :btree
+    t.index ["item_id"], name: "index_trades_on_item_id", using: :btree
+    t.index ["trade_token"], name: "index_trades_on_trade_token", using: :btree
+    t.index ["user_id"], name: "index_trades_on_user_id", using: :btree
   end
 
   create_table "undergraduates", force: :cascade do |t|
