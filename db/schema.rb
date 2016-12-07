@@ -150,10 +150,12 @@ ActiveRecord::Schema.define(version: 20161002113435) do
   end
 
   create_table "trades", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.uuid   "item_id",     null: false
-    t.uuid   "buyer_id",    null: false
-    t.uuid   "user_id",     null: false
-    t.string "trade_token", null: false
+    t.uuid     "item_id",     null: false
+    t.uuid     "buyer_id",    null: false
+    t.uuid     "user_id",     null: false
+    t.string   "trade_token", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["buyer_id"], name: "index_trades_on_buyer_id", using: :btree
     t.index ["item_id"], name: "index_trades_on_item_id", using: :btree
     t.index ["trade_token"], name: "index_trades_on_trade_token", using: :btree

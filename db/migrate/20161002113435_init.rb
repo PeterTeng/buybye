@@ -64,9 +64,12 @@ class Init < ActiveRecord::Migration[5.0]
 
     create_table :trades, id: :uuid, default: "uuid_generate_v4()" do |t|
       t.uuid :item_id, null: false, index: true
+      t.uuid :chat_id, nill: false, index: true
       t.uuid :buyer_id, null: false, index: true
       t.uuid :user_id, null: false, index: true
+      t.integer :trade_price, null: false
       t.string :trade_token, null: false, index: true
+      t.timestamps null: false
     end
 
     create_table :item_images, id: :uuid, default: "uuid_generate_v4()" do |t|
