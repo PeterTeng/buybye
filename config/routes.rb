@@ -79,5 +79,6 @@ Rails.application.routes.draw do
     resources :users
     resources :notifications
     resources :black_lists
+    resources :trades
   end
 end
