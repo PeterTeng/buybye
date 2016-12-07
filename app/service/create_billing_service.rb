@@ -1,9 +1,9 @@
 class CreateBillingService
-  def self.call(service, user, currency_sym)
-    service.billings.new(user_id: user.id).tap do |billing|
-      billing.currency = Billing::AVAILABLE_CURRENCY_HASH[currency_sym]
-      billing.amount = ConvertAmount.call(service.amount, service.currency.to_sym, :jpy)
-      billing.save
-    end
+  def self.call(item, buyer)
+    billing = buyer.billings.new
+    billing.update(
+      amount_with_tax: item.row_price*1.1 - item.row_price
+    )
+    billing.settle!
   end
 end
