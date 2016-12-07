@@ -36,6 +36,7 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :inquiries
   has_many :billings, dependent: :destroy
+  has_many :trades
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

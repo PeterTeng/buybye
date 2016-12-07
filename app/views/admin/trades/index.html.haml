@@ -1,0 +1,38 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    %h2 trades
+    %ol.breadcrumb
+      %li= link_to "トップ", admin_trades_path
+      %li.active
+        %strong 一覧
+  .col-lg-2
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .ibox.float-e-margins
+      .ibox-title
+        %h5 trade
+      .ibox-content
+        %table.table.table-align-middle
+          %thead
+            %tr
+              %th id
+              %th 購入者
+              %th 出品者
+              %th 取引時刻
+              %th 取引コード
+          %tbody
+            - @trades.each do |trade|
+              %tr
+                %td= trade.id
+                %td
+                  = trade.buyer.name
+                  = link_to "(#{trade.buyer.email})", user_path(trade.buyer)
+                %td
+                  = trade.user.name
+                  = link_to "(#{trade.user.email})", user_path(trade.user)
+                %td= trade.created_at.strftime("%c")
+                %td{ style: "font-size: 20px;" }= trade.trade_token
+                %td
+                  = link_to ""
+                  = link_to "返金処理をする",refund_admin_trade_path(trade), method: :post, data: { confirm: 'この手順は戻れません.いいですか？' }, class: "btn btn-danger btn-sm"
+                  = link_to "チャットを見に行く", chat_path(trade.chat_id), class: "btn btn-default btn-sm"
