@@ -79,7 +79,11 @@ class User < ApplicationRecord
   end
 
   def sales_proceed
-    self.items.where(transaction_status: 1).pluck(:row_price).inject(:+)
+    # 取引数をカウントし、nilだったら0を返す
+    sales_count = self.items.where(transaction_status: 1).pluck(:row_price).inject(:+)
+    if sales_count
+      return 0
+    end
   end
 
   def like!(item_id)
