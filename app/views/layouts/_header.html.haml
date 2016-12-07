@@ -1,5 +1,5 @@
 :ruby
-  @colleges = College.includes(depertments: [:undergraduates])
+  @depertments = Depertment.includes(:undergraduates).all
   @q = Item.ransack params[:q]
   @items = @q.result distinct: true
 %header.sp-header.visible-sp
@@ -23,10 +23,8 @@
   %nav.sp-header-nav
     %ul
       %li
-        - @colleges.first.depertments do |depertment|
+        - @depertments.each do |depertment|
           = link_to depertment.name, "", class: "active-category"
-      -# %li
-      -#   %a.active-category{"data-ga" => "element", "data-ga-category" => "NAVIGATION", "data-ga-label" => "sp_header_nav_ブランド一覧", :href => "https://www.mercari.com/jp/brand/"} ブランド一覧
 %header.pc-header.visible-pc
   .pc-header-inner
     .clearfix
@@ -44,20 +42,16 @@
         %ul.pc-header-nav
           %li
             %h2
-              %a.pc-header-nav-root{:href => "https://www.mercari.com/jp/category/"} 大学
-            %ul.pc-header-nav-parent-wrap{"data-mega" => "1"}
-              - @colleges.each do |college|
+              = link_to "学部・学科で調べる", "", class: "pc-header-nav-root"
+            %ul.pc-header-nav-parent-wrap{ style: "width: auto;" }
+              - @depertments.each do |depertment|
                 %li.pc-header-nav-parent
                   %h3
-                    = link_to college.name, "", class: "pc-header-nav-root"
-                  %ul.pc-header-nav-child-wrap{"data-mega" => "2"}
-                    %li.pc-header-nav-child
-                      - college.depertments.each do |depertment|
-                        = link_to depertment.name, ""
-                        %ul.pc-header-nav-grand-child-wrap{"data-mega" => "3"}
-                          %li.pc-header-nav-grand-child
-                            - depertment.undergraduates.each do |undergraduate|
-                              = link_to undergraduate.name, ""
+                    = link_to depertment.name, ""
+                  - depertment.undergraduates.each do |undergraduate|
+                    %ul.pc-header-nav-child-wrap
+                      %li.pc-header-nav-child
+                        = link_to undergraduate.name, ""
       .l-right
         - if logged_in?
           %ul.pc-header-user-nav
@@ -76,7 +70,7 @@
                       = current_user.name
                   %ul.pc-header-mypage-review-listing
                     %li
-                      = link_to '評価, ""'
+                      = link_to "評価: #{current_user.sales_proceed}", ""
                       -# %a{:href => "https://www.mercari.com/jp/mypage/review/history/"} 評価:
                     %li
                       = link_to '', ''

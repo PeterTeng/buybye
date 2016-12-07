@@ -50,6 +50,13 @@
           %span.fa.arrow
         %ul.nav.nav-second-level
           %li{class: is_active_controller_and_action('admin/inquiries', 'index')}= link_to "一覧", admin_inquiries_path
+      %li{class: is_active_controller('admin/transactions')}
+        %a
+          %i.fa.fa-credit-card-alt
+          %span.nav-label= t('activerecord.models.trades')
+          %span.fa.arrow
+        %ul.nav.nav-second-level
+          %li{class: is_active_controller_and_action('admin/trades', 'index')}= link_to "一覧", admin_trades_path
       -# %li{class: is_active_controller('admin/diary_categories')}
       -#   %a
       -#     %i.fa.fa-tags

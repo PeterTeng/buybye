@@ -1,0 +1,133 @@
+%section.mypage-user-icon
+  = link_to user_path current_user do
+    %figure
+      = image_tag current_user.image_url, height: 60, width: 60
+    %h2.bold= current_user.name
+    .mypage-number
+      %div
+        評価
+        %span.bold 2
+      %div
+        出品数
+        %span.bold= current_user.sales_proceed
+%section.mypage-tab-container-notification-todo
+  %ul.mypage-tabs
+    %li.active
+      %h3
+        %a{"data-toggle" => "tab", :href => "#mypage-tab-notification"}
+          お知らせ
+    %li
+      %h3
+        %a{"data-toggle" => "tab", :href => "#mypage-tab-todo"}
+          やることリスト
+  .tab-content
+    %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+      %li
+        %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+          %figure
+            %img{:alt => "", :src => "//static-mercari-jp-web-imgtr.akamaized.net/images/mercari_profile.png"}/
+          .mypage-item-body
+            .mypage-item-text 事務局から個別メッセージ「【要チェック】こんなアイテムも売ってるんです！」
+            %time
+              %i.icon-time
+              %span 2 日前
+          %i.icon-arrow-right
+      %li
+        %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+          %figure
+            %img{:alt => "", :src => "//static-mercari-jp-web-imgtr.akamaized.net/images/mercari_profile.png"}/
+          .mypage-item-body
+            .mypage-item-text 事務局から個別メッセージ「必ず300ポイントもらえる！姉妹アプリ「メルカリ アッテ」キャンペーン実施中」
+            %time
+              %i.icon-time
+              %span 5 日前
+          %i.icon-arrow-right
+      %li
+        %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+          %figure
+            %img{:alt => "", :src => "//static-mercari-jp-web-imgtr.akamaized.net/images/mercari_profile.png"}/
+          .mypage-item-body
+            .mypage-item-text 【dケータイ払いプラスでWチャンス】今日はd曜日！「dポイント」と「メルカリポイント」をダブルでゲット！詳細を確認しよう！
+            %time
+              %i.icon-time
+              %span 8 日前
+          %i.icon-arrow-right
+      %li
+        %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+          %figure
+            %img{:alt => "", :src => "//static-mercari-jp-web-imgtr.akamaized.net/images/mercari_profile.png"}/
+          .mypage-item-body
+            .mypage-item-text 【ドコモ以外でも使える】dケータイ払いプラスでメルカリポイントをゲット！詳細を確認しよう！
+            %time
+              %i.icon-time
+              %span 12 日前
+          %i.icon-arrow-right
+      %li
+        %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+          %figure
+            %img{:alt => "", :src => "//static-mercari-jp-web-imgtr.akamaized.net/images/mercari_profile.png"}/
+          .mypage-item-body
+            .mypage-item-text 販売手数料割引キャンペーンが期間延長！詳細を確認しましょう。
+            %time
+              %i.icon-time
+              %span 16 日前
+          %i.icon-arrow-right
+      %li.mypage-go-list
+        %a{:href => "/jp/mypage/notification/"} 一覧を見る
+    %ul#mypage-tab-todo.mypage-item-list.tab-pane
+      %li.mypage-item-not-found.bold 現在、やることリストはありません
+%aside.modal{"data-close" => "modal", "data-modal" => "banner"}
+  .modal-inner.modal-banner
+    .modal-banner-eye-catch
+      %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?1667618625"}/
+      %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1667618625"}/
+    .modal-banner-body
+      %h2 今すぐ無料ダウンロード！
+      %p.bold 全ての機能を使えるスマホアプリはこちら！
+      .modal-banner-app.clearfix
+        %a.pull-left{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+          %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1667618625"}/
+        %a.pull-left{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+          %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1667618625"}/
+      %a.modal-banner-app-open{"data-action" => "app/launch", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://", :href => ""}
+        アプリで開く
+    %i.icon-close{"data-close" => "modal"}
+%section.mypage-tab-container
+  %h2.mypage-tab-head 購入した商品
+  %ul.mypage-tabs
+    %li.active
+      %h3
+        %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-now"}
+          取引中
+    %li
+      %h3
+        %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-old"}
+          過去の取引
+  .tab-content
+    %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+      %li.mypage-item-not-found.bold 取引中の商品がありません
+    %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
+      %li
+        %a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m814117500/"}
+          %figure
+            %img{:alt => "", :src => "//static-mercari-jp-web-imgtr.akamaized.net/thumb/photos/m814117500_1.jpg?1452984664"}/
+          .mypage-item-body
+            .mypage-item-text
+              「新品送料込Mini VGA to VGAアダプタケーブル603-0607」 を購入しました。
+              %span 取引が完了しました
+            .mypage-item-status.bold.done
+              取引完了
+          %i.icon-arrow-right
+      %li
+        %a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m211726809/"}
+          %figure
+            %img{:alt => "", :src => "//static-mercari-jp-web-imgtr.akamaized.net/thumb/photos/m211726809_1.jpg?1452334952"}/
+          .mypage-item-body
+            .mypage-item-text
+              「DELL 17インチモニター （中古）サブモニター等に」 を購入しました。
+              %span 取引が完了しました
+            .mypage-item-status.bold.done
+              取引完了
+          %i.icon-arrow-right
+      %li.mypage-go-list
+        %a{:href => "/jp/mypage/purchased/"} 一覧を見る

@@ -1,0 +1,84 @@
+.users-detail-profile-box
+  .users-detail-photo_box.text-center
+    %a{:href => "https://www.mercari.com/jp/u/842310179/"}
+      .users-detail-photo{ style: "background-image: url(#{@user.image_url})" }
+      %h2.users-detail-title.font-6
+        = @user.name
+    .users-detail-score.font-3
+      -#TODO
+      -# %span= @user.good_evaluation_count +
+      %span 出品数 3
+.white
+  .users-detail-ratings-box.font-6
+    %div
+      .users-detail-ratings.clearfix
+        %i.icon-good
+        .text-center.users-detail-ragtings-score
+          0
+    %div
+      .users-detail-ratings.clearfix
+        %i.icon-normal
+        .text-center.users-detail-ragtings-score
+          0
+    %div
+      .users-detail-ratings.clearfix
+        %i.icon-bad
+        .text-center.users-detail-ragtings-score
+          0
+  .users-detail-description_box
+    %p.font-2
+      ご覧頂きありがとうございます( ^ω^ )
+.item-social-media-box
+  %ul.social-media-box
+    %li
+      %a.share-btn{"data-window-name" => "facebook_window", :href => "http://www.facebook.com/share.php?u=https%3A%2F%2Fwww.mercari.com%2Fjp%2Fu%2F842310179%2F", :target => "_blank"}
+        %i.icon-facebook
+    %li
+      %a.share-btn{"data-window-name" => "twitter_window", :href => "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fwww.mercari.com%2Fjp%2Fu%2F842310179%2F&text=%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E3%81%97%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%20https%3A%2F%2Fwww.mercari.com%2Fjp%2Fu%2F842310179%2F", :target => "_blank"}
+        %i.icon-twitter
+    %li
+      %a{:href => "http://line.me/R/msg/text/?shi.%20%7C%20%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%A7%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%0D%0Ahttps://www.mercari.com/jp/u/842310179/", :target => "_blank"}
+        %i.icon-line
+%ul.nav-user-link-prev-next.clearfix
+  %li.nav-user-link-prev
+    %a{:href => "/jp/u/454796570/"}
+      %i.icon-arrow-left>
+      Naoto  Ishida
+  %li.nav-user-link-next
+    %a{:href => "/jp/u/249327297/"}
+      やすくん
+      %i.icon-arrow-right
+%section.items-box-container.clearfix.items-box-overflow
+  %h2.items-box-head
+    この出品者の商品
+  .items-box-content.clearfix
+    %section.items-box
+      %a{:href => "https://item.mercari.com/jp/m474101497/"}
+        %figure.items-box-photo
+          %img.lazyloaded{:alt => "新品！ LouisVuitton ネヴァーフルGM", "data-src" => "https://static-mercari-jp-web-imgtr.akamaized.net/thumb/photos/m474101497_1.jpg?1480776376", :src => "https://static-mercari-jp-web-imgtr.akamaized.net/thumb/photos/m474101497_1.jpg?1480776376"}/
+        .items-box-body
+          %h3.items-box-name.font-2 新品！ LouisVuitton ネヴァーフルGM
+          .items-box-num.clearfix
+            .items-box-price.font-5 ¥ 99,000
+            .items-box-likes.font-2
+              %i.icon-like-border
+              %span 16
+    %section.items-box
+      %a{:href => "https://item.mercari.com/jp/m555063056/"}
+        %figure.items-box-photo
+          %img.lazyloaded{:alt => "超美品 GUCCI 長財布", "data-src" => "https://static-mercari-jp-web-imgtr.akamaized.net/thumb/photos/m555063056_1.jpg?1480776186", :src => "https://static-mercari-jp-web-imgtr.akamaized.net/thumb/photos/m555063056_1.jpg?1480776186"}/
+        .items-box-body
+          %h3.items-box-name.font-2 超美品 GUCCI 長財布
+          .items-box-num.clearfix
+            .items-box-price.font-5 ¥ 56,000
+            .items-box-likes.font-2
+              %i.icon-like-border
+              %span 10
+    %section.items-box
+      %a{:href => "https://item.mercari.com/jp/m113734832/"}
+        %figure.items-box-photo
+          %img.lazyloaded{:alt => "Rady系 大きいサイズセットアップ", "data-src" => "https://static-mercari-jp-web-imgtr.akamaized.net/thumb/photos/m113734832_1.jpg?1480776016", :src => "https://static-mercari-jp-web-imgtr.akamaized.net/thumb/photos/m113734832_1.jpg?1480776016"}/
+        .items-box-body
+          %h3.items-box-name.font-2 Rady系 大きいサイズセットアップ
+          .items-box-num.clearfix
+            .items-box-price.font-5 ¥ 9,500

@@ -8,11 +8,11 @@
           %ul.transact-info-table-cell
             %li
               = link_to @item do
-                = image_tag @item.item_images.first.image_url, height: 60
+                -# = image_tag @item.item_images.first.image_url, height: 60
                 .transact-info-item.bold
                   = @item.name
                   %br/
-                  = number_to_currency(@item.price, unit: "¥", precision: 0)
+                  = number_to_currency(@item.row_price, unit: "¥", precision: 0)
         %li.transact-info-table-row
           %span.transact-info-table-cell 購入日時
           %ul.transact-info-table-cell
@@ -26,5 +26,5 @@
             = image_tag  @item.user.image_url, width: 40
           %figcaption.bold
             .transact-user-name
-              = @item.user.introduce
+              = @item.user.name
         %i.icon-arrow-right

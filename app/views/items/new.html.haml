@@ -3,7 +3,8 @@
     %div{"data-reactroot" => ""}
       .sell-container-inner
         %h2.l-single-head 商品の情報を入力
-        = form_for (:item), url: items_path, html: { role: 'form', class: 'sell-form' } do |f|
+        = form_for @item, html: { role: 'form', class: 'sell-form' } do |f|
+          = f.error_messages!
           -# .sell-upload-box
           -#   %h3.sell-upload-head
           -#     出品画像
@@ -25,12 +26,12 @@
                 商品名
                 %span.form-require 必須
               %div
-                = f.text_field :name, class: "input-default", place_holder: "商品名（必須 40文字まで)", required: true
+                = f.text_field :name, class: "input-default #{f.error_css(:name)}", place_holder: "商品名（必須 40文字まで)", required: true
             .form-group
               %label
                 商品の説明
                 %span.form-require 必須
-              = f.text_area :description, class: "input-default", place_holder: "商品名（必須 40文字まで)", required: true
+              = f.text_area :description, class: "input-default #{f.error_css(:description)}", place_holder: "商品名（必須 40文字まで)", required: true
           .sell-content.clearfix
             %h3.sell-sub-head 商品の詳細
             .sell-form-box
@@ -41,7 +42,7 @@
                 %div
                   .select-wrap
                     = f.hidden_field :college_id, value: @collge.id
-                    = f.select :depertment_id, @depertments.map{|t| [t.name, t.id]}, class: "select-default"
+                    = f.select :depertment_id, @depertments.map{|t| [t.name, t.id]}, class: "select-default  #{f.error_css(:depertment_id)}"
                     %i.icon-arrow-bottom
               .form-group
                 %label
@@ -49,14 +50,14 @@
                   %span.form-require 必須
                 %div
                   .select-wrap
-                    = f.select :undergraduate_id, @undergraduates.map{|t| [t.name, t.id]}, class: "select-default"
+                    = f.select :undergraduate_id, @undergraduates.map{|t| [t.name, t.id]}, class: "select-default #{f.error_css(:undergraduate_id)}"
                     %i.icon-arrow-bottom
               .form-group
                 %label
                   商品の状態
                   %span.form-require 必須
                 .select-wrap
-                  = f.select :preservation_status, Item::AVAILABLE_PRESERVATION_STATUS_HASH.keys, class: "select-default"
+                  = f.select :preservation_status, Item::AVAILABLE_PRESERVATION_STATUS_HASH.keys, class: "select-default #{f.error_css(:preservation_status)}"
                   %i.icon-arrow-bottom
           .sell-content.clearfix
             %h3.sell-sub-head 販売価格(300〜9,999,999)
@@ -70,6 +71,14 @@
                     .l-right.sell-price-input
                       ¥
                       %div
-                        = f.number_field :price, class: "input-default", place_holder: "例）300"
-            = f.submit "出品する", class: "btn-default btn-red"
+                        = f.number_field :row_price, class: "input-default #{f.error_css(:row_price)}", place_holder: "例）300"
+                    .l-right.sell-price-input
+                      ¥
+                      %div
+                        = f.number_field :row_price, class: "input-default #{f.error_css(:row_price)}", place_holder: "例）300", id: "js-price-input"
+                      :javascript
+                        $("#js-price-input").on('change', function() {
+                          $("form#js-file-form").submit();
+                        })
+            = f.submit "出品する", class: "btn-default btn-red",disable_with: "処理中..."
             -# %button.btn-default.btn-red{:type => "submit"} 出品する

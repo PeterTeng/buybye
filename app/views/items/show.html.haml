@@ -47,8 +47,8 @@
             %th 商品の状態
             %td= @item.preservation_status
     .item-price-box.text-center
-      %span.item-price.bold= number_to_currency(@item.price, unit: "¥", precision: 0)
-    = link_to "購入", purchase_item_path(@item), method: :post, class: "item-buy-btn f18-24", "data-client" => "hidden"
+      %span.item-price.bold= number_to_currency(@item.row_price, unit: "¥", precision: 0)
+    = link_to "購入", purchase_item_path(@item), method: :post, class: "item-buy-btn f18-24"
     .item-buy-btn-client{"data-client" => "visible"}
       = link_to "購入ページへ", ""
     .item-description.f14
@@ -147,6 +147,22 @@
       -#       %input{:name => "comment_id", :type => "hidden", :value => ""}/
       -#       %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
       -#       %input{:name => "__csrf_value", :type => "hidden", :value => "cd66b1010940ea4320a076f9e2637486ebb99adde18c2e35ac2664d3221a3f4f48d04e5670bd5c38e5a2956a935f6cef7ca60bdbb76f970a7f48be490985d6ab"}/
+  %section.items-box-container.clearfix.items-box-overflow
+    %h2.items-box-head
+      = link_to "#{@item.user.name}さんの他の商品", user_path(@item.user)
+    .items-box-content.clearfix
+      - current_user.items.each do |item|
+        %section.items-box
+          = link_to item_path(item) do
+            %figure.items-box-photo
+              -# = image_tag item.item_images.image_url, class: 'lazyloaded'
+            .items-box-body
+              %h3.items-box-name.font-2= item.name
+              .items-box-num.clearfix
+                .items-box-price.font-5= number_to_currency(item.row_price, unit: "¥", precision: 0)
+                .items-box-likes.font-2
+                  %i.icon-like-border
+                  %span= item.liker.count
 
   -# %aside.modal{"data-close" => "modal", "data-modal" => "report-item"}
   -#   .modal-inner.modal-banner

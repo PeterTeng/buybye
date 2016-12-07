@@ -116,8 +116,8 @@
             %section.items-box
               = link_to item_path(item) do
                 %figure.items-box-photo
-                  -# = image_tag item.item_images.first.image_url, class: "lazyload"
+                  = image_tag item.image_url, class: "lazyload"
                 .items-box-body
                   %h3.items-box-name.font-2= item.name
                   .items-box-num.clearfix
-                    .items-box-price.font-5= number_to_currency(item.price, unit: "¥", precision: 0)
+                    .items-box-price.font-5= number_to_currency(item.price_with_margin, unit: "¥", precision: 0)
