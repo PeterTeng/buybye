@@ -70,6 +70,7 @@ group :development, :test do
   gem 'annotate'
   gem 'binding_of_caller'
   gem 'bullet'
+  gem 'dotenv-rails'
 end
 
 group :development do
