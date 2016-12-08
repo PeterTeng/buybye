@@ -10,9 +10,8 @@
 /config/secret.yml
 
 # Ignore vendor bundle
-./vendor/bundle
-./vendor/bundler
-
+vendor/bundle/
+vendor/bundler/
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
